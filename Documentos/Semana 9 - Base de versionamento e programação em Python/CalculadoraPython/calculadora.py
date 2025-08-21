@@ -1,5 +1,9 @@
 
 def soma(a, b):
+
+  if(a is not None and b is not None):
+    if isinstance(a, str) or isinstance(b, str):
+      return None
     return a + b
 
 def subtrai(a, b):
