@@ -1,4 +1,4 @@
-import calculadora
+from calculadora import *
 
-calc = calculadora.CalculadoraPython()
-print(calc.soma(2, 3))
+print(soma(2, 3))
+print(subtrai(5, 2))
