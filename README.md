@@ -8,7 +8,15 @@ Nome: Rafael Soares\
 Equipe:  Squad 1 - CaçaBugs\
 Turma: Jun25
   
-  
+## Atividades da Semana 
+
+- **Semana 9**
+  - Tarefa 1 - Criação do Repositório Indiviual
+  - Tarefa 2 -  Criar um repositório que deve ser compartilhado entre todos membros. Vocês deverão trabalhar com versionamento de arquivos em diferentes branches e realizar merges.
+  - Tarefa 3 - Desenvolver calculadora em Python usando metodologia TDD
+ 
+    - **Informações sobre a Calculadora**:
+    - 
 
 
 ## Organização
