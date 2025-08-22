@@ -16,7 +16,12 @@ Turma: Jun25
   - Tarefa 3 - Desenvolver calculadora em Python usando metodologia TDD
  
     - **Informações sobre a Calculadora**:
-    - 
+    - Bibliotecas utilizadas:
+    - Pytest
+    - Referências:
+    - Desenvolvimento das operações básicas com auxílio do GitHub Copilot integrado ao Visual Studio Code
+    - Função logaritmo gerado pelo ChatGPT
+    - Funções de testes baseadas no curso Domine Pytest: Testes de Software com Python
 
 
 ## Organização
