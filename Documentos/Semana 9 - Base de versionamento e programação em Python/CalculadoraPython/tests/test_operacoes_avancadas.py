@@ -21,6 +21,7 @@ def test_potencia():
     assert calc.potencia(0, 5) == 0
     assert calc.potencia(2, -1) == 0.5
 
-def test_logaritmo():
+def test_logaritmo_natural():
     calc = calculadora.CalculadoraPython()
-    assert calc.logaritmo(10) == 1
+    assert calc.log_natural(3) == pytest.approx(1.0986, 0.0001)
+    assert calc.log_natural(1) == 0
