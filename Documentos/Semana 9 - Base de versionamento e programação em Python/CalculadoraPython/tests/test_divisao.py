@@ -1,10 +1,15 @@
-from calculadora import divide
+import calculadora
 
 def test_divide():
-    assert divide(6, 3) == 2
-    assert divide(-1, 1) == -1
-    assert divide(0, 1) == 0
+    calc = calculadora.CalculadoraPython(6, 3)
+    assert calc.divide() == 2
+    calc = calculadora.CalculadoraPython(-1, 1)
+    assert calc.divide() == -1
+    calc = calculadora.CalculadoraPython(0, 1)
+    assert calc.divide() == 0
 
 def test_divisao_por_zero():
-    assert divide(1, 0) == None
-    assert divide(0, 0) == None
+    calc = calculadora.CalculadoraPython(1, 0)
+    assert calc.divide() == None
+    calc = calculadora.CalculadoraPython(0, 0)
+    assert calc.divide() == None
