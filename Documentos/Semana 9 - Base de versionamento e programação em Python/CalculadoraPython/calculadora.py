@@ -1,5 +1,5 @@
 class CalculadoraPython:
-
+    
   def __init__(self):
     self.valor1 = 0
     self.valor2 = 0
@@ -24,8 +24,8 @@ class CalculadoraPython:
 
   def divide(self, valor1, valor2):
     if valor2 == 0:
-      return None
-    return self.valor1 / self.valor2
+        return None
+    return valor1 / valor2
 
   def potencia(self, valor1, valor2):
     if valor1 is not None and valor2 is not None:

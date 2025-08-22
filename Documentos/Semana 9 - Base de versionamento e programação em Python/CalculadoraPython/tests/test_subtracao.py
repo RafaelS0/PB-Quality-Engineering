@@ -1,9 +1,8 @@
 import calculadora
+import pytest
 
 def test_subtrai():
-    calc = calculadora.CalculadoraPython(5, 3)
-    assert calc.subtrai() == 2
-    calc = calculadora.CalculadoraPython(-1, 1)
-    assert calc.subtrai() == -2
-    calc = calculadora.CalculadoraPython(0, 0)
-    assert calc.subtrai() == 0
+    calc = calculadora.CalculadoraPython()
+    assert calc.subtrai(5, 3) == 2
+    assert calc.subtrai(-1, 1) == -2
+    assert calc.subtrai(0, 0) == 0
