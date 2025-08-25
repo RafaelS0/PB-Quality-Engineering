@@ -2,8 +2,6 @@
 
 <i><h4 align="center">Repositório com atividades realizadas na Bolsa de Estudos Compass.UOL</h4></i>
 
-
-=======
 ---
 
 ## 📌 Informações
@@ -13,8 +11,32 @@
 - **Turma:** Jun25  
 
 ---
-  
-  
+
+## 📚 Atividades da Semana
+
+### 🔹 Semana 9
+- **Tarefa 1:** Criação do Repositório Individual  
+- **Tarefa 2:** Criação de um repositório compartilhado entre todos os membros, com versionamento em diferentes branches e realização de merges.  
+- **Tarefa 3:** Desenvolvimento de uma **calculadora em Python** utilizando a metodologia **TDD**  
+
+#### ⚙️ Informações sobre a Calculadora
+- **Biblioteca utilizada:**
+  - Pytest
+- **Operações suportadas:**
+  - Soma  
+  - Subtração  
+  - Multiplicação  
+  - Divisão  
+  - Fatorial  
+  - Potência  
+  - Logaritmo Natural  
+- **Referências:**
+  - Desenvolvimento das operações básicas com auxílio do GitHub Copilot integrado ao Visual Studio Code  
+  - Função de logaritmo natural gerada com auxílio do ChatGPT  
+  - Funções de teste baseadas no curso *Domine Pytest: Testes de Software com Python*  
+
+---
+
 ## 📂 Organização
 
 O conteúdo está dividido em **Sprints (Branches):**
