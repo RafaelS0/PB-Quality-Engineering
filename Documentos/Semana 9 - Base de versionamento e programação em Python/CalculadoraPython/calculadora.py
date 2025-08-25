@@ -38,3 +38,24 @@ class CalculadoraPython:
       return 1
     else:
       return n * self.fatorial(n-1)
+
+  def log_natural(self, n, precisao=100):
+   
+    if n <= 0:
+        raise ValueError("Indefinido")
+    
+    
+    if n > 2:
+        return self.log_natural(n/2) + self.log_natural(2)
+    if n < 0.5:
+        return self.log_natural(n*2) - self.log_natural(2)
+
+    termo = (n - 1) / (n + 1)
+    resultado = 0
+    termo_atual = termo
+
+    for i in range(1, precisao, 2):
+        resultado += termo_atual / i
+        termo_atual *= termo * termo  # termo^(2n+1)
+    
+    return 2 * resultado
