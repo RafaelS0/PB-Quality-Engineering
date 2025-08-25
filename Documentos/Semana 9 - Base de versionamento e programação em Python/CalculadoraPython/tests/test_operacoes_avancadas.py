@@ -25,3 +25,11 @@ def test_logaritmo_natural():
     calc = calculadora.CalculadoraPython()
     assert calc.log_natural(3) == pytest.approx(1.0986, 0.0001)
     assert calc.log_natural(1) == 0
+
+def test_logaritmo_natural_negativo():
+    calc = calculadora.CalculadoraPython()
+    try:
+        resultado = calc.log_natural(-1)
+        print(f"Resultado: {resultado}")
+    except ValueError as e:
+        print(f"Erro: {e}")

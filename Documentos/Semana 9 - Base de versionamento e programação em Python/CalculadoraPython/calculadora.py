@@ -40,14 +40,11 @@ class CalculadoraPython:
       return n * self.fatorial(n-1)
 
   def log_natural(self, n, precisao=100):
-    """
-    Calcula ln(x) usando série de Taylor
-    ln(x) = 2 * [(x-1)/(x+1) + 1/3*(x-1)/(x+1))^3 + 1/5*(x-1)/(x+1))^5 + ...]
-    """
+   
     if n <= 0:
-        raise ValueError("numero deve ser positivo")
-
-    # Para melhor convergência, trabalhamos com valores próximos de 1
+        raise ValueError("Indefinido")
+    
+    
     if n > 2:
         return self.log_natural(n/2) + self.log_natural(2)
     if n < 0.5:
