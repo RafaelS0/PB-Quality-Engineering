@@ -1,0 +1,5 @@
+# Cenários de Teste para API RestFul-Booker
+
+GET - Solicitar um livro pelo ID
+- Deve ser retornado os dados do livro
+- A requisição deve retornar o status 200

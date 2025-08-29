@@ -1,13 +1,27 @@
 *** Settings ***
-Documentation        Requisições HTTP para a API X
-Library              RequestsLibrary
+Documentation           Requisições HTTP para a API Restful-Booker
+Library                 RequestsLibrary
 
 *** Variables ***
-${BASE_URL}          https://jsonplaceholder.typicode.com
+
 
 *** Test Cases ***
+Cenário: GET livro específico
+    [Documentation]    Verifica se é possível obter um livro específico
+    [Tags]    GET    
+    Criar Sessao
+    GET Endpoint /booking/1
+    Validar Status Code "200"
 
 
 * Keywords * 
-Criar status_code_desejado
-    Create Session    api_session    ${BASE_URL}
+Criar Sessao
+    Create Session    alias=Booker    url=https://restful-booker.herokuapp.com
+
+GET Endpoint /booking/1
+    ${response}=    GET On Session    alias=Booker    url=/booking/1
+    BuiltIn.Set Global Variable    ${response}    
+
+Validar Status Code "${statuscode}"
+    Should Be True    ${response.status_code} == ${statuscode}
+
