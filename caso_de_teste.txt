@@ -6,4 +6,20 @@ GET - Encontrar uma reserva pelo ID
 
 POST - Criar uma nova reserva
 - Todos campos devem ser preenchidos
+- Deve possuir uma autorização
+- A requisição deve retornar o status 200
+
+PUT - Atualizar uma reserva
+- Todos campos devem ser preenchidos 
+- Deve possuir uma autorização
+- A requisição deve retornar o status 200
+
+PATCH - Atualizar parcialmente uma reserva
+- Deve ser enviado campos válidos
+- Deve possuir uma autorização
+- A requisição deve retornar o status 200
+
+DELETE - Deletar uma reserva
+- Deve ser enviado um ID válidos
+- Deve possuir uma autorização
 - A requisição deve retornar o status 200
