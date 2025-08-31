@@ -1,9 +1,10 @@
 *** Settings ***
 Documentation           Requisições HTTP para a API Restful-Booker
 Library                 RequestsLibrary
-Resource                ./login_keywords.robot
-Resource                ./nova_reserva_keywords.robot
-Resource                ./editar_reserva_keywords.robot
+Resource                ./resources/login_keywords.robot
+Resource                ./resources/nova_reserva_keywords.robot
+Resource                ./resources/editar_reserva_keywords.robot
+Resource                ./resources/atualizar_reserva_parcial_keywords.robot
 *** Variables ***
 
 
@@ -33,7 +34,14 @@ Cenário: PUT | Editar uma Reserva
     [Documentation]    Verifica se é possível editar uma reserva
     [Tags]    PUT
     Criar Sessao
-    PUT Endpoint /booking
+    PUT Endpoint /booking/:id
+    Validar Status Code "200"
+
+Cenário: PATCH | Atualizar parcialmente uma Reserva
+    [Documentation]    Verifica se é possível atualizar uma reserva
+    [Tags]    PATCH
+    Criar Sessao
+    PATCH Endpoint /booking/:id
     Validar Status Code "200"
 
 * Keywords * 
