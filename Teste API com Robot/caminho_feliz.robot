@@ -10,6 +10,7 @@ Resource                ./resources/deletar_reserva_keywords.robot
 *** Variables ***
 
 
+
 *** Test Cases ***
 
 Cenário: POST | Fazer Login

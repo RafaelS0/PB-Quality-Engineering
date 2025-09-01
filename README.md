@@ -7,33 +7,23 @@
 ## 📌 Informações
 
 - **Nome:** Rafael Soares  
-- **Equipe:** Squad 1 - CaçaBugs  
+- **Equipe:** Squad 4 - TimeOut  
 - **Turma:** Jun25  
 
 ---
 
 ## 📚 Atividades da Semana
 
-### 🔹 Semana 9
-- **Tarefa 1:** Criação do Repositório Individual  
-- **Tarefa 2:** Criação de um repositório compartilhado entre todos os membros, com versionamento em diferentes branches e realização de merges.  
-- **Tarefa 3:** Desenvolvimento de uma **calculadora em Python** utilizando a metodologia **TDD**  
+### 🔹 Semana 10
+- **Tarefa 1:** Aplicar testes em uma API com Robot FrameWork
 
-#### ⚙️ Informações sobre a Calculadora
+
+#### ⚙️ Informações sobre os Testes
 - **Biblioteca utilizada:**
-  - Pytest
-- **Operações suportadas:**
-  - Soma  
-  - Subtração  
-  - Multiplicação  
-  - Divisão  
-  - Fatorial  
-  - Potência  
-  - Logaritmo Natural  
-- **Referências:**
-  - Desenvolvimento das operações básicas com auxílio do GitHub Copilot integrado ao Visual Studio Code  
-  - Função de logaritmo natural gerada com auxílio do ChatGPT  
-  - Funções de teste baseadas no curso *Domine Pytest: Testes de Software com Python*  
+  - robotframework-requests
+- **Cobertura dos Testes:**
+  - Caminho Feliz  
+    
 
 ---
 
