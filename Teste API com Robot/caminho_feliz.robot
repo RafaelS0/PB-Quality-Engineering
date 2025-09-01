@@ -11,12 +11,6 @@ Resource                ./resources/deletar_reserva_keywords.robot
 
 
 *** Test Cases ***
-Cenário: GET | Obter uma reserva pelo ID
-    [Documentation]    Verifica se é possível obter uma reserva específica
-    [Tags]    GET    
-    Criar Sessao
-    GET Endpoint /booking/:id
-    Validar Status Code "200"
 
 Cenário: POST | Fazer Login
     [Documentation]    Verifica se é possível fazer login
@@ -30,6 +24,13 @@ Cenário: POST | Criar uma Reserva
     [Tags]    POST
     Criar Sessao
     POST Endpoint /booking
+    Validar Status Code "200"
+
+Cenário: GET | Obter uma reserva pelo ID
+    [Documentation]    Verifica se é possível obter uma reserva específica
+    [Tags]    GET    
+    Criar Sessao
+    GET Endpoint /booking/:id
     Validar Status Code "200"
 
 Cenário: PUT | Editar uma Reserva
@@ -56,7 +57,6 @@ Cenário: DELETE | Deletar uma Reserva
 * Keywords * 
 Criar Sessao
     Create Session    alias=Booker    url=https://restful-booker.herokuapp.com
-   
 
 Validar Status Code "${statuscode}"
     Should Be True    ${response.status_code} == ${statuscode}

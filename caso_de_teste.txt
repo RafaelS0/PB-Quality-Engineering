@@ -1,25 +1,25 @@
 # Cenários de Teste para API RestFul-Booker
 
 GET - Encontrar uma reserva pelo ID
-- Deve ser retornado os dados da reserva
-- A requisição deve retornar o status 200
+- Deve retornar os dados da reserva correspondente.
+- A resposta deve conter o status 200.
 
 POST - Criar uma nova reserva
-- Todos campos devem ser preenchidos
-- Deve possuir uma autorização
-- A requisição deve retornar o status 200
+- Todos os campos obrigatórios devem ser preenchidos.
+- A requisição deve possuir autorização.
+- A resposta deve conter o status 200
 
 PUT - Atualizar uma reserva
-- Todos campos devem ser preenchidos 
-- Deve possuir uma autorização
-- A requisição deve retornar o status 200
+- Todos os campos obrigatórios devem ser preenchidos.
+- A requisição deve possuir autorização.
+- A resposta deve conter o status 200.
 
 PATCH - Atualizar parcialmente uma reserva
-- Deve ser enviado campos válidos
-- Deve possuir uma autorização
-- A requisição deve retornar o status 200
+- Devem ser enviados apenas campos válidos.
+- A requisição deve possuir autorização.
+- resposta deve conter o status 200.
 
 DELETE - Deletar uma reserva
-- Deve ser enviado um ID válidos
-- Deve possuir uma autorização
-- A requisição deve retornar o status 200
+- Deve ser informado um ID válido.
+- A requisição deve possuir autorização.
+- A resposta deve conter o status 201
