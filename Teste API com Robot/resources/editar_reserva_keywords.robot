@@ -6,15 +6,16 @@ Resource   ./nova_reserva_keywords.robot
 
 * Keywords *
 PUT Endpoint /booking/:id
+    [Arguments]    ${firstname}    ${lastname}    ${totalprice}    ${depositpaid}    ${checkin}    ${checkout}    ${needs}
     &{header}=    Create Dictionary    Content-Type=application/json    Cookie=token=${token_auth}
-    ${bookingdates}=    Create Dictionary    checkin=2018-01-01    checkout=2019-01-01
-    ${payload}=    Create Dictionary  
-    ...    firstname=Rafael    
-    ...    lastname=Editado    
-    ...    totalprice=150    
-    ...    depositpaid=${True}
+    ${bookingdates}=    Create Dictionary    checkin=${checkin}    checkout=${checkout}
+    ${payload}=    Create Dictionary
+    ...    firstname=${firstname}
+    ...    lastname=${lastname}
+    ...    totalprice=${totalprice}
+    ...    depositpaid=${depositpaid}
     ...    bookingdates=${bookingdates}
-    ...    additionalneeds=Cafe
+    ...    additionalneeds=${needs}
 
     ${response}=    PUT On Session    Booker    /booking/${id_reserva}    headers=${header}    json=${payload}
     Log To Console    Response: ${response.status_code}

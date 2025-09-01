@@ -6,6 +6,7 @@ Resource   ./nova_reserva_keywords.robot
 
 * Keywords *
 DELETE Endpoint /booking/:id
+    [Arguments]    ${id_reserva}
     &{header}=    Create Dictionary    Content-Type=application/json    Cookie=token=${token_auth}
     ${response}=   DELETE On Session    alias=Booker    url=/booking/${id_reserva}    headers=&{header}
     Log To Console    message= ${response.content}

@@ -6,12 +6,13 @@ Resource   ./nova_reserva_keywords.robot
 
 * Keywords *
 PATCH Endpoint /booking/:id
+    [Arguments]    ${firstname}    ${lastname}    ${totalprice}    ${needs}
     &{header}=    Create Dictionary    Content-Type=application/json    Cookie=token=${token_auth}
-    ${payload}=    Create Dictionary  
-    ...    firstname=Rafael    
-    ...    lastname=via Patch    
-    ...    totalprice=150    
-    ...    additionalneeds= Patch no Cafe
+    ${payload}=    Create Dictionary
+    ...    firstname=${firstname}
+    ...    lastname=${lastname}
+    ...    totalprice=${totalprice}
+    ...    additionalneeds=${needs}
 
     ${response}=    PATCH On Session    Booker    /booking/${id_reserva}    headers=${header}    json=${payload}
     Log To Console    Response: ${response.status_code}
