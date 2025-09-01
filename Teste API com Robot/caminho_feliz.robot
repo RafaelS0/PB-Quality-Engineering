@@ -18,6 +18,7 @@ Cenário: POST | Fazer Login
     [Tags]    POST    Login
     Criar Sessao
     POST Endpoint /auth
+    Validar Login
     Validar Status Code "200"
 
 Cenário: POST | Criar uma Reserva

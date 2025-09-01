@@ -15,3 +15,6 @@ POST Endpoint /auth
     Set Global Variable    ${response}
     Set Suite Variable    ${token_auth}    ${token}
     [Return]    ${token}
+
+Validar Login
+    Should Not Be Empty    ${response.json()["token"]}
