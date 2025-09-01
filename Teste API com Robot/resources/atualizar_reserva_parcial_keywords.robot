@@ -2,6 +2,7 @@
 Documentation    Keywords e Variáveis para Criação de Livros
 Library    RequestsLibrary
 Resource   ./login_keywords.robot
+Resource   ./nova_reserva_keywords.robot
 
 * Keywords *
 PATCH Endpoint /booking/:id
@@ -12,7 +13,7 @@ PATCH Endpoint /booking/:id
     ...    totalprice=150    
     ...    additionalneeds= Patch no Cafe
 
-    ${response}=    PATCH On Session    Booker    /booking/1    headers=${header}    json=${payload}
+    ${response}=    PATCH On Session    Booker    /booking/${id_reserva}    headers=${header}    json=${payload}
     Log To Console    Response: ${response.status_code}
     Log To Console    Response body: ${response.content}
     ${body}=    Evaluate    json.dumps(${response.json()}, indent=2)    json

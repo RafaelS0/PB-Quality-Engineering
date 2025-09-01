@@ -2,6 +2,7 @@
 Documentation    Keywords e Variáveis para Criação de Livros
 Library    RequestsLibrary
 Resource   ./login_keywords.robot
+Resource   ./nova_reserva_keywords.robot
 
 * Keywords *
 PUT Endpoint /booking/:id
@@ -15,7 +16,7 @@ PUT Endpoint /booking/:id
     ...    bookingdates=${bookingdates}
     ...    additionalneeds=Cafe
 
-    ${response}=    PUT On Session    Booker    /booking/1    headers=${header}    json=${payload}
+    ${response}=    PUT On Session    Booker    /booking/${id_reserva}    headers=${header}    json=${payload}
     Log To Console    Response: ${response.status_code}
     Log To Console    Response body: ${response.content}
     ${body}=    Evaluate    json.dumps(${response.json()}, indent=2)    json

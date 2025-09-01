@@ -1,9 +1,10 @@
 * Settings *
 Documentation    Keywords e Variáveis para Criação de Livros
 Library    RequestsLibrary
+Resource   ./nova_reserva_keywords.robot
 
 * Keywords *
 GET Endpoint /booking/:id
-    ${response}=    GET On Session    alias=Booker    url=/booking/1
+    ${response}=    GET On Session    alias=Booker    url=/booking/${id_reserva}
     Log To Console    message= ${response.content}
     Set Global Variable    ${response} 
