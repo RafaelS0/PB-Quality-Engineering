@@ -16,7 +16,7 @@ POST Endpoint /booking
     ...    bookingdates=${bookingdates}
     ...    additionalneeds=${needs}
 
-    ${response}=    POST On Session    Booker    /booking    headers=${header}    json=${payload}
+    ${response}=    POST On Session    Booker    /booking    headers=${header}    json=${payload}    expected_status=any
     Log To Console    Response: ${response.status_code}
     Log To Console    Response body: ${response.content}
     ${body}=    Evaluate    json.dumps(${response.json()}, indent=2)    json

@@ -1,121 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-01T12:19:06.486860" rpa="false" schemaversion="5">
-<suite id="s1" name="Caminho Feliz" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Teste API com Robot/caminho_feliz.robot">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-01T13:12:03.213016" rpa="false" schemaversion="5">
+<suite id="s1" name="Caminho Triste" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Teste API com Robot/caminho_triste.robot">
 <test id="s1-t1" name="Cenário: POST | Fazer Login" line="16">
 <kw name="Criar Sessao">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:06.683703" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-01T13:12:03.390823" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=Booker</arg>
 <arg>url=https://restful-booker.herokuapp.com</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-01T12:19:06.683087" elapsed="0.002781"/>
+<status status="PASS" start="2025-09-01T13:12:03.390249" elapsed="0.005468"/>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:06.681775" elapsed="0.004629"/>
+<status status="PASS" start="2025-09-01T13:12:03.388384" elapsed="0.007817"/>
 </kw>
 <kw name="POST Endpoint /auth" owner="login_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:06.688751" level="INFO">${payload} = {'username': 'admin', 'password': 'password123'}</msg>
+<msg time="2025-09-01T13:12:03.401159" level="INFO">${payload} = {'username': 'admin', 'password': 'password123'}</msg>
 <var>${payload}</var>
 <arg>username=${username}</arg>
 <arg>password=${password}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:06.687786" elapsed="0.004557"/>
+<status status="PASS" start="2025-09-01T13:12:03.399951" elapsed="0.002027"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:07.460145" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+<msg time="2025-09-01T13:12:04.213740" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
  path_url=/auth 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
  body=b'{"username": "admin", "password": "password123"}' 
  </msg>
-<msg time="2025-09-01T12:19:07.460552" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+<msg time="2025-09-01T13:12:04.214340" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
  status=200, reason=OK 
- headers={'Content-Length': '27', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 15:19:07 GMT', 'Etag': 'W/"1b-ATHoZn4j+Od1Q6AcAjvEbWZOHNw"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=UzwgWX5Fih92i4WREb6CAaF97ghOgASD7xj5VZ9OVQ4%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756739947"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=UzwgWX5Fih92i4WREb6CAaF97ghOgASD7xj5VZ9OVQ4%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756739947"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
- body={"token":"b916805f02eaaf5"} 
+ headers={'Content-Length': '27', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 16:12:04 GMT', 'Etag': 'W/"1b-4SY55hM1K1hXecPJ9Xi91fd8Wjs"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=LHj2e2nXLMLX6ro3IlbLF3dKFW4iLUzJ5wG3xkLIkmI%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756743124"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=LHj2e2nXLMLX6ro3IlbLF3dKFW4iLUzJ5wG3xkLIkmI%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756743124"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body={"token":"9af8287fdefc806"} 
  </msg>
-<msg time="2025-09-01T12:19:07.460769" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-01T13:12:04.214770" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-01T12:19:07.461223" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-01T13:12:04.216838" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=Booker</arg>
 <arg>url=/auth</arg>
 <arg>json=${payload}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-01T12:19:06.692753" elapsed="0.768711"/>
+<status status="PASS" start="2025-09-01T13:12:03.402461" elapsed="0.814667"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:07.462986" level="INFO">${token} = b916805f02eaaf5</msg>
+<msg time="2025-09-01T13:12:04.219066" level="INFO">${token} = 9af8287fdefc806</msg>
 <var>${token}</var>
 <arg>${response.json()['token']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.461784" elapsed="0.001442"/>
+<status status="PASS" start="2025-09-01T13:12:04.217663" elapsed="0.003066"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Token obtido: ${token}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.463501" elapsed="0.000520"/>
+<status status="PASS" start="2025-09-01T13:12:04.221201" elapsed="0.007607"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:07.464932" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-01T13:12:04.230453" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.464402" elapsed="0.000844"/>
+<status status="PASS" start="2025-09-01T13:12:04.229609" elapsed="0.001282"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:07.467158" level="INFO">${token_auth} = b916805f02eaaf5</msg>
+<msg time="2025-09-01T13:12:04.233388" level="INFO">${token_auth} = 9af8287fdefc806</msg>
 <arg>${token_auth}</arg>
 <arg>${token}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.465666" elapsed="0.001819"/>
+<status status="PASS" start="2025-09-01T13:12:04.231492" elapsed="0.002315"/>
 </kw>
 <return>
 <value>${token}</value>
-<status status="PASS" start="2025-09-01T12:19:07.467751" elapsed="0.000240"/>
+<status status="PASS" start="2025-09-01T13:12:04.234087" elapsed="0.000536"/>
 </return>
-<status status="PASS" start="2025-09-01T12:19:06.687079" elapsed="0.781200"/>
+<status status="PASS" start="2025-09-01T13:12:03.397874" elapsed="0.837240"/>
 </kw>
 <kw name="Validar Status Code &quot;200&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.469750" elapsed="0.001209"/>
+<status status="PASS" start="2025-09-01T13:12:04.236593" elapsed="0.002171"/>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:07.468748" elapsed="0.002445"/>
+<status status="PASS" start="2025-09-01T13:12:04.235734" elapsed="0.003704"/>
 </kw>
 <doc>Verifica se é possível fazer login</doc>
 <tag>Login</tag>
 <tag>POST</tag>
-<status status="PASS" start="2025-09-01T12:19:06.680639" elapsed="0.790956"/>
+<status status="PASS" start="2025-09-01T13:12:03.386574" elapsed="0.853335"/>
 </test>
-<test id="s1-t2" name="Cenário: POST | Criar uma Reserva" line="23">
+<test id="s1-t2" name="Cenário: POST | Criar uma Reserva Inválida" line="23">
 <kw name="Criar Sessao">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:07.474788" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-01T13:12:04.243076" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=Booker</arg>
 <arg>url=https://restful-booker.herokuapp.com</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-01T12:19:07.474310" elapsed="0.001108"/>
+<status status="PASS" start="2025-09-01T13:12:04.242682" elapsed="0.000949"/>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:07.473559" elapsed="0.002185"/>
+<status status="PASS" start="2025-09-01T13:12:04.241967" elapsed="0.001936"/>
 </kw>
 <kw name="POST Endpoint /booking" owner="nova_reserva_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:07.482501" level="INFO">&amp;{header} = { Content-Type=application/json | Cookie=token=b916805f02eaaf5 }</msg>
+<msg time="2025-09-01T13:12:04.248330" level="INFO">&amp;{header} = { Content-Type=application/json | Cookie=token=9af8287fdefc806 }</msg>
 <var>&amp;{header}</var>
 <arg>Content-Type=application/json</arg>
 <arg>Cookie=token=${token_auth}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.481499" elapsed="0.001572"/>
+<status status="PASS" start="2025-09-01T13:12:04.247297" elapsed="0.001566"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:07.484361" level="INFO">${bookingdates} = {'checkin': '2025-08-25', 'checkout': '2025-08-28'}</msg>
+<msg time="2025-09-01T13:12:04.250353" level="INFO">${bookingdates} = {'checkin': '2025-08-25', 'checkout': '2025-08-28'}</msg>
 <var>${bookingdates}</var>
 <arg>checkin=${checkin}</arg>
 <arg>checkout=${checkout}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.483582" elapsed="0.001007"/>
+<status status="PASS" start="2025-09-01T13:12:04.249406" elapsed="0.001255"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:07.486061" level="INFO">${payload} = {'firstname': 'Rafael', 'lastname': 'Silva', 'totalprice': '150', 'depositpaid': 'True', 'bookingdates': {'checkin': '2025-08-25', 'checkout': '2025-08-28'}, 'additionalneeds': 'Breakfast'}</msg>
+<msg time="2025-09-01T13:12:04.252452" level="INFO">${payload} = {'firstname': '', 'lastname': '', 'totalprice': '150', 'depositpaid': 'True', 'bookingdates': {'checkin': '2025-08-25', 'checkout': '2025-08-28'}, 'additionalneeds': 'Breakfast'}</msg>
 <var>${payload}</var>
 <arg>firstname=${firstname}</arg>
 <arg>lastname=${lastname}</arg>
@@ -124,63 +124,64 @@
 <arg>bookingdates=${bookingdates}</arg>
 <arg>additionalneeds=${needs}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.484928" elapsed="0.001407"/>
+<status status="PASS" start="2025-09-01T13:12:04.251098" elapsed="0.001665"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:08.624284" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
+<msg time="2025-09-01T13:12:05.020216" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
  path_url=/booking 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=b916805f02eaaf5', 'Content-Length': '189'} 
- body=b'{"firstname": "Rafael", "lastname": "Silva", "totalprice": "150", "depositpaid": "True", "bookingdates": {"checkin": "2025-08-25", "checkout": "2025-08-28"}, "additionalneeds": "Breakfast"}' 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=9af8287fdefc806', 'Content-Length': '178'} 
+ body=b'{"firstname": "", "lastname": "", "totalprice": "150", "depositpaid": "True", "bookingdates": {"checkin": "2025-08-25", "checkout": "2025-08-28"}, "additionalneeds": "Breakfast"}' 
  </msg>
-<msg time="2025-09-01T12:19:08.625234" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
+<msg time="2025-09-01T13:12:05.020796" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
  status=200, reason=OK 
- headers={'Content-Length': '200', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 15:19:08 GMT', 'Etag': 'W/"c8-pho1zjiZt7wz33VQHGuyX+RwMJc"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=s7UDgftkzeDlCE9z81dWDpcCSL%2B898c7ELvrwYuXSvI%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756739948"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=s7UDgftkzeDlCE9z81dWDpcCSL%2B898c7ELvrwYuXSvI%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756739948"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
- body={"bookingid":6193,"booking":{"firstname":"Rafael","lastname":"Silva","totalprice":150,"depositpaid":true,"bookingdates":{"checkin":"2025-08-25","checkout":"2025-08-28"},"additionalneeds":"Breakfast"}} 
+ headers={'Content-Length': '188', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 16:12:04 GMT', 'Etag': 'W/"bc-NQ6FjAtLxEvPqJKM5h+WEddAKGU"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=LHj2e2nXLMLX6ro3IlbLF3dKFW4iLUzJ5wG3xkLIkmI%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756743124"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=LHj2e2nXLMLX6ro3IlbLF3dKFW4iLUzJ5wG3xkLIkmI%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756743124"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body={"bookingid":690,"booking":{"firstname":"","lastname":"","totalprice":150,"depositpaid":true,"bookingdates":{"checkin":"2025-08-25","checkout":"2025-08-28"},"additionalneeds":"Breakfast"}} 
  </msg>
-<msg time="2025-09-01T12:19:08.625864" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-01T13:12:05.021149" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-01T12:19:08.626692" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-01T13:12:05.021562" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>Booker</arg>
 <arg>/booking</arg>
 <arg>headers=${header}</arg>
 <arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-01T12:19:07.486726" elapsed="1.140319"/>
+<status status="PASS" start="2025-09-01T13:12:04.253268" elapsed="0.768510"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Response: ${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.627680" elapsed="0.001412"/>
+<status status="PASS" start="2025-09-01T13:12:05.022303" elapsed="0.004243"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Response body: ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.629676" elapsed="0.001332"/>
+<status status="PASS" start="2025-09-01T13:12:05.027043" elapsed="0.003838"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-01T12:19:08.634527" level="INFO">${body} = {
-  "bookingid": 6193,
+<msg time="2025-09-01T13:12:05.035971" level="INFO">${body} = {
+  "bookingid": 690,
   "booking": {
-    "firstname": "Rafael",
-    "lastname": "Silva",
+    "firstname": "",
+    "lastname": "",
     "totalprice": 150,
     "depositpaid": true,
     "bookingdates": {
       "checkin": "2025-08-25",
-      "ch...</msg>
+      "checkout": "20...</msg>
 <var>${body}</var>
 <arg>json.dumps(${response.json()}, indent=2)</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.631396" elapsed="0.003614"/>
+<status status="PASS" start="2025-09-01T13:12:05.031432" elapsed="0.004930"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-09-01T12:19:08.637049" level="INFO">{
-  "bookingid": 6193,
+<msg time="2025-09-01T13:12:05.040061" level="INFO">{
+  "bookingid": 690,
   "booking": {
-    "firstname": "Rafael",
-    "lastname": "Silva",
+    "firstname": "",
+    "lastname": "",
     "totalprice": 150,
     "depositpaid": true,
     "bookingdates": {
@@ -192,445 +193,200 @@
 }</msg>
 <arg>${body}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.635796" elapsed="0.002161"/>
+<status status="PASS" start="2025-09-01T13:12:05.039533" elapsed="0.001705"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:08.641016" level="INFO">${id} = 6193</msg>
+<msg time="2025-09-01T13:12:05.042960" level="INFO">${id} = 690</msg>
 <var>${id}</var>
 <arg>${response.json()['bookingid']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.638920" elapsed="0.002594"/>
+<status status="PASS" start="2025-09-01T13:12:05.041656" elapsed="0.001569"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:08.645805" level="INFO">${id_reserva} = 6193</msg>
+<msg time="2025-09-01T13:12:05.053156" level="INFO">${id_reserva} = 690</msg>
 <arg>${id_reserva}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.642151" elapsed="0.004212"/>
+<status status="PASS" start="2025-09-01T13:12:05.043646" elapsed="0.009978"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:08.650467" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-01T13:12:05.054537" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.646834" elapsed="0.004032"/>
+<status status="PASS" start="2025-09-01T13:12:05.054135" elapsed="0.000572"/>
 </kw>
-<arg>Rafael</arg>
-<arg>Silva</arg>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
 <arg>150</arg>
 <arg>True</arg>
 <arg>2025-08-25</arg>
 <arg>2025-08-28</arg>
 <arg>Breakfast</arg>
-<status status="PASS" start="2025-09-01T12:19:07.480229" elapsed="1.170951"/>
+<status status="PASS" start="2025-09-01T13:12:04.244695" elapsed="0.810178"/>
 </kw>
-<kw name="Validar Status Code &quot;200&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Validar Status Code &quot;400&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-09-01T13:12:05.059600" level="FAIL">'200 == 400' should be true.</msg>
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.653026" elapsed="0.001987"/>
+<status status="FAIL" start="2025-09-01T13:12:05.057447" elapsed="0.005143">'200 == 400' should be true.</status>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:08.651791" elapsed="0.003641"/>
+<status status="FAIL" start="2025-09-01T13:12:05.056573" elapsed="0.006547">'200 == 400' should be true.</status>
 </kw>
-<doc>Verifica se é possível criar uma reserva</doc>
+<doc>Criar uma reserva onde há campos obrigatórios vazios</doc>
 <tag>POST</tag>
-<status status="PASS" start="2025-09-01T12:19:07.472471" elapsed="1.185126"/>
+<status status="FAIL" start="2025-09-01T13:12:04.240646" elapsed="0.824627">'200 == 400' should be true.</status>
 </test>
-<test id="s1-t3" name="Cenário: GET | Obter uma reserva pelo ID" line="30">
+<test id="s1-t3" name="Cenário: GET | Obter uma reserva pelo ID Inválido" line="30">
 <kw name="Criar Sessao">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:08.663890" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-01T13:12:05.070297" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=Booker</arg>
 <arg>url=https://restful-booker.herokuapp.com</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-01T12:19:08.663053" elapsed="0.001372"/>
+<status status="PASS" start="2025-09-01T13:12:05.069476" elapsed="0.001313"/>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:08.662020" elapsed="0.002687"/>
+<status status="PASS" start="2025-09-01T13:12:05.068762" elapsed="0.002310"/>
 </kw>
 <kw name="GET Endpoint /booking/:id" owner="buscar_uma_reserva_keywords">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:09.868899" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/1 
- path_url=/booking/1 
+<msg time="2025-09-01T13:12:05.850256" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/99999999999 
+ path_url=/booking/99999999999 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-09-01T12:19:09.870169" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/1 
- status=200, reason=OK 
- headers={'Content-Length': '172', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 15:19:09 GMT', 'Etag': 'W/"ac-nQcDerfq4FsHEX/OcwfRl2Gnkug"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=ZS728OV5yxzvY8x5v6CiuxZrjwt0hjVHMA%2F3Vga9kts%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756739949"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=ZS728OV5yxzvY8x5v6CiuxZrjwt0hjVHMA%2F3Vga9kts%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756739949"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
- body={"firstname":"Sally","lastname":"Wilson","totalprice":527,"depositpaid":false,"bookingdates":{"checkin":"2017-06-26","checkout":"2023-07-13"},"additionalneeds":"Breakfast"} 
+<msg time="2025-09-01T13:12:05.851936" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/99999999999 
+ status=404, reason=Not Found 
+ headers={'Content-Length': '9', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 16:12:05 GMT', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=TqbT2U%2F0Z4M9zPC6sBvbXvI591PxvVI7%2FguxGNA2T5E%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756743125"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=TqbT2U%2F0Z4M9zPC6sBvbXvI591PxvVI7%2FguxGNA2T5E%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756743125"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body=Not Found 
  </msg>
-<msg time="2025-09-01T12:19:09.870619" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-01T13:12:05.852938" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-01T12:19:09.871177" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-01T13:12:05.854424" level="INFO">${response} = &lt;Response [404]&gt;</msg>
 <var>${response}</var>
 <arg>alias=Booker</arg>
 <arg>url=/booking/${id_reserva}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-01T12:19:08.667600" elapsed="1.203835"/>
+<status status="PASS" start="2025-09-01T13:12:05.073857" elapsed="0.781476"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>message= ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:09.871903" elapsed="0.001410"/>
+<status status="PASS" start="2025-09-01T13:12:05.856441" elapsed="0.004202"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:09.874776" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-01T13:12:05.864359" level="INFO">${response} = &lt;Response [404]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-01T12:19:09.873831" elapsed="0.001336"/>
+<status status="PASS" start="2025-09-01T13:12:05.861687" elapsed="0.003435"/>
 </kw>
-<arg>1</arg>
-<status status="PASS" start="2025-09-01T12:19:08.666776" elapsed="1.208676"/>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-09-01T13:12:05.866516" elapsed="0.000908"/>
+</return>
+<arg>99999999999</arg>
+<status status="PASS" start="2025-09-01T13:12:05.073067" elapsed="0.795628"/>
 </kw>
-<kw name="Validar Status Code &quot;200&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Validar Status Code &quot;404&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-01T12:19:09.876954" elapsed="0.002409"/>
+<status status="PASS" start="2025-09-01T13:12:05.872746" elapsed="0.006181"/>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:09.876159" elapsed="0.003572"/>
+<status status="PASS" start="2025-09-01T13:12:05.870477" elapsed="0.010174"/>
 </kw>
-<doc>Verifica se é possível obter uma reserva específica</doc>
+<doc>Solicitar uma reserva inexistente</doc>
 <tag>GET</tag>
-<status status="PASS" start="2025-09-01T12:19:08.660016" elapsed="1.220167"/>
+<status status="PASS" start="2025-09-01T13:12:05.067811" elapsed="0.817032"/>
 </test>
-<test id="s1-t4" name="Cenário: PUT | Editar uma Reserva" line="37">
+<test id="s1-t4" name="Cenário: DELETE | Deletar uma Reserva Inválida" line="37">
 <kw name="Criar Sessao">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:09.885227" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-01T13:12:05.888655" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=Booker</arg>
 <arg>url=https://restful-booker.herokuapp.com</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-01T12:19:09.884610" elapsed="0.001166"/>
+<status status="PASS" start="2025-09-01T13:12:05.888224" elapsed="0.001006"/>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:09.883882" elapsed="0.002208"/>
-</kw>
-<kw name="PUT Endpoint /booking/:id" owner="editar_reserva_keywords">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:09.889063" level="INFO">&amp;{header} = { Content-Type=application/json | Cookie=token=b916805f02eaaf5 }</msg>
-<var>&amp;{header}</var>
-<arg>Content-Type=application/json</arg>
-<arg>Cookie=token=${token_auth}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:09.887909" elapsed="0.001821"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:09.891173" level="INFO">${bookingdates} = {'checkin': '2025-08-25', 'checkout': '2025-08-28'}</msg>
-<var>${bookingdates}</var>
-<arg>checkin=${checkin}</arg>
-<arg>checkout=${checkout}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:09.890277" elapsed="0.001163"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:09.893250" level="INFO">${payload} = {'firstname': 'Rafael', 'lastname': 'Editado', 'totalprice': '150', 'depositpaid': 'True', 'bookingdates': {'checkin': '2025-08-25', 'checkout': '2025-08-28'}, 'additionalneeds': 'Cafe'}</msg>
-<var>${payload}</var>
-<arg>firstname=${firstname}</arg>
-<arg>lastname=${lastname}</arg>
-<arg>totalprice=${totalprice}</arg>
-<arg>depositpaid=${depositpaid}</arg>
-<arg>bookingdates=${bookingdates}</arg>
-<arg>additionalneeds=${needs}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:09.891862" elapsed="0.001701"/>
-</kw>
-<kw name="PUT On Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:11.488771" level="INFO">PUT Request : url=https://restful-booker.herokuapp.com/booking/6193 
- path_url=/booking/6193 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=b916805f02eaaf5', 'Content-Length': '186'} 
- body=b'{"firstname": "Rafael", "lastname": "Editado", "totalprice": "150", "depositpaid": "True", "bookingdates": {"checkin": "2025-08-25", "checkout": "2025-08-28"}, "additionalneeds": "Cafe"}' 
- </msg>
-<msg time="2025-09-01T12:19:11.489286" level="INFO">PUT Response : url=https://restful-booker.herokuapp.com/booking/6193 
- status=200, reason=OK 
- headers={'Content-Length': '168', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 15:19:11 GMT', 'Etag': 'W/"a8-/LYEchjV3Eq9IZFfbiJKGUIWyhc"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=%2BjOFoMNgrOnNAxG89L254wJEnUzMAKdJl0LBW0NFXRw%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756739950"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=%2BjOFoMNgrOnNAxG89L254wJEnUzMAKdJl0LBW0NFXRw%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756739950"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
- body={"firstname":"Rafael","lastname":"Editado","totalprice":150,"depositpaid":true,"bookingdates":{"checkin":"2025-08-25","checkout":"2025-08-28"},"additionalneeds":"Cafe"} 
- </msg>
-<msg time="2025-09-01T12:19:11.489646" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-09-01T12:19:11.490175" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>Booker</arg>
-<arg>/booking/${id_reserva}</arg>
-<arg>headers=${header}</arg>
-<arg>json=${payload}</arg>
-<doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-01T12:19:09.894009" elapsed="1.596518"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Response: ${response.status_code}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.491014" elapsed="0.001314"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Response body: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.492840" elapsed="0.001463"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-01T12:19:11.498171" level="INFO">${body} = {
-  "firstname": "Rafael",
-  "lastname": "Editado",
-  "totalprice": 150,
-  "depositpaid": true,
-  "bookingdates": {
-    "checkin": "2025-08-25",
-    "checkout": "2025-08-28"
-  },
-  "additionalneeds": ...</msg>
-<var>${body}</var>
-<arg>json.dumps(${response.json()}, indent=2)</arg>
-<arg>json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.494823" elapsed="0.003696"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-01T12:19:11.500213" level="INFO">{
-  "firstname": "Rafael",
-  "lastname": "Editado",
-  "totalprice": 150,
-  "depositpaid": true,
-  "bookingdates": {
-    "checkin": "2025-08-25",
-    "checkout": "2025-08-28"
-  },
-  "additionalneeds": "Cafe"
-}</msg>
-<arg>${body}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.498995" elapsed="0.001735"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:11.503481" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.501982" elapsed="0.001991"/>
-</kw>
-<arg>Rafael</arg>
-<arg>Editado</arg>
-<arg>150</arg>
-<arg>True</arg>
-<arg>2025-08-25</arg>
-<arg>2025-08-28</arg>
-<arg>Cafe</arg>
-<status status="PASS" start="2025-09-01T12:19:09.886774" elapsed="1.617801"/>
-</kw>
-<kw name="Validar Status Code &quot;200&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
-<kw name="Should Be True" owner="BuiltIn">
-<arg>${response.status_code} == ${statuscode}</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.507501" elapsed="0.002467"/>
-</kw>
-<status status="PASS" start="2025-09-01T12:19:11.505835" elapsed="0.005054"/>
-</kw>
-<doc>Verifica se é possível editar uma reserva</doc>
-<tag>PUT</tag>
-<status status="PASS" start="2025-09-01T12:19:09.882748" elapsed="1.629276"/>
-</test>
-<test id="s1-t5" name="Cenário: PATCH | Atualizar parcialmente uma Reserva" line="44">
-<kw name="Criar Sessao">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:11.522293" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>alias=Booker</arg>
-<arg>url=https://restful-booker.herokuapp.com</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-01T12:19:11.521367" elapsed="0.001416"/>
-</kw>
-<status status="PASS" start="2025-09-01T12:19:11.519911" elapsed="0.003131"/>
-</kw>
-<kw name="PATCH Endpoint /booking/:id" owner="atualizar_reserva_parcial_keywords">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:11.526153" level="INFO">&amp;{header} = { Content-Type=application/json | Cookie=token=b916805f02eaaf5 }</msg>
-<var>&amp;{header}</var>
-<arg>Content-Type=application/json</arg>
-<arg>Cookie=token=${token_auth}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.525481" elapsed="0.001667"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:11.528790" level="INFO">${payload} = {'firstname': 'Rafael', 'lastname': 'via Patch', 'totalprice': '150', 'additionalneeds': 'Patch no Cafe'}</msg>
-<var>${payload}</var>
-<arg>firstname=${firstname}</arg>
-<arg>lastname=${lastname}</arg>
-<arg>totalprice=${totalprice}</arg>
-<arg>additionalneeds=${needs}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.527507" elapsed="0.001530"/>
-</kw>
-<kw name="PATCH On Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:13.031532" level="INFO">PATCH Request : url=https://restful-booker.herokuapp.com/booking/6193 
- path_url=/booking/6193 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=b916805f02eaaf5', 'Content-Length': '105'} 
- body=b'{"firstname": "Rafael", "lastname": "via Patch", "totalprice": "150", "additionalneeds": "Patch no Cafe"}' 
- </msg>
-<msg time="2025-09-01T12:19:13.031947" level="INFO">PATCH Response : url=https://restful-booker.herokuapp.com/booking/6193 
- status=200, reason=OK 
- headers={'Content-Length': '179', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 15:19:12 GMT', 'Etag': 'W/"b3-IY/Cu8EouNkN2HlE/EMB2fHRz1c"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=PEC%2BiOGnfSwwK4CWaS3Igt3EyGP9uVMVZlLXSc1xgMc%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756739952"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=PEC%2BiOGnfSwwK4CWaS3Igt3EyGP9uVMVZlLXSc1xgMc%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756739952"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
- body={"firstname":"Rafael","lastname":"via Patch","totalprice":150,"depositpaid":true,"bookingdates":{"checkin":"2025-08-25","checkout":"2025-08-28"},"additionalneeds":"Patch no Cafe"} 
- </msg>
-<msg time="2025-09-01T12:19:13.032260" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-09-01T12:19:13.032618" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>Booker</arg>
-<arg>/booking/${id_reserva}</arg>
-<arg>headers=${header}</arg>
-<arg>json=${payload}</arg>
-<doc>Sends a PATCH request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-01T12:19:11.529433" elapsed="1.503368"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Response: ${response.status_code}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.033231" elapsed="0.001038"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Response body: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.034637" elapsed="0.001305"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-01T12:19:13.040650" level="INFO">${body} = {
-  "firstname": "Rafael",
-  "lastname": "via Patch",
-  "totalprice": 150,
-  "depositpaid": true,
-  "bookingdates": {
-    "checkin": "2025-08-25",
-    "checkout": "2025-08-28"
-  },
-  "additionalneeds"...</msg>
-<var>${body}</var>
-<arg>json.dumps(${response.json()}, indent=2)</arg>
-<arg>json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.036510" elapsed="0.004810"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-01T12:19:13.042886" level="INFO">{
-  "firstname": "Rafael",
-  "lastname": "via Patch",
-  "totalprice": 150,
-  "depositpaid": true,
-  "bookingdates": {
-    "checkin": "2025-08-25",
-    "checkout": "2025-08-28"
-  },
-  "additionalneeds": "Patch no Cafe"
-}</msg>
-<arg>${body}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.041861" elapsed="0.001865"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:13.046011" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.044730" elapsed="0.002122"/>
-</kw>
-<arg>Rafael</arg>
-<arg>via Patch</arg>
-<arg>150</arg>
-<arg>Patch no Cafe</arg>
-<status status="PASS" start="2025-09-01T12:19:11.524593" elapsed="1.522775"/>
-</kw>
-<kw name="Validar Status Code &quot;200&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
-<kw name="Should Be True" owner="BuiltIn">
-<arg>${response.status_code} == ${statuscode}</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.050306" elapsed="0.003757"/>
-</kw>
-<status status="PASS" start="2025-09-01T12:19:13.048782" elapsed="0.005905"/>
-</kw>
-<doc>Verifica se é possível atualizar uma reserva</doc>
-<tag>PATCH</tag>
-<status status="PASS" start="2025-09-01T12:19:11.514466" elapsed="1.540934"/>
-</test>
-<test id="s1-t6" name="Cenário: DELETE | Deletar uma Reserva" line="51">
-<kw name="Criar Sessao">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:13.064211" level="INFO">Creating Session using : alias=Booker, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>alias=Booker</arg>
-<arg>url=https://restful-booker.herokuapp.com</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-01T12:19:13.063132" elapsed="0.003522"/>
-</kw>
-<status status="PASS" start="2025-09-01T12:19:13.061429" elapsed="0.005607"/>
+<status status="PASS" start="2025-09-01T13:12:05.887447" elapsed="0.002159"/>
 </kw>
 <kw name="DELETE Endpoint /booking/:id" owner="deletar_reserva_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-01T12:19:13.078521" level="INFO">&amp;{header} = { Content-Type=application/json | Cookie=token=b916805f02eaaf5 }</msg>
+<msg time="2025-09-01T13:12:05.892765" level="INFO">&amp;{header} = { Content-Type=application/json | Cookie=token=9af8287fdefc806 }</msg>
 <var>&amp;{header}</var>
 <arg>Content-Type=application/json</arg>
 <arg>Cookie=token=${token_auth}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.077694" elapsed="0.001281"/>
+<status status="PASS" start="2025-09-01T13:12:05.891837" elapsed="0.002982"/>
 </kw>
 <kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-09-01T12:19:14.638007" level="INFO">DELETE Request : url=https://restful-booker.herokuapp.com/booking/6193 
- path_url=/booking/6193 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=b916805f02eaaf5', 'Content-Length': '0'} 
+<msg time="2025-09-01T13:12:06.666452" level="INFO">DELETE Request : url=https://restful-booker.herokuapp.com/booking/99999990 
+ path_url=/booking/99999990 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=9af8287fdefc806', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2025-09-01T12:19:14.638508" level="INFO">DELETE Response : url=https://restful-booker.herokuapp.com/booking/6193 
- status=201, reason=Created 
- headers={'Content-Length': '7', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 15:19:14 GMT', 'Etag': 'W/"7-rM9AyJuqT6iOan/xHh+AW+7K/T8"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=3AbVcwS7SquwALkMfyjAz2tCnCyxGuZwgjncdXGsnrc%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756739953"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=3AbVcwS7SquwALkMfyjAz2tCnCyxGuZwgjncdXGsnrc%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756739953"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
- body=Created 
+<msg time="2025-09-01T13:12:06.666920" level="INFO">DELETE Response : url=https://restful-booker.herokuapp.com/booking/99999990 
+ status=405, reason=Method Not Allowed 
+ headers={'Content-Length': '18', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Mon, 01 Sep 2025 16:12:06 GMT', 'Etag': 'W/"12-UGJMK66P4abaBlq0vKHJaCKuGCA"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=LVucK8zXFfd1DcBjMg7D16%2F4NcHcCR0Vzy%2BZUdGNGTg%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1756743126"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=LVucK8zXFfd1DcBjMg7D16%2F4NcHcCR0Vzy%2BZUdGNGTg%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1756743126"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body=Method Not Allowed 
  </msg>
-<msg time="2025-09-01T12:19:14.638843" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-01T13:12:06.667240" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-01T12:19:14.639823" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2025-09-01T13:12:06.667644" level="INFO">${response} = &lt;Response [405]&gt;</msg>
 <var>${response}</var>
 <arg>alias=Booker</arg>
 <arg>url=/booking/${id_reserva}</arg>
 <arg>headers=&amp;{header}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-01T12:19:13.080701" elapsed="1.559620"/>
+<status status="PASS" start="2025-09-01T13:12:05.895458" elapsed="0.772398"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>message= ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-01T12:19:14.641016" elapsed="0.002142"/>
+<status status="PASS" start="2025-09-01T13:12:06.668306" elapsed="0.001250"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-01T12:19:14.644622" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2025-09-01T13:12:06.670548" level="INFO">${response} = &lt;Response [405]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-01T12:19:14.643795" elapsed="0.001236"/>
+<status status="PASS" start="2025-09-01T13:12:06.669985" elapsed="0.000809"/>
 </kw>
-<arg>${id_reserva}</arg>
-<status status="PASS" start="2025-09-01T12:19:13.071458" elapsed="1.574013"/>
+<arg>99999990</arg>
+<status status="PASS" start="2025-09-01T13:12:05.890820" elapsed="0.780209"/>
 </kw>
-<kw name="Validar Status Code &quot;201&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Validar Status Code &quot;405&quot;" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-01T12:19:14.648259" elapsed="0.004508"/>
+<status status="PASS" start="2025-09-01T13:12:06.672233" elapsed="0.001802"/>
 </kw>
-<status status="PASS" start="2025-09-01T12:19:14.646584" elapsed="0.007044"/>
+<status status="PASS" start="2025-09-01T13:12:06.671542" elapsed="0.003452"/>
 </kw>
-<doc>Verifica se é possível deletar uma reserva</doc>
+<doc>Deletar uma reserva inexistente</doc>
 <tag>DELETE</tag>
-<status status="PASS" start="2025-09-01T12:19:13.059737" elapsed="1.594861"/>
+<status status="PASS" start="2025-09-01T13:12:05.886018" elapsed="0.789546"/>
 </test>
 <doc>Requisições HTTP para a API Restful-Booker</doc>
-<status status="PASS" start="2025-09-01T12:19:06.494161" elapsed="8.161772"/>
+<status status="FAIL" start="2025-09-01T13:12:03.218947" elapsed="3.458700"/>
 </suite>
 <statistics>
 <total>
-<stat pass="6" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 <stat pass="1" fail="0" skip="0">DELETE</stat>
 <stat pass="1" fail="0" skip="0">GET</stat>
 <stat pass="1" fail="0" skip="0">Login</stat>
-<stat pass="1" fail="0" skip="0">PATCH</stat>
-<stat pass="2" fail="0" skip="0">POST</stat>
-<stat pass="1" fail="0" skip="0">PUT</stat>
+<stat pass="1" fail="1" skip="0">POST</stat>
 </tag>
 <suite>
-<stat name="Caminho Feliz" id="s1" pass="6" fail="0" skip="0">Caminho Feliz</stat>
+<stat name="Caminho Triste" id="s1" pass="3" fail="1" skip="0">Caminho Triste</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-09-01T12:19:06.665510" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Teste API com Robot/resources/login_keywords.robot' on line 17: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-01T13:12:03.365069" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Teste API com Robot/resources/login_keywords.robot' on line 17: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-01T13:12:03.381390" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Teste API com Robot/resources/buscar_uma_reserva_keywords.robot' on line 12: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
