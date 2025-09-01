@@ -5,6 +5,8 @@ Resource                ./resources/login_keywords.robot
 Resource                ./resources/nova_reserva_keywords.robot
 Resource                ./resources/editar_reserva_keywords.robot
 Resource                ./resources/atualizar_reserva_parcial_keywords.robot
+Resource                ./resources/buscar_uma_reserva_keywords.robot
+Resource                ./resources/deletar_reserva_keywords.robot
 *** Variables ***
 
 
@@ -13,7 +15,7 @@ Cenário: GET | Obter uma reserva pelo ID
     [Documentation]    Verifica se é possível obter uma reserva específica
     [Tags]    GET    
     Criar Sessao
-    GET Endpoint /booking/1
+    GET Endpoint /booking/:id
     Validar Status Code "200"
 
 Cenário: POST | Fazer Login
@@ -44,14 +46,17 @@ Cenário: PATCH | Atualizar parcialmente uma Reserva
     PATCH Endpoint /booking/:id
     Validar Status Code "200"
 
+Cenário: DELETE | Deletar uma Reserva
+    [Documentation]    Verifica se é possível deletar uma reserva
+    [Tags]    DELETE
+    Criar Sessao
+    DELETE Endpoint /booking/:id
+    Validar Status Code "201"
+
 * Keywords * 
 Criar Sessao
     Create Session    alias=Booker    url=https://restful-booker.herokuapp.com
-
-GET Endpoint /booking/1
-    ${response}=    GET On Session    alias=Booker    url=/booking/1
-    Log To Console    message= ${response.content}
-    Set Global Variable    ${response}    
+   
 
 Validar Status Code "${statuscode}"
     Should Be True    ${response.status_code} == ${statuscode}
