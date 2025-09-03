@@ -11,7 +11,6 @@ Resource                ../keywords/buscar_uma_reserva_keywords.robot
 Resource                ../keywords/deletar_reserva_keywords.robot
 Resource                ./variables/booker_variables.robot
 Resource                ./fixtures/dynamics.robot
-Resource                ./fixtures/static/json_booking.json
 Resource                ./common/common.robot    
 
 

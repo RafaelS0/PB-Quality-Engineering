@@ -25,11 +25,6 @@ POST Endpoint /booking
     Set Suite Variable    ${id_reserva}    ${id}
     BuiltIn.Set Global Variable    ${response}
 
-Criar Agendamento Estatico Valido
-    ${json_data}=    Importar JSON Estatico    ../json_booking.json
-    ${payload}=    Set Variable    ${json_data["agendamento_valido"]}
-    Set Global Variable    ${payload}
-    POST Endpoint /booking    ${payload['firstname']}    ${payload['lastname']}    ${payload['totalprice']}    ${payload['depositpaid']}    ${payload['bookingdates']['checkin']}    ${payload['bookingdates']['checkout']}    ${payload['additionalneeds']}
 
 Criar Reserva Dinamica Valida
     ${payload}=    Criar Reservas Validas
