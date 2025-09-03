@@ -1,9 +1,7 @@
 * Settings *
 Documentation    Keywords e Variáveis para Criação de Livros
 Library    RequestsLibrary
-Resource   ./login_keywords.robot
-Resource   ../support/common/common.robot
-Resource   ../dynamics.robot        
+Resource   ../support/base.robot    
 
 * Keywords *
 POST Endpoint /booking

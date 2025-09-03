@@ -1,8 +1,6 @@
 * Settings *
 Documentation    Keywords e Variáveis para Criação de Livros
-Library    RequestsLibrary
-Resource   ./login_keywords.robot
-Resource   ./nova_reserva_keywords.robot
+Resource   ../support/base.robot
 
 * Keywords *
 PUT Endpoint /booking/:id

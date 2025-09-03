@@ -1,6 +1,6 @@
 * Settings *
 Documentation           Keywords e Variáveis para Login
-Library    RequestsLibrary
+Resource   ../support/base.robot
 
 * Variables *
 ${username_de_login}     admin

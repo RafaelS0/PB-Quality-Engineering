@@ -1,8 +1,6 @@
 * Settings *
 Documentation    Keywords e Variáveis para deletar uma reserva
-Library    RequestsLibrary
-Resource   ./login_keywords.robot
-Resource   ./nova_reserva_keywords.robot
+Resource   ../support/base.robot
 
 * Keywords *
 DELETE Endpoint /booking/:id
