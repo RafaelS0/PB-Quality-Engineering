@@ -13,8 +13,14 @@ POST Endpoint /auth
     ${token}=    Set Variable    ${response.json()['token']}
     Log to Console    Token obtido: ${token}
     Set Global Variable    ${response}
-    Set Suite Variable    ${token_auth}    ${token}
-    [Return]    ${token}
+
+    
 
 Validar Login
     Should Not Be Empty    ${response.json()["token"]}
+
+Fazer Login e Armazenar Token
+    POST Endpoint /auth
+    Validar Login
+    ${token_auth}=    Set Variable    ${response.json()['token']}
+    Set Global Variable    ${token_auth}   

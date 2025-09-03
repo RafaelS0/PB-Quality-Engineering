@@ -25,6 +25,7 @@ Cenário: POST | Criar uma Reserva
     [Documentation]    Verifica se é possível criar uma reserva
     [Tags]    POST
     Criar Sessao
+    Fazer Login e Armazenar Token
     POST Endpoint /booking    Rafael    Silva    150    True    2025-08-25    2025-08-28    Breakfast
     Validar Status Code "200"
 
@@ -39,6 +40,7 @@ Cenário: PUT | Editar uma Reserva
     [Documentation]    Verifica se é possível editar uma reserva
     [Tags]    PUT    
     Criar Sessao
+    Fazer Login e Armazenar Token
     PUT Endpoint /booking/:id    Rafael    Editado    150    True    2025-08-25    2025-08-28    Cafe
     Validar Status Code "200"
 
@@ -46,6 +48,7 @@ Cenário: PATCH | Atualizar parcialmente uma Reserva
     [Documentation]    Verifica se é possível atualizar uma reserva
     [Tags]    PATCH
     Criar Sessao
+    Fazer Login e Armazenar Token
     PATCH Endpoint /booking/:id   Rafael    via Patch    150    Patch no Cafe
     Validar Status Code "200"
 
@@ -53,6 +56,7 @@ Cenário: DELETE | Deletar uma Reserva
     [Documentation]    Verifica se é possível deletar uma reserva
     [Tags]    DELETE
     Criar Sessao
+    Fazer Login e Armazenar Token
     DELETE Endpoint /booking/:id  ${id_reserva}
     Validar Status Code "201"
 
@@ -61,6 +65,7 @@ Cenário: DELETE | Deletar uma Reserva
 Cenário: POST Criar Massa de Agendamentos
     [Tags]    POST
     Criar Sessao
+    Fazer Login e Armazenar Token
     Criar Reserva Dinamica Valida
     Validar Status Code "200"
 
