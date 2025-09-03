@@ -3,12 +3,12 @@ Documentation           Keywords e Variáveis para Login
 Library    RequestsLibrary
 
 * Variables *
-${username}     admin
-${password}     password123
+${username_de_login}     admin
+${password_para_login}     password123
 
 * Keywords *
 POST Endpoint /auth
-    ${payload}=    Create Dictionary    username=${username}    password=${password}
+    ${payload}=    Create Dictionary    username=${username_de_login}    password=${password_para_login}
     ${response}=    POST On Session    alias=Booker    url=/auth    json=${payload}
     ${token}=    Set Variable    ${response.json()['token']}
     Log to Console    Token obtido: ${token}

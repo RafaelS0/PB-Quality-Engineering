@@ -1,12 +1,12 @@
 *** Settings ***
 Documentation           Requisições HTTP para a API Restful-Booker
 Library                 RequestsLibrary
-Resource                ./resources/login_keywords.robot
-Resource                ./resources/nova_reserva_keywords.robot
-Resource                ./resources/editar_reserva_keywords.robot
-Resource                ./resources/atualizar_reserva_parcial_keywords.robot
-Resource                ./resources/buscar_uma_reserva_keywords.robot
-Resource                ./resources/deletar_reserva_keywords.robot
+Resource                ../keywords/login_keywords.robot
+Resource                ../keywords/nova_reserva_keywords.robot
+Resource                ../keywords/editar_reserva_keywords.robot
+Resource                ../keywords/atualizar_reserva_parcial_keywords.robot
+Resource                ../keywords/buscar_uma_reserva_keywords.robot
+Resource                ../keywords/deletar_reserva_keywords.robot
 *** Variables ***
 
 
@@ -56,10 +56,17 @@ Cenário: DELETE | Deletar uma Reserva
     DELETE Endpoint /booking/:id  ${id_reserva}
     Validar Status Code "201"
 
+
+
+Cenário: POST Criar Massa de Agendamentos
+    [Tags]    POST
+    Criar Sessao
+    Criar Reserva Dinamica Valida
+    Validar Status Code "200"
+
 * Keywords * 
 Criar Sessao
     Create Session    alias=Booker    url=https://restful-booker.herokuapp.com
 
-Validar Status Code "${statuscode}"
-    Should Be True    ${response.status_code} == ${statuscode}
+
 
