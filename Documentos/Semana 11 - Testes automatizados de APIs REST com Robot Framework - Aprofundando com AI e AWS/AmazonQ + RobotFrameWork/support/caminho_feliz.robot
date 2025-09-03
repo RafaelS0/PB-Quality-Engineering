@@ -62,7 +62,7 @@ Cenário: DELETE | Deletar uma Reserva
 
 
 
-Cenário: POST Criar Massa de Agendamentos
+Cenário: POST | Criar uma Reserva Dinâmica
     [Tags]    POST
     Criar Sessao
     Fazer Login e Armazenar Token

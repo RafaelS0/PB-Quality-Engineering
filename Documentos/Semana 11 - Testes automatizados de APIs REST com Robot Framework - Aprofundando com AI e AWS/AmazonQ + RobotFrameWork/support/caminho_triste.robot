@@ -13,17 +13,11 @@ Resource                ../keywords/deletar_reserva_keywords.robot
 
 *** Test Cases ***
 
-Cenário: POST | Fazer Login 
-    [Documentation]    Verifica se é possível fazer login
-    [Tags]    POST    Login
-    Criar Sessao
-    POST Endpoint /auth
-    Validar Status Code "200"
-
 Cenário: POST | Criar uma Reserva Inválida
     [Documentation]    Criar uma reserva onde há campos obrigatórios vazios
     [Tags]    POST
     Criar Sessao
+    Fazer Login e Armazenar Token
     POST Endpoint /booking    ${EMPTY}    ${EMPTY}    150    True    2025-08-25    2025-08-28    Breakfast
     Validar Status Code "400"
 
@@ -38,6 +32,7 @@ Cenário: DELETE | Deletar uma Reserva Inválida
     [Documentation]    Deletar uma reserva inexistente
     [Tags]    DELETE
     Criar Sessao
+    Fazer Login e Armazenar Token
     DELETE Endpoint /booking/:id  99999990
     Validar Status Code "405"
 
