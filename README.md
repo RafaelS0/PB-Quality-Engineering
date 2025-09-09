@@ -35,5 +35,11 @@ O conteúdo está dividido em **Sprints (Branches):**
 
 - **Sprint 5**
   - Semana 9 – Base de versionamento e programação em Python  
-  - Semana 10 – Testes Automatizados + APIs REST com Robot Framework  
+  - Semana 10 – Testes Automatizados + APIs REST com Robot Framework
+ 
+- **Sprint 6**
+  - Semana 11 – Testes automatizados de APIs REST com Robot Framework - Aprofundando com AI e AWS \
+    ┖ RestfulBooker + AmazonQ \
+	      ┖ ServeRest no AWS EC2  
+  - Semana 12 – Challenge 03    
 
