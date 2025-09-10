@@ -8,7 +8,7 @@
 ## 📌 Informações
 
 - **Nome:** Rafael Soares  
-- **Equipe:** Squad 1 - CaçaBugs  
+- **Equipe:** Squad 4 - TimeOut  
 - **Turma:** Jun25  
 
 ---
