@@ -1,134 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-09T16:56:45.068127" rpa="false" schemaversion="5">
-<suite id="s1" name="Login Teste" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/tests/login_teste.robot">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-10T15:07:19.674207" rpa="false" schemaversion="5">
+<suite id="s1" name="Cadastro Teste" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/tests/cadastro_teste.robot">
 <kw name="Criar Sessao" owner="base" type="SETUP">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-09T16:56:45.643936" level="INFO">Creating Session using : alias=ServeRest, url=https://compassuol.serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-10T15:07:20.207832" level="INFO">Creating Session using : alias=ServeRest, url=https://compassuol.serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=ServeRest</arg>
 <arg>url=${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-09T16:56:45.643358" elapsed="0.003910"/>
+<status status="PASS" start="2025-09-10T15:07:20.207184" elapsed="0.002500"/>
 </kw>
-<status status="PASS" start="2025-09-09T16:56:45.641334" elapsed="0.006476"/>
+<status status="PASS" start="2025-09-10T15:07:20.205056" elapsed="0.004999"/>
 </kw>
-<test id="s1-t1" name="Cenário: POST | Fazer Login" line="10">
-<kw name="POST Endpoint /login" owner="login_keywords">
+<test id="s1-t1" name="Cenário: POST | Cadastrar Cliente com e-mail Gmail" line="25">
+<kw name="Criar Usuario Gmail Invalido" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-09-10T15:07:20.214597" level="INFO">${nome} = José Miguel Nunes</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-09-10T15:07:20.213123" elapsed="0.002867"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-10T15:07:20.217434" level="INFO">${email} = davi-luccarezende@gmail.com</msg>
+<var>${email}</var>
+<arg>domain=gmail.com</arg>
+<status status="PASS" start="2025-09-10T15:07:20.216474" elapsed="0.001239"/>
+</kw>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2025-09-10T15:07:20.220304" level="INFO">${password} = W#NuzhnP!4</msg>
+<var>${password}</var>
+<arg>length=10</arg>
+<arg>special_chars=True</arg>
+<arg>digits=True</arg>
+<arg>upper_case=True</arg>
+<arg>lower_case=True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2025-09-10T15:07:20.218171" elapsed="0.002390"/>
+</kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-09T16:56:45.651362" level="INFO">${payload} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
-<var>${payload}</var>
+<msg time="2025-09-10T15:07:20.222513" level="INFO">&amp;{payload} = { nome=José Miguel Nunes | email=davi-luccarezende@gmail.com | password=W#NuzhnP!4 }</msg>
+<var>&amp;{payload}</var>
+<arg>nome=${nome}</arg>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-09T16:56:45.650614" elapsed="0.002015"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-09-09T16:56:46.173859" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
- path_url=/login 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
- body=b'{"email": "fulano@qa.com", "password": "teste"}' 
- </msg>
-<msg time="2025-09-09T16:56:46.174235" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
- status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '4cc2285bbd05c2fe5bf6c430ed513b6b;o=1', 'date': 'Tue, 09 Sep 2025 19:56:46 GMT', 'server': 'Google Frontend', 'Content-Length': '265'} 
- body={
-    "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NDQ3ODA2LCJleHAiOjE3NTc0NDg0MDZ9.fhsQlnzkczuA5a5aEhgTqwxCHj0bT6F5GGSVhl_bQN8"
-} 
- </msg>
-<msg time="2025-09-09T16:56:46.174469" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-09-09T16:56:46.174986" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=serveRest</arg>
-<arg>url=/login</arg>
-<arg>json=${payload}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-09T16:56:45.653201" elapsed="0.522003"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-09T16:56:46.176328" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.175654" elapsed="0.000887"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Extract Token" owner="login_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-09T16:56:46.178882" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NDQ3ODA2LCJleHAiOjE3NTc0NDg0MDZ9.fhsQlnzkczuA5a5aEhgTqwxCHj0bT6F5GGSVhl_bQN8</msg>
-<var>${token}</var>
-<arg>${response.json()['authorization']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.178181" elapsed="0.000870"/>
+<status status="PASS" start="2025-09-10T15:07:20.221186" elapsed="0.001645"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>Token obtido: ${token}</arg>
+<arg>${payload}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.179307" elapsed="0.000627"/>
+<status status="PASS" start="2025-09-10T15:07:20.223315" elapsed="0.000846"/>
 </kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-09T16:56:46.181110" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NDQ3ODA2LCJleHAiOjE3NTc0NDg0MDZ9.fhsQlnzkczuA5a5aEhgTqwxCHj0bT6F5GGSVhl_bQN8</msg>
-<arg>${token}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.180397" elapsed="0.001021"/>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-09-10T15:07:20.224414" elapsed="0.000265"/>
+</return>
+<status status="PASS" start="2025-09-10T15:07:20.212254" elapsed="0.012857"/>
 </kw>
-<status status="PASS" start="2025-09-09T16:56:46.177772" elapsed="0.003877"/>
-</kw>
-<arg>${response.status_code} == 200</arg>
-<arg>Extract Token</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.176826" elapsed="0.004970"/>
-</kw>
-<arg>fulano@qa.com</arg>
-<arg>teste</arg>
-<status status="PASS" start="2025-09-09T16:56:45.649857" elapsed="0.532099"/>
-</kw>
-<kw name="Verificar se o Token foi gerado" owner="login_keywords">
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2025-09-09T16:56:46.185850" level="INFO">Length is 192.</msg>
-<arg>${token}</arg>
-<arg>msg=Token não foi gerado.</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.184692" elapsed="0.001603"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Token verificado com sucesso: ${token}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.186828" elapsed="0.000962"/>
-</kw>
-<status status="PASS" start="2025-09-09T16:56:46.183301" elapsed="0.004915"/>
-</kw>
-<kw name="Validar Status Code &quot;200&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Validar Status Code &quot;400&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-09-10T15:07:20.232297" level="FAIL">Resolving variable '${response.status_code}' failed: Variable '${response}' not found.</msg>
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-09T16:56:46.191391" elapsed="0.003425"/>
+<status status="FAIL" start="2025-09-10T15:07:20.227056" elapsed="0.008175">Resolving variable '${response.status_code}' failed: Variable '${response}' not found.</status>
 </kw>
-<status status="PASS" start="2025-09-09T16:56:46.189935" elapsed="0.005430"/>
+<status status="FAIL" start="2025-09-10T15:07:20.226107" elapsed="0.009614">Resolving variable '${response.status_code}' failed: Variable '${response}' not found.</status>
 </kw>
-<doc>Verifica se é possível fazer login</doc>
-<tag>Login</tag>
+<doc>Verifica se é possível cadastrar um cliente com e-mail do Gmail</doc>
 <tag>POST</tag>
-<status status="PASS" start="2025-09-09T16:56:45.648182" elapsed="0.547834"/>
+<tag>Usuarios</tag>
+<status status="FAIL" start="2025-09-10T15:07:20.210318" elapsed="0.025983">Resolving variable '${response.status_code}' failed: Variable '${response}' not found.</status>
 </test>
-<doc>Arquivos de testes para o endpoint /login</doc>
-<status status="PASS" start="2025-09-09T16:56:45.081025" elapsed="1.116562"/>
+<doc>Arquivos de testes para o endpoint /usuarios</doc>
+<status status="FAIL" start="2025-09-10T15:07:19.680943" elapsed="0.556519"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Login</stat>
-<stat pass="1" fail="0" skip="0">POST</stat>
+<stat pass="0" fail="1" skip="0">POST</stat>
+<stat pass="0" fail="1" skip="0">Usuarios</stat>
 </tag>
 <suite>
-<stat name="Login Teste" id="s1" pass="1" fail="0" skip="0">Login Teste</stat>
+<stat name="Cadastro Teste" id="s1" pass="0" fail="1" skip="0">Cadastro Teste</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-09-09T16:56:45.287530" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/keywords/buscar_uma_reserva_keywords.robot' on line 11: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-09-09T16:56:45.291723" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 19: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-09-09T16:56:45.637067" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/common/common.robot' on line 19: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-10T15:07:19.854259" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/keywords/buscar_uma_reserva_keywords.robot' on line 11: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-10T15:07:19.859289" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 16: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-10T15:07:19.859578" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 27: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-10T15:07:19.859879" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 38: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-10T15:07:20.193977" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/common/common.robot' on line 15: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

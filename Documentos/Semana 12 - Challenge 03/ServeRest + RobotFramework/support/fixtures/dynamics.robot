@@ -4,16 +4,35 @@ Library           FakerLibrary    locale=pt_BR
 
 
 *** Keywords ***
- Criar Reservas Validas
+ Criar Usuario Valido
 
-     ${firstname} =  FakerLibrary.Name
-     ${lastname} =  FakerLibrary.Last Name
-     ${totalprice} =  FakerLibrary.Pricetag
-     ${depositpaid} =  FakerLibrary.Boolean
-     ${checkin} =  FakerLibrary.Date
-     ${checkout} =  FakerLibrary.Date
-     ${bookingdates}=    Create Dictionary    checkin=${checkin}    checkout=${checkout}
-     ${additionalneeds} =  FakerLibrary.Text
-     ${payload}=  Create Dictionary    firstname=${firstname}    lastname=${lastname}    totalprice=${totalprice}    depositpaid=${depositpaid}    bookingdates=${bookingdates}    additionalneeds=${additionalneeds}
+     ${nome} =  FakerLibrary.Name
+     ${email} =  FakerLibrary.Email    
+     ${password} =  FakerLibrary.Password    length=10    special_chars=True    digits=True    upper_case=True    lower_case=True
+     
+
+    &{payload}=  Create Dictionary    nome=${nome}    email=${email}    password=${password} 
+     Log To Console    ${payload}
+     [Return]          ${payload}
+
+Criar Usuario Gmail Invalido
+
+     ${nome} =  FakerLibrary.Name
+     ${email} =  FakerLibrary.Email    domain=gmail.com
+     ${password} =  FakerLibrary.Password    length=10    special_chars=True    digits=True    upper_case=True    lower_case=True
+     
+
+    &{payload}=  Create Dictionary    nome=${nome}    email=${email}    password=${password} 
+     Log To Console    ${payload}
+     [Return]          ${payload}
+
+Criar Usuario Hotmail Invalido
+
+     ${nome} =  FakerLibrary.Name
+     ${email} =  FakerLibrary.Email    domain=hotmail.com
+     ${password} =  FakerLibrary.Password    length=10    special_chars=True    digits=True    upper_case=True    lower_case=True
+     
+
+    &{payload}=  Create Dictionary    nome=${nome}    email=${email}    password=${password} 
      Log To Console    ${payload}
      [Return]          ${payload}
