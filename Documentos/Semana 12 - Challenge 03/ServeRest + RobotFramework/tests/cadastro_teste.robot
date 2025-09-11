@@ -2,7 +2,6 @@
 Documentation           Arquivos de testes para o endpoint /usuarios
 Resource                ../support/base.robot
 
-
 Suite Setup     Criar Sessao 
 
 *** Test Cases ***
@@ -21,19 +20,19 @@ Cenário: POST | Cadastrar Cliente com e-mail já Existente
     Validar mensagem de erro:    Este email já está sendo usado
 
 Cenário: POST | Cadastrar Cliente com e-mail Gmail
-    [Documentation]    Verifica se é possível cadastrar um cliente com e-mail do Gmail
+    [Documentation]    Na documentação está especificado que o e-mail não pode ser do dominio Gmail
     [Tags]    POST   Usuarios
     Criar Cliente Gmail Invalido
     Validar Status Code "400"
 
 Cenário: POST | Cadastrar Cliente com e-mail Hotmail
-    [Documentation]    Verifica se é possível cadastrar um cliente com e-mail do Hotmail
+    [Documentation]    Na documentação está especificado que o e-mail não pode ser do dominio Hotmail
     [Tags]    POST   Usuarios
     Criar Cliente Hotmail Invalido
     Validar Status Code "400"
 
 Cenário: POST | Cadastrar um Administrador com e-mail de um cliente
-    [Documentation]    Verifica se não é possível cadastrar um administrador com e-mail já existente
+    [Documentation]    Verifica se não é possível cadastrar um administrador com e-mail de cliente já existente
     [Tags]    POST   Usuarios
     Criar Cliente Valido
     POST Endpoint /usuarios    ${payload['nome']}    ${payload['email']}    ${payload['password']}   admin=true
@@ -41,7 +40,7 @@ Cenário: POST | Cadastrar um Administrador com e-mail de um cliente
     Validar mensagem de erro:    Este email já está sendo usado
 
 Cenário: POST | Cadastrar um Cliente com e-mail de um Administrador
-    [Documentation]    Verifica se não é possível cadastrar um cliente com e-mail já existente
+    [Documentation]    Verifica se não é possível cadastrar um cliente com e-mail de um administrador já existente
     [Tags]    POST   Usuarios
     Criar Administrador Valido
     POST Endpoint /usuarios    ${payload['nome']}    ${payload['email']}    ${payload['password']}   admin=false

@@ -35,8 +35,10 @@ POST Endpoint /produtos Sem Token
 Criar Produto Dinamico
     ${payload}=    Criar Produto Valido
     Set Global Variable    ${payload}
-    POST Endpoint /produtos    ${payload['nome']}    ${payload['descricao']}    ${payload['preco']}    ${payload['quantidade']}  
-
+    POST Endpoint /produtos    ${payload['nome']}    ${payload['descricao']}    ${payload['preco']}    ${payload['quantidade']}
+    ${id_produto}=    Set Variable    ${response.json()['_id']}
+    Set Global Variable    ${id_produto}
+    Log To Console    message ID do Produto: ${id_produto}
 Criar Produto Sem Autenticação
     ${payload}=    Criar Produto Valido
     Set Global Variable    ${payload}
