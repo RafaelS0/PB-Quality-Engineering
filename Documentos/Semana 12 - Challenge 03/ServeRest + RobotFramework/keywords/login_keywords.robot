@@ -6,9 +6,9 @@ Resource   ../support/base.robot
 
 * Keywords *
 POST Endpoint /login
-    [Arguments]    ${email}    ${password}
+    [Arguments]    ${email}    ${password}    
     ${payload}=    Create Dictionary    email=${email}    password=${password}
-    ${response}=    POST On Session    alias=serveRest    url=/login    json=${payload}    expected_status=any     
+    ${response}=    POST On Session    alias=ServeRest    url=/login    json=${payload}    expected_status=any     
     Set Global Variable    ${response}
     Run Keyword If    ${response.status_code} == 200    Extract Token       
 
@@ -22,4 +22,6 @@ Verificar se o Token foi gerado
     Log to Console    Token verificado com sucesso: ${token}
 
 
-    
+Fazer Login
+    POST Endpoint /login    ${payload['email']}    ${payload['password']}
+    Validar Status Code "200"

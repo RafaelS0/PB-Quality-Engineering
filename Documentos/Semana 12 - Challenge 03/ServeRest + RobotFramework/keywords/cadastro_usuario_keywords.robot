@@ -14,6 +14,7 @@ POST Endpoint /usuarios
     ...    password=${password}
     ...    administrador=${admin}
     ${response}=    POST On Session    alias=ServeRest    url=/usuarios    json=${payload}    headers=${header}    expected_status=any
+    Log To Console      Response Status: ${response.status_code}
     Log To Console      Response: ${response.content}
     BuiltIn.Set Global Variable    ${response}
 
@@ -23,6 +24,12 @@ Criar Cliente Valido
     ${payload}=    Criar Usuario Valido
     Set Global Variable    ${payload}
     POST Endpoint /usuarios    ${payload['nome']}    ${payload['email']}    ${payload['password']}    admin=false
+
+
+Criar Administrador Valido
+    ${payload}=    Criar Usuario Valido
+    Set Global Variable    ${payload}
+    POST Endpoint /usuarios    ${payload['nome']}    ${payload['email']}    ${payload['password']}    admin=true
 
 Criar Cliente Gmail Invalido
     ${payload}=    Criar Usuario Gmail Invalido
