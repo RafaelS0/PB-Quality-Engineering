@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-11T15:57:41.090671" rpa="false" schemaversion="5">
-<suite id="s1" name="Produtos Teste" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/tests/produtos_teste.robot">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-12T01:00:56.003714" rpa="false" schemaversion="5">
+<suite id="s1" name="Cadastro Teste" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/tests/cadastro_teste.robot">
 <kw name="Criar Sessao" owner="base" type="SETUP">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-11T15:57:41.681761" level="INFO">Creating Session using : alias=ServeRest, url=https://compassuol.serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-12T01:00:56.695318" level="INFO">Creating Session using : alias=ServeRest, url=https://compassuol.serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=ServeRest</arg>
 <arg>url=${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-11T15:57:41.680670" elapsed="0.004918"/>
+<status status="PASS" start="2025-09-12T01:00:56.694813" elapsed="0.004387"/>
 </kw>
-<status status="PASS" start="2025-09-11T15:57:41.679027" elapsed="0.007008"/>
+<status status="PASS" start="2025-09-12T01:00:56.693525" elapsed="0.006184"/>
 </kw>
-<test id="s1-t1" name="Cenário: PUT | Editar Produto como um Cliente" line="40">
-<kw name="Criar um produto como administrador" owner="editar_produto_keywords">
-<kw name="Criar Administrador Valido" owner="cadastro_usuario_keywords">
+<test id="s1-t1" name="Cenário: POST | Cadastrar Cliente Válido" line="8">
+<kw name="Criar Cliente Valido" owner="cadastro_usuario_keywords">
 <kw name=" Criar Usuario Valido" owner="dynamics">
 <kw name="Name" owner="FakerLibrary">
-<msg time="2025-09-11T15:57:41.691110" level="INFO">${nome} = Melina Moraes</msg>
+<msg time="2025-09-12T01:00:56.703319" level="INFO">${nome} = Isis Cardoso</msg>
 <var>${nome}</var>
 <doc>:example: 'John Doe'</doc>
-<status status="PASS" start="2025-09-11T15:57:41.690130" elapsed="0.002203"/>
+<status status="PASS" start="2025-09-12T01:00:56.702730" elapsed="0.001141"/>
 </kw>
 <kw name="Email" owner="FakerLibrary">
-<msg time="2025-09-11T15:57:41.693791" level="INFO">${email} = qsilva@example.net</msg>
+<msg time="2025-09-12T01:00:56.704731" level="INFO">${email} = asafe11@example.org</msg>
 <var>${email}</var>
-<status status="PASS" start="2025-09-11T15:57:41.692882" elapsed="0.001217"/>
+<status status="PASS" start="2025-09-12T01:00:56.704191" elapsed="0.000743"/>
 </kw>
 <kw name="Password" owner="FakerLibrary">
-<msg time="2025-09-11T15:57:41.696593" level="INFO">${password} = z7WBVQFX&amp;2</msg>
+<msg time="2025-09-12T01:00:56.706859" level="INFO">${password} = &amp;_^1LSg1T!</msg>
 <var>${password}</var>
 <arg>length=10</arg>
 <arg>special_chars=True</arg>
@@ -35,71 +34,71 @@
 <arg>upper_case=True</arg>
 <arg>lower_case=True</arg>
 <doc>Generate a random password of the specified ``length``.</doc>
-<status status="PASS" start="2025-09-11T15:57:41.694505" elapsed="0.002409"/>
+<status status="PASS" start="2025-09-12T01:00:56.705200" elapsed="0.001992"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:41.702425" level="INFO">&amp;{payload} = { nome=Melina Moraes | email=qsilva@example.net | password=z7WBVQFX&amp;2 }</msg>
+<msg time="2025-09-12T01:00:56.711027" level="INFO">&amp;{payload} = { nome=Isis Cardoso | email=asafe11@example.org | password=&amp;_^1LSg1T! }</msg>
 <var>&amp;{payload}</var>
 <arg>nome=${nome}</arg>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:41.697582" elapsed="0.005168"/>
+<status status="PASS" start="2025-09-12T01:00:56.707845" elapsed="0.003581"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${payload}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:41.703260" elapsed="0.000590"/>
+<status status="PASS" start="2025-09-12T01:00:56.711958" elapsed="0.000712"/>
 </kw>
 <return>
 <value>${payload}</value>
-<status status="PASS" start="2025-09-11T15:57:41.705009" elapsed="0.000365"/>
+<status status="PASS" start="2025-09-12T01:00:56.712953" elapsed="0.000262"/>
 </return>
-<msg time="2025-09-11T15:57:41.705948" level="INFO">${payload} = {'nome': 'Melina Moraes', 'email': 'qsilva@example.net', 'password': 'z7WBVQFX&amp;2'}</msg>
+<msg time="2025-09-12T01:00:56.713718" level="INFO">${payload} = {'nome': 'Isis Cardoso', 'email': 'asafe11@example.org', 'password': '&amp;_^1LSg1T!'}</msg>
 <var>${payload}</var>
-<status status="PASS" start="2025-09-11T15:57:41.689406" elapsed="0.018313"/>
+<status status="PASS" start="2025-09-12T01:00:56.702291" elapsed="0.011959"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:41.709021" level="INFO">${payload} = {'nome': 'Melina Moraes', 'email': 'qsilva@example.net', 'password': 'z7WBVQFX&amp;2'}</msg>
+<msg time="2025-09-12T01:00:56.715500" level="INFO">${payload} = {'nome': 'Isis Cardoso', 'email': 'asafe11@example.org', 'password': '&amp;_^1LSg1T!'}</msg>
 <arg>${payload}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:41.708251" elapsed="0.001104"/>
+<status status="PASS" start="2025-09-12T01:00:56.714747" elapsed="0.001011"/>
 </kw>
 <kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:41.715446" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<msg time="2025-09-12T01:00:56.718889" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
 <var>&amp;{header}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:41.713509" elapsed="0.002285"/>
+<status status="PASS" start="2025-09-12T01:00:56.718155" elapsed="0.001011"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:41.717578" level="INFO">${payload} = {'nome': 'Melina Moraes', 'email': 'qsilva@example.net', 'password': 'z7WBVQFX&amp;2', 'administrador': 'true'}</msg>
+<msg time="2025-09-12T01:00:56.722328" level="INFO">${payload} = {'nome': 'Isis Cardoso', 'email': 'asafe11@example.org', 'password': '&amp;_^1LSg1T!', 'administrador': 'false'}</msg>
 <var>${payload}</var>
 <arg>nome=${nome}</arg>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
 <arg>administrador=${admin}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:41.716470" elapsed="0.001424"/>
+<status status="PASS" start="2025-09-12T01:00:56.721127" elapsed="0.001489"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-09-11T15:57:42.288529" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+<msg time="2025-09-12T01:00:57.254537" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
  path_url=/usuarios 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '107'} 
- body=b'{"nome": "Melina Moraes", "email": "qsilva@example.net", "password": "z7WBVQFX&amp;2", "administrador": "true"}' 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '108'} 
+ body=b'{"nome": "Isis Cardoso", "email": "asafe11@example.org", "password": "&amp;_^1LSg1T!", "administrador": "false"}' 
  </msg>
-<msg time="2025-09-11T15:57:42.293382" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+<msg time="2025-09-12T01:00:57.254966" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
  status=201, reason=Created 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'b375d470a221683a373161d45d00787c', 'date': 'Thu, 11 Sep 2025 18:57:42 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '4fe9131886531c5bf5af2e221249945e;o=1', 'date': 'Fri, 12 Sep 2025 04:00:57 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
  body={
     "message": "Cadastro realizado com sucesso",
-    "_id": "ZDvwLbGioTtIiiUD"
+    "_id": "b9vCbtaBmDu4yG06"
 } 
  </msg>
-<msg time="2025-09-11T15:57:42.293921" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-12T01:00:57.255217" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-11T15:57:42.294408" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2025-09-12T01:00:57.255633" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ServeRest</arg>
 <arg>url=/usuarios</arg>
@@ -107,462 +106,1025 @@
 <arg>headers=${header}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-11T15:57:41.718380" elapsed="0.576281"/>
+<status status="PASS" start="2025-09-12T01:00:56.723060" elapsed="0.532834"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Response Status: ${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.295327" elapsed="0.007039"/>
+<status status="PASS" start="2025-09-12T01:00:57.256234" elapsed="0.001008"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Response: ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.302969" elapsed="0.003292"/>
+<status status="PASS" start="2025-09-12T01:00:57.257657" elapsed="0.000891"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.307663" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2025-09-12T01:00:57.259648" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.306839" elapsed="0.001842"/>
+<status status="PASS" start="2025-09-12T01:00:57.258988" elapsed="0.001387"/>
 </kw>
 <arg>${payload['nome']}</arg>
 <arg>${payload['email']}</arg>
 <arg>${payload['password']}</arg>
-<arg>admin=true</arg>
-<status status="PASS" start="2025-09-11T15:57:41.709915" elapsed="0.599102"/>
+<arg>admin=false</arg>
+<status status="PASS" start="2025-09-12T01:00:56.716123" elapsed="0.544579"/>
 </kw>
-<status status="PASS" start="2025-09-11T15:57:41.688520" elapsed="0.620811"/>
+<status status="PASS" start="2025-09-12T01:00:56.701647" elapsed="0.559362"/>
 </kw>
-<kw name="Fazer Login" owner="login_keywords">
-<kw name="POST Endpoint /login" owner="login_keywords">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.314684" level="INFO">${payload} = {'email': 'qsilva@example.net', 'password': 'z7WBVQFX&amp;2'}</msg>
-<var>${payload}</var>
-<arg>email=${email}</arg>
-<arg>password=${password}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.313817" elapsed="0.001751"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-09-11T15:57:42.517715" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
- path_url=/login 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
- body=b'{"email": "qsilva@example.net", "password": "z7WBVQFX&amp;2"}' 
- </msg>
-<msg time="2025-09-11T15:57:42.519818" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
- status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'd332a2c809e501ca373161d45d007ddc', 'date': 'Thu, 11 Sep 2025 18:57:42 GMT', 'server': 'Google Frontend', 'Content-Length': '279'} 
- body={
-    "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFzaWx2YUBleGFtcGxlLm5ldCIsInBhc3N3b3JkIjoiejdXQlZRRlgmMiIsImlhdCI6MTc1NzYxNzA2MiwiZXhwIjoxNzU3NjE3NjYyfQ.Ygw2BQPRj2T1EUe521mMa6hbY6Kdmxxh93kna44xTnY"
-} 
- </msg>
-<msg time="2025-09-11T15:57:42.520359" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-09-11T15:57:42.521617" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=ServeRest</arg>
-<arg>url=/login</arg>
-<arg>json=${payload}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.317300" elapsed="0.204920"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.523661" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.522854" elapsed="0.001235"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Extract Token" owner="login_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.529325" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFzaWx2YUBleGFtcGxlLm5ldCIsInBhc3N3b3JkIjoiejdXQlZRRlgmMiIsImlhdCI6MTc1NzYxNzA2MiwiZXhwIjoxNzU3NjE3NjYyfQ.Ygw2BQPRj2T1EUe521mMa6hbY6Kdmxxh93kna...</msg>
-<var>${token}</var>
-<arg>${response.json()['authorization']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.527883" elapsed="0.001806"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Token obtido: ${token}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.530192" elapsed="0.001322"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.532837" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFzaWx2YUBleGFtcGxlLm5ldCIsInBhc3N3b3JkIjoiejdXQlZRRlgmMiIsImlhdCI6MTc1NzYxNzA2MiwiZXhwIjoxNzU3NjE3NjYyfQ.Ygw2BQPRj2T1EUe521mMa6hbY6Kdmxxh93kna...</msg>
-<arg>${token}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.532077" elapsed="0.001144"/>
-</kw>
-<status status="PASS" start="2025-09-11T15:57:42.526264" elapsed="0.007263"/>
-</kw>
-<arg>${response.status_code} == 200</arg>
-<arg>Extract Token</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.524665" elapsed="0.009097"/>
-</kw>
-<arg>${payload['email']}</arg>
-<arg>${payload['password']}</arg>
-<status status="PASS" start="2025-09-11T15:57:42.311133" elapsed="0.222906"/>
-</kw>
-<kw name="Validar Status Code &quot;200&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Validar Status Code &quot;201&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Variable Should Exist" owner="BuiltIn">
 <arg>${response}</arg>
 <arg>msg=Variável response não foi definida. Verifique se a requisição foi executada.</arg>
 <doc>Fails unless the given variable exists within the current scope.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.535656" elapsed="0.001265"/>
+<status status="PASS" start="2025-09-12T01:00:57.262845" elapsed="0.001113"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.541284" elapsed="0.007501"/>
+<status status="PASS" start="2025-09-12T01:00:57.264463" elapsed="0.001792"/>
 </kw>
-<status status="PASS" start="2025-09-11T15:57:42.534643" elapsed="0.014582"/>
+<status status="PASS" start="2025-09-12T01:00:57.261772" elapsed="0.004925"/>
 </kw>
-<status status="PASS" start="2025-09-11T15:57:42.309904" elapsed="0.239588"/>
-</kw>
-<kw name="Criar Produto Dinamico" owner="cadastrar_produto_keywords">
-<kw name="Criar Produto Valido" owner="dynamics">
-<kw name="Word" owner="FakerLibrary">
-<msg time="2025-09-11T15:57:42.557130" level="INFO">${nome} = autem</msg>
+<doc>Verifica se é possível cadastrar um cliente válido</doc>
+<tag>POST</tag>
+<tag>Usuarios</tag>
+<status status="PASS" start="2025-09-12T01:00:56.700072" elapsed="0.567081"/>
+</test>
+<test id="s1-t2" name="Cenário: POST | Cadastrar Cliente com e-mail já Existente" line="14">
+<kw name="Criar Cliente Valido" owner="cadastro_usuario_keywords">
+<kw name=" Criar Usuario Valido" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.274266" level="INFO">${nome} = Bella Farias</msg>
 <var>${nome}</var>
-<doc>Generate a word.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.556499" elapsed="0.001008"/>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-09-12T01:00:57.273644" elapsed="0.000922"/>
 </kw>
-<kw name="Sentence" owner="FakerLibrary">
-<msg time="2025-09-11T15:57:42.558770" level="INFO">${descricao} = Suscipit provident fugit incidunt esse adipisci.</msg>
-<var>${descricao}</var>
-<arg>nb_words=6</arg>
-<doc>Generate a sentence.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.557948" elapsed="0.001155"/>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.275615" level="INFO">${email} = vianamaria-julia@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-09-12T01:00:57.274994" elapsed="0.000925"/>
 </kw>
-<kw name="Random Number" owner="FakerLibrary">
-<msg time="2025-09-11T15:57:42.560497" level="INFO">${preco} = 2950</msg>
-<var>${preco}</var>
-<arg>digits=4</arg>
-<doc>Generate a random integer according to the following rules:</doc>
-<status status="PASS" start="2025-09-11T15:57:42.559569" elapsed="0.001238"/>
-</kw>
-<kw name="Random Number" owner="FakerLibrary">
-<msg time="2025-09-11T15:57:42.565099" level="INFO">${quantidade} = 74</msg>
-<var>${quantidade}</var>
-<arg>digits=2</arg>
-<doc>Generate a random integer according to the following rules:</doc>
-<status status="PASS" start="2025-09-11T15:57:42.564323" elapsed="0.001053"/>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.277501" level="INFO">${password} = &amp;StaBCdX04</msg>
+<var>${password}</var>
+<arg>length=10</arg>
+<arg>special_chars=True</arg>
+<arg>digits=True</arg>
+<arg>upper_case=True</arg>
+<arg>lower_case=True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.276344" elapsed="0.001512"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.566881" level="INFO">&amp;{payload} = { nome=autem | descricao=Suscipit provident fugit incidunt esse adipisci. | preco=2950 | quantidade=74 }</msg>
+<msg time="2025-09-12T01:00:57.281147" level="INFO">&amp;{payload} = { nome=Bella Farias | email=vianamaria-julia@example.com | password=&amp;StaBCdX04 }</msg>
 <var>&amp;{payload}</var>
 <arg>nome=${nome}</arg>
-<arg>descricao=${descricao}</arg>
-<arg>preco=${preco}</arg>
-<arg>quantidade=${quantidade}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.565814" elapsed="0.001364"/>
+<status status="PASS" start="2025-09-12T01:00:57.278411" elapsed="0.002975"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${payload}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.567581" elapsed="0.001811"/>
+<status status="PASS" start="2025-09-12T01:00:57.281854" elapsed="0.001256"/>
 </kw>
 <return>
 <value>${payload}</value>
-<status status="PASS" start="2025-09-11T15:57:42.569760" elapsed="0.000267"/>
+<status status="PASS" start="2025-09-12T01:00:57.283461" elapsed="0.000256"/>
 </return>
-<msg time="2025-09-11T15:57:42.570583" level="INFO">${payload} = {'nome': 'autem', 'descricao': 'Suscipit provident fugit incidunt esse adipisci.', 'preco': 2950, 'quantidade': 74}</msg>
+<msg time="2025-09-12T01:00:57.284224" level="INFO">${payload} = {'nome': 'Bella Farias', 'email': 'vianamaria-julia@example.com', 'password': '&amp;StaBCdX04'}</msg>
 <var>${payload}</var>
-<status status="PASS" start="2025-09-11T15:57:42.550996" elapsed="0.020405"/>
+<status status="PASS" start="2025-09-12T01:00:57.272589" elapsed="0.011903"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.572653" level="INFO">${payload} = {'nome': 'autem', 'descricao': 'Suscipit provident fugit incidunt esse adipisci.', 'preco': 2950, 'quantidade': 74}</msg>
+<msg time="2025-09-12T01:00:57.285489" level="INFO">${payload} = {'nome': 'Bella Farias', 'email': 'vianamaria-julia@example.com', 'password': '&amp;StaBCdX04'}</msg>
 <arg>${payload}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.571920" elapsed="0.001058"/>
+<status status="PASS" start="2025-09-12T01:00:57.284952" elapsed="0.000844"/>
 </kw>
-<kw name="POST Endpoint /produtos" owner="cadastrar_produto_keywords">
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.577782" level="INFO">&amp;{header} = { Content-Type=application/json | Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFzaWx2YUBleGFtcGxlLm5ldCIsInBhc3N3b3JkIjoiejdXQlZRRlgmMiIsImlhdCI6MTc1NzYxNzA2MiwiZXhwIjoxNzU3...</msg>
+<msg time="2025-09-12T01:00:57.289118" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
 <var>&amp;{header}</var>
 <arg>Content-Type=application/json</arg>
-<arg>Authorization=${token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.576695" elapsed="0.001448"/>
+<status status="PASS" start="2025-09-12T01:00:57.288463" elapsed="0.000927"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.580136" level="INFO">${payload} = {'nome': 'autem', 'descricao': 'Suscipit provident fugit incidunt esse adipisci.', 'preco': 2950, 'quantidade': 74}</msg>
+<msg time="2025-09-12T01:00:57.290956" level="INFO">${payload} = {'nome': 'Bella Farias', 'email': 'vianamaria-julia@example.com', 'password': '&amp;StaBCdX04', 'administrador': 'false'}</msg>
 <var>${payload}</var>
 <arg>nome=${nome}</arg>
-<arg>descricao=${descricao}</arg>
-<arg>preco=${preco}</arg>
-<arg>quantidade=${quantidade}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.578642" elapsed="0.001787"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-09-11T15:57:42.784640" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
- path_url=/produtos 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFzaWx2YUBleGFtcGxlLm5ldCIsInBhc3N3b3JkIjoiejdXQlZRRlgmMiIsImlhdCI6MTc1NzYxNzA2MiwiZXhwIjoxNzU3NjE3NjYyfQ.Ygw2BQPRj2T1EUe521mMa6hbY6Kdmxxh93kna44xTnY', 'Content-Length': '115'} 
- body=b'{"nome": "autem", "descricao": "Suscipit provident fugit incidunt esse adipisci.", "preco": 2950, "quantidade": 74}' 
- </msg>
-<msg time="2025-09-11T15:57:42.785137" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
- status=201, reason=Created 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'a037b8438e4fcb1b373161d45d007abd', 'date': 'Thu, 11 Sep 2025 18:57:42 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
- body={
-    "message": "Cadastro realizado com sucesso",
-    "_id": "73OaUclWCiqyuwGo"
-} 
- </msg>
-<msg time="2025-09-11T15:57:42.785456" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-09-11T15:57:42.788191" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>alias=ServeRest</arg>
-<arg>url=/produtos</arg>
-<arg>json=${payload}</arg>
-<arg>headers=${header}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.580918" elapsed="0.207644"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Response Status: ${response.status_code}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.792133" elapsed="0.001502"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Response: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.794166" elapsed="0.004252"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.799922" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.799138" elapsed="0.001126"/>
-</kw>
-<arg>${payload['nome']}</arg>
-<arg>${payload['descricao']}</arg>
-<arg>${payload['preco']}</arg>
-<arg>${payload['quantidade']}</arg>
-<status status="PASS" start="2025-09-11T15:57:42.573581" elapsed="0.226975"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.807370" level="INFO">${id_produto} = 73OaUclWCiqyuwGo</msg>
-<var>${id_produto}</var>
-<arg>${response.json()['_id']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.801020" elapsed="0.006668"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.808860" level="INFO">${id_produto} = 73OaUclWCiqyuwGo</msg>
-<arg>${id_produto}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.808193" elapsed="0.004169"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>message ID do Produto: ${id_produto}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.812906" elapsed="0.000624"/>
-</kw>
-<status status="PASS" start="2025-09-11T15:57:42.550039" elapsed="0.263791"/>
-</kw>
-<status status="PASS" start="2025-09-11T15:57:41.687603" elapsed="1.126486"/>
-</kw>
-<kw name="POST Endpoint /login" owner="login_keywords">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:42.821139" level="INFO">${payload} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
-<var>${payload}</var>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.818755" elapsed="0.002713"/>
+<status status="PASS" start="2025-09-12T01:00:57.289863" elapsed="0.001431"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-09-11T15:57:43.029451" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
- path_url=/login 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
- body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+<msg time="2025-09-12T01:00:57.487694" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '117'} 
+ body=b'{"nome": "Bella Farias", "email": "vianamaria-julia@example.com", "password": "&amp;StaBCdX04", "administrador": "false"}' 
  </msg>
-<msg time="2025-09-11T15:57:43.032759" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
- status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '37e86d960b708ad1373161d45d007877', 'date': 'Thu, 11 Sep 2025 18:57:42 GMT', 'server': 'Google Frontend', 'Content-Length': '265'} 
+<msg time="2025-09-12T01:00:57.488040" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '68fe9606fd239d4df5af2e22124990f7', 'date': 'Fri, 12 Sep 2025 04:00:57 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
  body={
-    "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NjE3MDYyLCJleHAiOjE3NTc2MTc2NjJ9.wrOwLm_GuYQaU_qYkC8_xhF3b0tutXa9JsRhSASu_HI"
+    "message": "Cadastro realizado com sucesso",
+    "_id": "qYhyPXU2xIUkOUXW"
 } 
  </msg>
-<msg time="2025-09-11T15:57:43.036839" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-12T01:00:57.488255" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-11T15:57:43.040469" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-12T01:00:57.488688" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ServeRest</arg>
-<arg>url=/login</arg>
-<arg>json=${payload}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-11T15:57:42.825270" elapsed="0.215634"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:43.045436" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.041574" elapsed="0.006460"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Extract Token" owner="login_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:43.059468" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NjE3MDYyLCJleHAiOjE3NTc2MTc2NjJ9.wrOwLm_GuYQaU_qYkC8_xhF3b0tutXa9JsRhSASu_HI</msg>
-<var>${token}</var>
-<arg>${response.json()['authorization']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.058030" elapsed="0.002049"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Token obtido: ${token}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.060579" elapsed="0.002976"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:43.064802" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NjE3MDYyLCJleHAiOjE3NTc2MTc2NjJ9.wrOwLm_GuYQaU_qYkC8_xhF3b0tutXa9JsRhSASu_HI</msg>
-<arg>${token}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.064152" elapsed="0.002442"/>
-</kw>
-<status status="PASS" start="2025-09-11T15:57:43.053712" elapsed="0.013257"/>
-</kw>
-<arg>${response.status_code} == 200</arg>
-<arg>Extract Token</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.048858" elapsed="0.018370"/>
-</kw>
-<arg>fulano@qa.com</arg>
-<arg>teste</arg>
-<status status="PASS" start="2025-09-11T15:57:42.814692" elapsed="0.252816"/>
-</kw>
-<kw name="PUT Endpoint /produtos" owner="editar_produto_keywords">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:43.093806" level="INFO">&amp;{header} = { Content-Type=application/json | Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NjE3MDYyLCJleHAiOjE3NTc2MTc2NjJ9.wrO...</msg>
-<var>&amp;{header}</var>
-<arg>Content-Type=application/json</arg>
-<arg>Authorization=${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.087133" elapsed="0.007729"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-11T15:57:43.098604" level="INFO">${payload} = {'nome': 'autem - Editado', 'descricao': 'Suscipit provident fugit incidunt esse adipisci. - Editado', 'preco': 2950, 'quantidade': '74}'}</msg>
-<var>${payload}</var>
-<arg>nome=${nome}</arg>
-<arg>descricao=${descricao}</arg>
-<arg>preco=${preco}</arg>
-<arg>quantidade=${quantidade}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.095697" elapsed="0.003263"/>
-</kw>
-<kw name="PUT On Session" owner="RequestsLibrary">
-<msg time="2025-09-11T15:57:43.319174" level="INFO">PUT Request : url=https://compassuol.serverest.dev/produtos/73OaUclWCiqyuwGo 
- path_url=/produtos/73OaUclWCiqyuwGo 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzU3NjE3MDYyLCJleHAiOjE3NTc2MTc2NjJ9.wrOwLm_GuYQaU_qYkC8_xhF3b0tutXa9JsRhSASu_HI', 'Content-Length': '138'} 
- body=b'{"nome": "autem - Editado", "descricao": "Suscipit provident fugit incidunt esse adipisci. - Editado", "preco": 2950, "quantidade": "74}"}' 
- </msg>
-<msg time="2025-09-11T15:57:43.319652" level="INFO">PUT Response : url=https://compassuol.serverest.dev/produtos/73OaUclWCiqyuwGo 
- status=403, reason=Forbidden 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '4efa9228c6f5b99a373161d45d0079c8', 'date': 'Thu, 11 Sep 2025 18:57:43 GMT', 'server': 'Google Frontend', 'Content-Length': '56'} 
- body={
-    "message": "Rota exclusiva para administradores"
-} 
- </msg>
-<msg time="2025-09-11T15:57:43.320194" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-09-11T15:57:43.322730" level="INFO">${response} = &lt;Response [403]&gt;</msg>
-<var>${response}</var>
-<arg>alias=ServeRest</arg>
-<arg>url=/produtos/${id}</arg>
+<arg>url=/usuarios</arg>
 <arg>json=${payload}</arg>
 <arg>headers=${header}</arg>
 <arg>expected_status=any</arg>
-<doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.099452" elapsed="0.223689"/>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.291865" elapsed="0.197045"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Response Status: ${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.323637" elapsed="0.001737"/>
+<status status="PASS" start="2025-09-12T01:00:57.489414" elapsed="0.001146"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Response: ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.325952" elapsed="0.001293"/>
+<status status="PASS" start="2025-09-12T01:00:57.490931" elapsed="0.000710"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:43.328474" level="INFO">${response} = &lt;Response [403]&gt;</msg>
+<msg time="2025-09-12T01:00:57.492296" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.327727" elapsed="0.001100"/>
+<status status="PASS" start="2025-09-12T01:00:57.491926" elapsed="0.000555"/>
 </kw>
-<arg>${id_produto}</arg>
-<arg>${payload['nome']} - Editado</arg>
-<arg>${payload['descricao']} - Editado</arg>
-<arg>${payload['preco']}</arg>
-<arg>${payload['quantidade']}}</arg>
-<status status="PASS" start="2025-09-11T15:57:43.071999" elapsed="0.257152"/>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=false</arg>
+<status status="PASS" start="2025-09-12T01:00:57.286205" elapsed="0.206510"/>
 </kw>
-<kw name="Validar Status Code &quot;403&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<status status="PASS" start="2025-09-12T01:00:57.271674" elapsed="0.221308"/>
+</kw>
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.497630" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.496932" elapsed="0.001006"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.499634" level="INFO">${payload} = {'nome': 'Bella Farias', 'email': 'vianamaria-julia@example.com', 'password': '&amp;StaBCdX04', 'administrador': 'false'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.498456" elapsed="0.001520"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-12T01:00:57.692922" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '117'} 
+ body=b'{"nome": "Bella Farias", "email": "vianamaria-julia@example.com", "password": "&amp;StaBCdX04", "administrador": "false"}' 
+ </msg>
+<msg time="2025-09-12T01:00:57.694251" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '285c7ab0bc868631f5af2e2212499bd6', 'date': 'Fri, 12 Sep 2025 04:00:57 GMT', 'server': 'Google Frontend', 'Content-Length': '53'} 
+ body={
+    "message": "Este email já está sendo usado"
+} 
+ </msg>
+<msg time="2025-09-12T01:00:57.694801" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-12T01:00:57.695505" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.500484" elapsed="0.195329"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.696353" elapsed="0.002153"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.699077" elapsed="0.004018"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.704587" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.703752" elapsed="0.001260"/>
+</kw>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=false</arg>
+<status status="PASS" start="2025-09-12T01:00:57.493741" elapsed="0.211747"/>
+</kw>
+<kw name="Validar Status Code &quot;400&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Variable Should Exist" owner="BuiltIn">
 <arg>${response}</arg>
 <arg>msg=Variável response não foi definida. Verifique se a requisição foi executada.</arg>
 <doc>Fails unless the given variable exists within the current scope.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.332261" elapsed="0.000688"/>
+<status status="PASS" start="2025-09-12T01:00:57.707146" elapsed="0.000664"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.333350" elapsed="0.002187"/>
+<status status="PASS" start="2025-09-12T01:00:57.708296" elapsed="0.002011"/>
 </kw>
-<status status="PASS" start="2025-09-11T15:57:43.331215" elapsed="0.004622"/>
+<status status="PASS" start="2025-09-12T01:00:57.706224" elapsed="0.004437"/>
 </kw>
 <kw name="Validar mensagem de erro:" owner="common">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-11T15:57:43.340624" level="INFO">${response_message} = Rota exclusiva para administradores</msg>
+<msg time="2025-09-12T01:00:57.713768" level="INFO">${response_message} = Este email já está sendo usado</msg>
 <var>${response_message}</var>
 <arg>${response.json()['message']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.339773" elapsed="0.001489"/>
+<status status="PASS" start="2025-09-12T01:00:57.712477" elapsed="0.003661"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${response_message}</arg>
 <arg>${expected_message}</arg>
 <arg>msg=Mensagem de erro inesperada. Esperado: ${expected_message}, Obtido: ${response_message}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-09-11T15:57:43.341703" elapsed="0.000965"/>
+<status status="PASS" start="2025-09-12T01:00:57.716675" elapsed="0.001053"/>
 </kw>
-<arg>Rota exclusiva para administradores</arg>
-<status status="PASS" start="2025-09-11T15:57:43.338988" elapsed="0.003906"/>
+<arg>Este email já está sendo usado</arg>
+<status status="PASS" start="2025-09-12T01:00:57.711591" elapsed="0.006476"/>
 </kw>
-<doc>Verifica se é possível editar um produto sendo um cliente</doc>
-<tag>Produtos</tag>
-<tag>PUT</tag>
-<status status="PASS" start="2025-09-11T15:57:41.686277" elapsed="1.658293"/>
+<doc>Verifica se não é possível cadastrar um cliente com e-mail já existente</doc>
+<tag>POST</tag>
+<tag>Usuarios</tag>
+<status status="PASS" start="2025-09-12T01:00:57.270226" elapsed="0.448884"/>
 </test>
-<doc>Arquivos de testes para o endpoint /produtos</doc>
-<status status="PASS" start="2025-09-11T15:57:41.097979" elapsed="2.249686"/>
+<test id="s1-t3" name="Cenário: POST | Cadastrar Cliente com e-mail Gmail" line="22">
+<kw name="Criar Cliente Gmail Invalido" owner="cadastro_usuario_keywords">
+<kw name="Criar Usuario Gmail Invalido" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.726694" level="INFO">${nome} = Sra. Ana Vitória Oliveira</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-09-12T01:00:57.726084" elapsed="0.000936"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.729158" level="INFO">${email} = rafaela94@gmail.com</msg>
+<var>${email}</var>
+<arg>domain=gmail.com</arg>
+<status status="PASS" start="2025-09-12T01:00:57.728306" elapsed="0.001113"/>
+</kw>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.731135" level="INFO">${password} = 4_U8CVs$_q</msg>
+<var>${password}</var>
+<arg>length=10</arg>
+<arg>special_chars=True</arg>
+<arg>digits=True</arg>
+<arg>upper_case=True</arg>
+<arg>lower_case=True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.729844" elapsed="0.001592"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.732975" level="INFO">&amp;{payload} = { nome=Sra. Ana Vitória Oliveira | email=rafaela94@gmail.com | password=4_U8CVs$_q }</msg>
+<var>&amp;{payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.731959" elapsed="0.001290"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${payload}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.733707" elapsed="0.002278"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-09-12T01:00:57.736281" elapsed="0.000231"/>
+</return>
+<msg time="2025-09-12T01:00:57.736979" level="INFO">${payload} = {'nome': 'Sra. Ana Vitória Oliveira', 'email': 'rafaela94@gmail.com', 'password': '4_U8CVs$_q'}</msg>
+<var>${payload}</var>
+<status status="PASS" start="2025-09-12T01:00:57.725137" elapsed="0.012113"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.738629" level="INFO">${payload} = {'nome': 'Sra. Ana Vitória Oliveira', 'email': 'rafaela94@gmail.com', 'password': '4_U8CVs$_q'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.737705" elapsed="0.001263"/>
+</kw>
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.747149" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.746149" elapsed="0.001429"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.749265" level="INFO">${payload} = {'nome': 'Sra. Ana Vitória Oliveira', 'email': 'rafaela94@gmail.com', 'password': '4_U8CVs$_q', 'administrador': 'false'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.748231" elapsed="0.001296"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-12T01:00:57.943675" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '126'} 
+ body=b'{"nome": "Sra. Ana Vit\\u00f3ria Oliveira", "email": "rafaela94@gmail.com", "password": "4_U8CVs$_q", "administrador": "false"}' 
+ </msg>
+<msg time="2025-09-12T01:00:57.944086" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '0e4e5a4425e24a07f5af2e2212499104', 'date': 'Fri, 12 Sep 2025 04:00:57 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "pwfTbDhjJi8xPwLX"
+} 
+ </msg>
+<msg time="2025-09-12T01:00:57.944296" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-12T01:00:57.944712" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.751299" elapsed="0.193795"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.945616" elapsed="0.001187"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.947301" elapsed="0.000700"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.948740" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.948394" elapsed="0.000595"/>
+</kw>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=false</arg>
+<status status="PASS" start="2025-09-12T01:00:57.740376" elapsed="0.208777"/>
+</kw>
+<status status="PASS" start="2025-09-12T01:00:57.722541" elapsed="0.226778"/>
+</kw>
+<kw name="Validar Status Code &quot;400&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Variable Should Exist" owner="BuiltIn">
+<arg>${response}</arg>
+<arg>msg=Variável response não foi definida. Verifique se a requisição foi executada.</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.951156" elapsed="0.000714"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.954758" level="FAIL">'201 == 400' should be true.</msg>
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-09-12T01:00:57.952357" elapsed="0.004153">'201 == 400' should be true.</status>
+</kw>
+<status status="FAIL" start="2025-09-12T01:00:57.950233" elapsed="0.006783">'201 == 400' should be true.</status>
+</kw>
+<doc>Na documentação está especificado que o e-mail não pode ser do dominio Gmail</doc>
+<tag>POST</tag>
+<tag>Usuarios</tag>
+<status status="FAIL" start="2025-09-12T01:00:57.721149" elapsed="0.236446">'201 == 400' should be true.</status>
+</test>
+<test id="s1-t4" name="Cenário: POST | Cadastrar Cliente com e-mail Hotmail" line="28">
+<kw name="Criar Cliente Hotmail Invalido" owner="cadastro_usuario_keywords">
+<kw name="Criar Usuario Hotmail Invalido" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.965685" level="INFO">${nome} = Ana Sophia Cassiano</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-09-12T01:00:57.965121" elapsed="0.002599"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.969097" level="INFO">${email} = ericksales@hotmail.com</msg>
+<var>${email}</var>
+<arg>domain=hotmail.com</arg>
+<status status="PASS" start="2025-09-12T01:00:57.968166" elapsed="0.003889"/>
+</kw>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:57.973647" level="INFO">${password} = #f6HvGFkq(</msg>
+<var>${password}</var>
+<arg>length=10</arg>
+<arg>special_chars=True</arg>
+<arg>digits=True</arg>
+<arg>upper_case=True</arg>
+<arg>lower_case=True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.972527" elapsed="0.001423"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.977153" level="INFO">&amp;{payload} = { nome=Ana Sophia Cassiano | email=ericksales@hotmail.com | password=#f6HvGFkq( }</msg>
+<var>&amp;{payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.974441" elapsed="0.003026"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${payload}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.977945" elapsed="0.001757"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-09-12T01:00:57.980019" elapsed="0.000231"/>
+</return>
+<msg time="2025-09-12T01:00:57.980712" level="INFO">${payload} = {'nome': 'Ana Sophia Cassiano', 'email': 'ericksales@hotmail.com', 'password': '#f6HvGFkq('}</msg>
+<var>${payload}</var>
+<status status="PASS" start="2025-09-12T01:00:57.964218" elapsed="0.016783"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.982101" level="INFO">${payload} = {'nome': 'Ana Sophia Cassiano', 'email': 'ericksales@hotmail.com', 'password': '#f6HvGFkq('}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.981457" elapsed="0.000946"/>
+</kw>
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.987736" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.987027" elapsed="0.000976"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:57.989457" level="INFO">${payload} = {'nome': 'Ana Sophia Cassiano', 'email': 'ericksales@hotmail.com', 'password': '#f6HvGFkq(', 'administrador': 'false'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.988459" elapsed="0.001256"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-12T01:00:58.180835" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '118'} 
+ body=b'{"nome": "Ana Sophia Cassiano", "email": "ericksales@hotmail.com", "password": "#f6HvGFkq(", "administrador": "false"}' 
+ </msg>
+<msg time="2025-09-12T01:00:58.181276" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'cb1587596d483b8af5af2e2212499fda', 'date': 'Fri, 12 Sep 2025 04:00:58 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "hniGy8PKqrzyNSH4"
+} 
+ </msg>
+<msg time="2025-09-12T01:00:58.181583" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-12T01:00:58.182014" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:57.990155" elapsed="0.192071"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.182709" elapsed="0.001123"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.184233" elapsed="0.001020"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.186233" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.185665" elapsed="0.000819"/>
+</kw>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=false</arg>
+<status status="PASS" start="2025-09-12T01:00:57.982990" elapsed="0.203733"/>
+</kw>
+<status status="PASS" start="2025-09-12T01:00:57.962764" elapsed="0.224224"/>
+</kw>
+<kw name="Validar Status Code &quot;400&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Variable Should Exist" owner="BuiltIn">
+<arg>${response}</arg>
+<arg>msg=Variável response não foi definida. Verifique se a requisição foi executada.</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.188542" elapsed="0.000525"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.190604" level="FAIL">'201 == 400' should be true.</msg>
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-09-12T01:00:58.189401" elapsed="0.001503">'201 == 400' should be true.</status>
+</kw>
+<status status="FAIL" start="2025-09-12T01:00:58.187701" elapsed="0.003472">'201 == 400' should be true.</status>
+</kw>
+<doc>Na documentação está especificado que o e-mail não pode ser do dominio Hotmail</doc>
+<tag>POST</tag>
+<tag>Usuarios</tag>
+<status status="FAIL" start="2025-09-12T01:00:57.960339" elapsed="0.233086">'201 == 400' should be true.</status>
+</test>
+<test id="s1-t5" name="Cenário: POST | Cadastrar um Administrador com e-mail de um cliente" line="34">
+<kw name="Criar Cliente Valido" owner="cadastro_usuario_keywords">
+<kw name=" Criar Usuario Valido" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:58.199531" level="INFO">${nome} = Luan Sousa</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-09-12T01:00:58.199006" elapsed="0.000834"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:58.200748" level="INFO">${email} = monteiromaria-vitoria@example.org</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-09-12T01:00:58.200221" elapsed="0.000762"/>
+</kw>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:58.203520" level="INFO">${password} = b^DLb6pnHO</msg>
+<var>${password}</var>
+<arg>length=10</arg>
+<arg>special_chars=True</arg>
+<arg>digits=True</arg>
+<arg>upper_case=True</arg>
+<arg>lower_case=True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.201302" elapsed="0.004049"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.206912" level="INFO">&amp;{payload} = { nome=Luan Sousa | email=monteiromaria-vitoria@example.org | password=b^DLb6pnHO }</msg>
+<var>&amp;{payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.205908" elapsed="0.001252"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${payload}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.207564" elapsed="0.002458"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-09-12T01:00:58.210293" elapsed="0.000215"/>
+</return>
+<msg time="2025-09-12T01:00:58.210987" level="INFO">${payload} = {'nome': 'Luan Sousa', 'email': 'monteiromaria-vitoria@example.org', 'password': 'b^DLb6pnHO'}</msg>
+<var>${payload}</var>
+<status status="PASS" start="2025-09-12T01:00:58.198392" elapsed="0.012865"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.212396" level="INFO">${payload} = {'nome': 'Luan Sousa', 'email': 'monteiromaria-vitoria@example.org', 'password': 'b^DLb6pnHO'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.211713" elapsed="0.000986"/>
+</kw>
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.217186" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.216513" elapsed="0.000962"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.218972" level="INFO">${payload} = {'nome': 'Luan Sousa', 'email': 'monteiromaria-vitoria@example.org', 'password': 'b^DLb6pnHO', 'administrador': 'false'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.217967" elapsed="0.001278"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-12T01:00:58.416912" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '120'} 
+ body=b'{"nome": "Luan Sousa", "email": "monteiromaria-vitoria@example.org", "password": "b^DLb6pnHO", "administrador": "false"}' 
+ </msg>
+<msg time="2025-09-12T01:00:58.417844" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '7d31d784d04b0157f5af2e2212499923', 'date': 'Fri, 12 Sep 2025 04:00:58 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "o4xaSyyrWRKKFgBn"
+} 
+ </msg>
+<msg time="2025-09-12T01:00:58.418213" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-12T01:00:58.418741" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.219716" elapsed="0.199350"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.419611" elapsed="0.001392"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.421475" elapsed="0.001370"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.423920" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.423381" elapsed="0.000887"/>
+</kw>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=false</arg>
+<status status="PASS" start="2025-09-12T01:00:58.213268" elapsed="0.211316"/>
+</kw>
+<status status="PASS" start="2025-09-12T01:00:58.197121" elapsed="0.227773"/>
+</kw>
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.431447" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.430665" elapsed="0.001080"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.433343" level="INFO">${payload} = {'nome': 'Luan Sousa', 'email': 'monteiromaria-vitoria@example.org', 'password': 'b^DLb6pnHO', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.432264" elapsed="0.001498"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-12T01:00:58.628224" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '119'} 
+ body=b'{"nome": "Luan Sousa", "email": "monteiromaria-vitoria@example.org", "password": "b^DLb6pnHO", "administrador": "true"}' 
+ </msg>
+<msg time="2025-09-12T01:00:58.628667" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '12bd9fe761032bcdf5af2e2212499e51', 'date': 'Fri, 12 Sep 2025 04:00:58 GMT', 'server': 'Google Frontend', 'Content-Length': '53'} 
+ body={
+    "message": "Este email já está sendo usado"
+} 
+ </msg>
+<msg time="2025-09-12T01:00:58.628991" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-12T01:00:58.629723" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.434276" elapsed="0.196284"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.631727" elapsed="0.001261"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.633433" elapsed="0.001059"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.637586" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.634943" elapsed="0.002971"/>
+</kw>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=true</arg>
+<status status="PASS" start="2025-09-12T01:00:58.426941" elapsed="0.211229"/>
+</kw>
+<kw name="Validar Status Code &quot;400&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Variable Should Exist" owner="BuiltIn">
+<arg>${response}</arg>
+<arg>msg=Variável response não foi definida. Verifique se a requisição foi executada.</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.644232" elapsed="0.000618"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.645289" elapsed="0.005969"/>
+</kw>
+<status status="PASS" start="2025-09-12T01:00:58.643355" elapsed="0.008238"/>
+</kw>
+<kw name="Validar mensagem de erro:" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.660490" level="INFO">${response_message} = Este email já está sendo usado</msg>
+<var>${response_message}</var>
+<arg>${response.json()['message']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.659285" elapsed="0.003564"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response_message}</arg>
+<arg>${expected_message}</arg>
+<arg>msg=Mensagem de erro inesperada. Esperado: ${expected_message}, Obtido: ${response_message}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.667162" elapsed="0.001028"/>
+</kw>
+<arg>Este email já está sendo usado</arg>
+<status status="PASS" start="2025-09-12T01:00:58.655245" elapsed="0.013663"/>
+</kw>
+<doc>Verifica se não é possível cadastrar um administrador com e-mail de cliente já existente</doc>
+<tag>POST</tag>
+<tag>Usuarios</tag>
+<status status="PASS" start="2025-09-12T01:00:58.194907" elapsed="0.476371"/>
+</test>
+<test id="s1-t6" name="Cenário: POST | Cadastrar um Cliente com e-mail de um Administrador" line="42">
+<kw name="Criar Administrador Valido" owner="cadastro_usuario_keywords">
+<kw name=" Criar Usuario Valido" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:58.676073" level="INFO">${nome} = Hadassa Cardoso</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-09-12T01:00:58.675264" elapsed="0.001103"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:58.677302" level="INFO">${email} = wpeixoto@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-09-12T01:00:58.676768" elapsed="0.000775"/>
+</kw>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2025-09-12T01:00:58.678970" level="INFO">${password} = +@l$5tSbSG</msg>
+<var>${password}</var>
+<arg>length=10</arg>
+<arg>special_chars=True</arg>
+<arg>digits=True</arg>
+<arg>upper_case=True</arg>
+<arg>lower_case=True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.677948" elapsed="0.001263"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.682692" level="INFO">&amp;{payload} = { nome=Hadassa Cardoso | email=wpeixoto@example.com | password=+@l$5tSbSG }</msg>
+<var>&amp;{payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.679670" elapsed="0.003353"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${payload}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.683501" elapsed="0.000981"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-09-12T01:00:58.684770" elapsed="0.000229"/>
+</return>
+<msg time="2025-09-12T01:00:58.685458" level="INFO">${payload} = {'nome': 'Hadassa Cardoso', 'email': 'wpeixoto@example.com', 'password': '+@l$5tSbSG'}</msg>
+<var>${payload}</var>
+<status status="PASS" start="2025-09-12T01:00:58.674664" elapsed="0.011044"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.686794" level="INFO">${payload} = {'nome': 'Hadassa Cardoso', 'email': 'wpeixoto@example.com', 'password': '+@l$5tSbSG'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.686152" elapsed="0.000928"/>
+</kw>
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.692107" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.691443" elapsed="0.000930"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.693902" level="INFO">${payload} = {'nome': 'Hadassa Cardoso', 'email': 'wpeixoto@example.com', 'password': '+@l$5tSbSG', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.692868" elapsed="0.001307"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-12T01:00:58.889390" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '111'} 
+ body=b'{"nome": "Hadassa Cardoso", "email": "wpeixoto@example.com", "password": "+@l$5tSbSG", "administrador": "true"}' 
+ </msg>
+<msg time="2025-09-12T01:00:58.889836" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '63fce1dfab197696f5af2e2212499930', 'date': 'Fri, 12 Sep 2025 04:00:58 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "a2O3HTBMOUw5fuiN"
+} 
+ </msg>
+<msg time="2025-09-12T01:00:58.890144" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-12T01:00:58.890546" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.694632" elapsed="0.196050"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.891089" elapsed="0.001095"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.892535" elapsed="0.001003"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.894406" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.893863" elapsed="0.000793"/>
+</kw>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=true</arg>
+<status status="PASS" start="2025-09-12T01:00:58.687611" elapsed="0.207308"/>
+</kw>
+<status status="PASS" start="2025-09-12T01:00:58.673949" elapsed="0.221212"/>
+</kw>
+<kw name="POST Endpoint /usuarios" owner="cadastro_usuario_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.899564" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.898896" elapsed="0.000974"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-12T01:00:58.901600" level="INFO">${payload} = {'nome': 'Hadassa Cardoso', 'email': 'wpeixoto@example.com', 'password': '+@l$5tSbSG', 'administrador': 'false'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.900267" elapsed="0.001632"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-12T01:00:59.094063" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '112'} 
+ body=b'{"nome": "Hadassa Cardoso", "email": "wpeixoto@example.com", "password": "+@l$5tSbSG", "administrador": "false"}' 
+ </msg>
+<msg time="2025-09-12T01:00:59.094833" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '51c0de5d5e6740d2f5af2e2212499320', 'date': 'Fri, 12 Sep 2025 04:00:59 GMT', 'server': 'Google Frontend', 'Content-Length': '53'} 
+ body={
+    "message": "Este email já está sendo usado"
+} 
+ </msg>
+<msg time="2025-09-12T01:00:59.095421" level="INFO">/home/rafael/default/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-12T01:00:59.096231" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-12T01:00:58.902503" elapsed="0.194229"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:59.098007" elapsed="0.002517"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-12T01:00:59.101441" elapsed="0.003573"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:59.107194" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-12T01:00:59.106026" elapsed="0.001677"/>
+</kw>
+<arg>${payload['nome']}</arg>
+<arg>${payload['email']}</arg>
+<arg>${payload['password']}</arg>
+<arg>admin=false</arg>
+<status status="PASS" start="2025-09-12T01:00:58.895823" elapsed="0.212351"/>
+</kw>
+<kw name="Validar Status Code &quot;400&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Variable Should Exist" owner="BuiltIn">
+<arg>${response}</arg>
+<arg>msg=Variável response não foi definida. Verifique se a requisição foi executada.</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" start="2025-09-12T01:00:59.116118" elapsed="0.001435"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-12T01:00:59.119540" elapsed="0.004541"/>
+</kw>
+<status status="PASS" start="2025-09-12T01:00:59.112897" elapsed="0.011550"/>
+</kw>
+<kw name="Validar mensagem de erro:" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-12T01:00:59.131013" level="INFO">${response_message} = Este email já está sendo usado</msg>
+<var>${response_message}</var>
+<arg>${response.json()['message']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-12T01:00:59.129863" elapsed="0.001421"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response_message}</arg>
+<arg>${expected_message}</arg>
+<arg>msg=Mensagem de erro inesperada. Esperado: ${expected_message}, Obtido: ${response_message}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-09-12T01:00:59.131724" elapsed="0.000950"/>
+</kw>
+<arg>Este email já está sendo usado</arg>
+<status status="PASS" start="2025-09-12T01:00:59.128959" elapsed="0.004056"/>
+</kw>
+<doc>Verifica se não é possível cadastrar um cliente com e-mail de um administrador já existente</doc>
+<tag>POST</tag>
+<tag>Usuarios</tag>
+<status status="PASS" start="2025-09-12T01:00:58.672546" elapsed="0.461047"/>
+</test>
+<doc>Arquivos de testes para o endpoint /usuarios</doc>
+<status status="FAIL" start="2025-09-12T01:00:56.010458" elapsed="3.124462"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Produtos</stat>
-<stat pass="1" fail="0" skip="0">PUT</stat>
+<stat pass="4" fail="2" skip="0">POST</stat>
+<stat pass="4" fail="2" skip="0">Usuarios</stat>
 </tag>
 <suite>
-<stat name="Produtos Teste" id="s1" pass="1" fail="0" skip="0">Produtos Teste</stat>
+<stat name="Cadastro Teste" id="s1" pass="4" fail="2" skip="0">Cadastro Teste</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-09-11T15:57:41.289827" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 16: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-09-11T15:57:41.290211" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 27: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-09-11T15:57:41.290461" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 38: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-09-11T15:57:41.290721" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 50: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-09-11T15:57:41.675585" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/common/common.robot' on line 21: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-12T01:00:56.214972" level="WARN">Imported resource file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/keywords/buscar_produto_keywords.robot' is empty.</msg>
+<msg time="2025-09-12T01:00:56.217547" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 16: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-12T01:00:56.217769" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 27: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-12T01:00:56.218041" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 38: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-12T01:00:56.218300" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/fixtures/dynamics.robot' on line 50: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-12T01:00:56.691034" level="WARN">Error in file '/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 12 - Challenge 03/ServeRest + RobotFramework/support/common/common.robot' on line 21: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
