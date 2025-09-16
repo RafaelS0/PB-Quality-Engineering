@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-16T14:35:13.487170" rpa="false" schemaversion="5">
+<suite id="s1" name="Hello" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/hello.robot">
+<test id="s1-t1" name="Deve mostrar mensagens de boas vindas" line="5">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Hello World!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-16T14:35:13.534985" elapsed="0.000388"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:35:13.533593" elapsed="0.002114"/>
+</test>
+<doc>Um exemplo em Robot Framework</doc>
+<status status="PASS" start="2025-09-16T14:35:13.489281" elapsed="0.047031"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Hello" id="s1" pass="1" fail="0" skip="0">Hello</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
