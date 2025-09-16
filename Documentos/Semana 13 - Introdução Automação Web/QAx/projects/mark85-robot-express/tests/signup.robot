@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Cenários de teste do cadastro de usuários
-Library             SeleniumLibrary
-Library             FakerLibrary
+Resource            ../resources/base.robot
+
 
 *** Test Cases ***
 Cadastro de usuário com sucesso
@@ -10,8 +10,8 @@ Cadastro de usuário com sucesso
     ${name}=    FakerLibrary.name
     ${email}=    FakerLibrary.email
     ${password}=    SetVariable    senha123
-
-    Open Browser    http://localhost:3000    chrome
+    
+    Iniciar Sessão
     Click Link    xpath=//a[@href='/signup']
     Wait Until Element Is Visible    xpath=//h1[contains(., 'Faça seu cadastro')]    10s
     Page Should Contain Element     xpath=//h1[contains(., 'Faça seu cadastro')]
