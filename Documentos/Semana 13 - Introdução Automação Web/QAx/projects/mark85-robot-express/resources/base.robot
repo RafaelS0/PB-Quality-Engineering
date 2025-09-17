@@ -3,7 +3,9 @@
 Library    libs/database.py
 Library    SeleniumLibrary
 Library    FakerLibrary
+Resource    env.robot
+Resource    ../resources/pages/SignupPage.robot
 
 *** Keywords ***
 Iniciar Sessão
-    Open Browser    http://localhost:3000    chrome
+    Open Browser    ${BASE_URL}    chrome
