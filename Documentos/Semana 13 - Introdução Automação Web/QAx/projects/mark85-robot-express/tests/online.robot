@@ -1,6 +1,6 @@
 ***Settings ***
 Documentation        Um exemplo em Robot Framework
-Resource            ../resources/base.robot
+Resource            ../resources/base.resource
 
  
 

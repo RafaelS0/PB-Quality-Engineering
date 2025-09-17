@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Elementos e ações da página de cadastro de usuários
 Library    SeleniumLibrary
-Resource    ../env.robot
+Resource    ../env.resource
 
 
 *** Keywords ***
@@ -22,3 +22,9 @@ Deve conter a mensagem
     [Arguments]    ${expected_message}
     Wait Until Element Is Visible    xpath=//p[contains(., '${expected_message}')]    10s
     Page Should Contain Element     xpath=//p[contains(., '${expected_message}')]
+
+Alerta no formulario
+    [Arguments]    ${expected_message}
+    Wait Until Element Is Visible    xpath=//small[text()="${expected_message}"]   10s
+    Page Should Contain Element     xpath=//small[text()="${expected_message}"]
+

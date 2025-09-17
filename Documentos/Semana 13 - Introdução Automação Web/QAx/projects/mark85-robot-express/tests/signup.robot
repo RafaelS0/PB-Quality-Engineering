@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Cenários de teste do cadastro de usuários
-Resource            ../resources/base.robot
-Resource    ../resources/pages/SignupPage.robot
+Resource            ../resources/base.resource
+
 
 
 Library    Screenshot
@@ -45,3 +45,102 @@ Não deve permitir cadastro com email já utilizado
     
     Take Screenshot
     Close Browser
+
+Campos Obrigatórios
+    [Documentation]    Verifica se o sistema valida os campos obrigatórios no cadastro de usuário
+    [Tags]    campos-obrigatorios
+
+    ${user} =    Create Dictionary    
+    ...    name=${EMPTY}
+    ...    email=${EMPTY}
+    ...    password=${EMPTY}
+
+    Iniciar Sessão
+    Acessar página de cadastro
+    Enviar formulario de cadastro    ${user}
+    
+    Alerta no formulario    Informe seu nome completo
+    Alerta no formulario    Informe seu e-email
+    Alerta no formulario    Informe uma senha com pelo menos 6 digitos
+
+    Take Screenshot
+    Close Browser
+
+Não deve cadastrar com email incorreto
+    [Tags]    email-invalido
+    [Documentation]    Verifica se o sistema valida o formato do email no cadastro de usuário
+    ${user} =    Create Dictionary    
+    ...    name=João Silva
+    ...    email=joaosilva.com.br
+    ...    password=pwd1234
+    
+    Iniciar Sessão
+    Acessar página de cadastro
+    Enviar formulario de cadastro    ${user}
+    Alerta no formulario    Digite um e-mail válido
+    Close Browser
+
+Não deve cadastrar com senha de 5 caracteres
+    [Tags]    senha-curta
+    [Documentation]    Verifica se o sistema valida o tamanho da senha no cadastro de usuário
+    ${user} =    Create Dictionary    
+    ...    name=João Silva
+    ...    email=joaosilva@gmail.com
+    ...    password=pwd12
+
+    Iniciar Sessão
+    Acessar página de cadastro
+    Enviar formulario de cadastro    ${user}
+    Alerta no formulario    Informe uma senha com pelo menos 6 digitos
+    Close Browser
+Não deve cadastrar com senha de 4 caracteres
+    [Tags]    senha-curta
+    [Documentation]    Verifica se o sistema valida o tamanho da senha no cadastro de usuário
+    ${user} =    Create Dictionary    
+    ...    name=João Silva
+    ...    email=joaosilva@gmail.com
+    ...    password=pwd1
+
+    Iniciar Sessão
+    Acessar página de cadastro
+    Enviar formulario de cadastro    ${user}
+    Alerta no formulario    Informe uma senha com pelo menos 6 digitos
+    Close Browser
+Não deve cadastrar com senha de 3 caracteres
+    [Tags]    senha-curta
+    [Documentation]    Verifica se o sistema valida o tamanho da senha no cadastro de usuário
+    ${user} =    Create Dictionary    
+    ...    name=João Silva
+    ...    email=joaosilva@gmail.com
+    ...    password=pwd
+
+    Iniciar Sessão
+    Acessar página de cadastro
+    Enviar formulario de cadastro    ${user}
+    Alerta no formulario    Informe uma senha com pelo menos 6 digitos
+    Close Browser
+Não deve cadastrar com senha de 2 caracteres
+    [Tags]    senha-curta
+    [Documentation]    Verifica se o sistema valida o tamanho da senha no cadastro de usuário
+    ${user} =    Create Dictionary    
+    ...    name=João Silva
+    ...    email=joaosilva@gmail.com
+    ...    password=pw
+
+    Iniciar Sessão
+    Acessar página de cadastro
+    Enviar formulario de cadastro    ${user}
+    Alerta no formulario    Informe uma senha com pelo menos 6 digitos
+    Close Browser
+Não deve cadastrar com senha de 1 caracteres
+    [Tags]    senha-curta
+    [Documentation]    Verifica se o sistema valida o tamanho da senha no cadastro de usuário
+    ${user} =    Create Dictionary    
+    ...    name=João Silva
+    ...    email=joaosilva@gmail.com
+    ...    password=p
+
+    Iniciar Sessão
+    Acessar página de cadastro
+    Enviar formulario de cadastro    ${user}
+    Alerta no formulario    Informe uma senha com pelo menos 6 digitos

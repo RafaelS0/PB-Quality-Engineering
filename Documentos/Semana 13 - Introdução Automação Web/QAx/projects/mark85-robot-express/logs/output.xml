@@ -1,249 +1,496 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-17T15:15:50.944893" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-17T16:09:27.953780" rpa="false" schemaversion="5">
 <suite id="s1" name="Signup" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/tests/signup.robot">
-<test id="s1-t1" name="Cadastro de usuário com sucesso" line="10">
+<test id="s1-t1" name="Não deve cadastrar com senha de 5 caracteres" line="83">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-17T15:15:51.508128" level="INFO">${new_user} = {'name': 'João Rodrigues', 'email': 'joaorodrigues@hotmail.com', 'password': 'pwd1234'}</msg>
-<var>${new_user}</var>
-<arg>name=João Rodrigues</arg>
-<arg>email=joaorodrigues@hotmail.com</arg>
-<arg>password=pwd1234</arg>
+<msg time="2025-09-17T16:09:28.677396" level="INFO">${user} = {'name': 'João Silva', 'email': 'joaosilva@gmail.com', 'password': 'pwd12'}</msg>
+<var>${user}</var>
+<arg>name=João Silva</arg>
+<arg>email=joaosilva@gmail.com</arg>
+<arg>password=pwd12</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-17T15:15:51.507529" elapsed="0.000666"/>
-</kw>
-<kw name="Remove user from database" owner="database">
-<msg time="2025-09-17T15:15:51.886410" level="INFO">Removed user with email: joaorodrigues@hotmail.com</msg>
-<arg>${new_user['email']}</arg>
-<status status="PASS" start="2025-09-17T15:15:51.508538" elapsed="0.378175"/>
+<status status="PASS" start="2025-09-17T16:09:28.676824" elapsed="0.000668"/>
 </kw>
 <kw name="Iniciar Sessão" owner="base">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:51.889661" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-09-17T16:09:28.678885" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-17T15:15:51.888905" elapsed="1.421416"/>
+<status status="PASS" start="2025-09-17T16:09:28.678385" elapsed="1.441010"/>
 </kw>
-<status status="PASS" start="2025-09-17T15:15:51.887657" elapsed="1.423016"/>
+<status status="PASS" start="2025-09-17T16:09:28.677907" elapsed="1.441793"/>
 </kw>
 <kw name="Acessar página de cadastro" owner="SignupPage">
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:53.314532" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
+<msg time="2025-09-17T16:09:30.122202" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
 <arg>xpath=//a[@href='/signup']</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:53.313592" elapsed="0.138209"/>
+<status status="PASS" start="2025-09-17T16:09:30.121258" elapsed="0.149936"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-17T15:15:53.452205" elapsed="0.031144"/>
+<status status="PASS" start="2025-09-17T16:09:30.271615" elapsed="0.033692"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:53.495137" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
+<msg time="2025-09-17T16:09:30.320377" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
 <arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-09-17T15:15:53.483606" elapsed="0.011656"/>
+<status status="PASS" start="2025-09-17T16:09:30.305707" elapsed="0.014855"/>
 </kw>
-<status status="PASS" start="2025-09-17T15:15:53.312203" elapsed="0.183217"/>
+<status status="PASS" start="2025-09-17T16:09:30.120287" elapsed="0.200497"/>
 </kw>
 <kw name="Enviar formulario de cadastro" owner="SignupPage">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:53.498126" level="INFO">Typing text 'João Rodrigues' into text field 'xpath=//input[@id='name']'.</msg>
+<msg time="2025-09-17T16:09:30.323445" level="INFO">Typing text 'João Silva' into text field 'xpath=//input[@id='name']'.</msg>
 <arg>xpath=//input[@id='name']</arg>
 <arg>${user['name']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:53.496967" elapsed="0.195268"/>
+<status status="PASS" start="2025-09-17T16:09:30.322190" elapsed="0.164520"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:53.693295" level="INFO">Typing text 'joaorodrigues@hotmail.com' into text field 'xpath=//input[@id='email']'.</msg>
+<msg time="2025-09-17T16:09:30.487685" level="INFO">Typing text 'joaosilva@gmail.com' into text field 'xpath=//input[@id='email']'.</msg>
 <arg>xpath=//input[@id='email']</arg>
 <arg>${user['email']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:53.692607" elapsed="0.163956"/>
+<status status="PASS" start="2025-09-17T16:09:30.486960" elapsed="0.152039"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:53.857554" level="INFO">Typing text 'pwd1234' into text field 'xpath=//input[@id='password']'.</msg>
+<msg time="2025-09-17T16:09:30.640024" level="INFO">Typing text 'pwd12' into text field 'xpath=//input[@id='password']'.</msg>
 <arg>xpath=//input[@id='password']</arg>
 <arg>${user['password']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:53.856811" elapsed="0.134293"/>
+<status status="PASS" start="2025-09-17T16:09:30.639293" elapsed="0.109743"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:53.991928" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-09-17T16:09:30.750542" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:53.991489" elapsed="0.131322"/>
+<status status="PASS" start="2025-09-17T16:09:30.750043" elapsed="0.140393"/>
 </kw>
-<arg>${new_user}</arg>
-<status status="PASS" start="2025-09-17T15:15:53.495816" elapsed="0.627232"/>
+<arg>${user}</arg>
+<status status="PASS" start="2025-09-17T16:09:30.321305" elapsed="0.569345"/>
 </kw>
-<kw name="Deve conter a mensagem" owner="SignupPage">
+<kw name="Alerta no formulario" owner="SignupPage">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//p[contains(., '${expected_message}')]</arg>
+<arg>xpath=//small[text()="${expected_message}"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-17T15:15:54.124349" elapsed="0.270407"/>
+<status status="PASS" start="2025-09-17T16:09:30.891505" elapsed="0.025802"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:54.421665" level="INFO">Current page contains element 'xpath=//p[contains(., 'Boas vindas ao Mark85, o seu gerenciador de tarefas.')]'.</msg>
-<arg>xpath=//p[contains(., '${expected_message}')]</arg>
+<msg time="2025-09-17T16:09:30.930250" level="INFO">Current page contains element 'xpath=//small[text()="Informe uma senha com pelo menos 6 digitos"]'.</msg>
+<arg>xpath=//small[text()="${expected_message}"]</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-09-17T15:15:54.395267" elapsed="0.026749"/>
+<status status="PASS" start="2025-09-17T16:09:30.917584" elapsed="0.012964"/>
 </kw>
-<arg>Boas vindas ao Mark85, o seu gerenciador de tarefas.</arg>
-<status status="PASS" start="2025-09-17T15:15:54.123576" elapsed="0.298908"/>
-</kw>
-<kw name="Take Screenshot" owner="Screenshot">
-<msg time="2025-09-17T15:15:54.426508" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
-Make sure tests are run with a physical or virtual display.</msg>
-<msg time="2025-09-17T15:15:54.427271" level="INFO" html="true">&lt;a href="screenshot_1.jpg"&gt;&lt;img src="screenshot_1.jpg" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
-<status status="PASS" start="2025-09-17T15:15:54.423186" elapsed="0.004221"/>
-</kw>
-<kw name="Remove user from database" owner="database">
-<msg time="2025-09-17T15:15:54.487472" level="INFO">Removed user with email: joaorodrigues@hotmail.com</msg>
-<arg>joaorodrigues@hotmail.com</arg>
-<status status="PASS" start="2025-09-17T15:15:54.427829" elapsed="0.060111"/>
+<arg>Informe uma senha com pelo menos 6 digitos</arg>
+<status status="PASS" start="2025-09-17T16:09:30.890995" elapsed="0.039922"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-09-17T15:15:54.488838" elapsed="0.115608"/>
+<status status="PASS" start="2025-09-17T16:09:30.932865" elapsed="0.132400"/>
 </kw>
-<doc>Verifica se o cadastro de usuário é realizado com sucesso</doc>
-<status status="PASS" start="2025-09-17T15:15:51.505105" elapsed="3.099732"/>
+<doc>Verifica se o sistema valida o tamanho da senha no cadastro de usuário</doc>
+<tag>senha-curta</tag>
+<status status="PASS" start="2025-09-17T16:09:28.674246" elapsed="2.391467"/>
 </test>
-<test id="s1-t2" name="Não deve permitir cadastro com email já utilizado" line="29">
+<test id="s1-t2" name="Não deve cadastrar com senha de 4 caracteres" line="96">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-17T15:15:54.606516" level="INFO">${duplicate_user} = {'name': 'Joao da Silva', 'email': 'joao.silva@yahoo.com', 'password': 'pwd1234'}</msg>
-<var>${duplicate_user}</var>
-<arg>name=Joao da Silva</arg>
-<arg>email=joao.silva@yahoo.com</arg>
-<arg>password=pwd1234</arg>
+<msg time="2025-09-17T16:09:31.067549" level="INFO">${user} = {'name': 'João Silva', 'email': 'joaosilva@gmail.com', 'password': 'pwd1'}</msg>
+<var>${user}</var>
+<arg>name=João Silva</arg>
+<arg>email=joaosilva@gmail.com</arg>
+<arg>password=pwd1</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-17T15:15:54.606090" elapsed="0.000481"/>
-</kw>
-<kw name="Remove user from database" owner="database">
-<msg time="2025-09-17T15:15:54.660228" level="INFO">Removed user with email: joao.silva@yahoo.com</msg>
-<arg>${duplicate_user['email']}</arg>
-<status status="PASS" start="2025-09-17T15:15:54.606851" elapsed="0.053528"/>
-</kw>
-<kw name="Insert user into database" owner="database">
-<msg time="2025-09-17T15:15:54.718960" level="INFO">{'name': 'Joao da Silva', 'email': 'joao.silva@yahoo.com', 'password': 'pwd1234', '_id': ObjectId('68cafada89c9fb311dd16d42')}</msg>
-<arg>${duplicate_user}</arg>
-<status status="PASS" start="2025-09-17T15:15:54.660667" elapsed="0.058408"/>
+<status status="PASS" start="2025-09-17T16:09:31.067015" elapsed="0.000618"/>
 </kw>
 <kw name="Iniciar Sessão" owner="base">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:54.720226" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-09-17T16:09:31.069213" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-17T15:15:54.719902" elapsed="1.413499"/>
+<status status="PASS" start="2025-09-17T16:09:31.068810" elapsed="1.443007"/>
 </kw>
-<status status="PASS" start="2025-09-17T15:15:54.719465" elapsed="1.414227"/>
+<status status="PASS" start="2025-09-17T16:09:31.068162" elapsed="1.443874"/>
 </kw>
 <kw name="Acessar página de cadastro" owner="SignupPage">
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:56.139643" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
+<msg time="2025-09-17T16:09:32.513934" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
 <arg>xpath=//a[@href='/signup']</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:56.138492" elapsed="0.136315"/>
+<status status="PASS" start="2025-09-17T16:09:32.513348" elapsed="0.148228"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-17T15:15:56.275233" elapsed="0.031334"/>
+<status status="PASS" start="2025-09-17T16:09:32.661866" elapsed="0.038047"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:56.320568" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
+<msg time="2025-09-17T16:09:32.712821" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
 <arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-09-17T15:15:56.307081" elapsed="0.013615"/>
+<status status="PASS" start="2025-09-17T16:09:32.700320" elapsed="0.012713"/>
 </kw>
-<status status="PASS" start="2025-09-17T15:15:56.137695" elapsed="0.183132"/>
+<status status="PASS" start="2025-09-17T16:09:32.512520" elapsed="0.200701"/>
 </kw>
 <kw name="Enviar formulario de cadastro" owner="SignupPage">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:56.322834" level="INFO">Typing text 'Joao da Silva' into text field 'xpath=//input[@id='name']'.</msg>
+<msg time="2025-09-17T16:09:32.714888" level="INFO">Typing text 'João Silva' into text field 'xpath=//input[@id='name']'.</msg>
 <arg>xpath=//input[@id='name']</arg>
 <arg>${user['name']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:56.321745" elapsed="0.204666"/>
+<status status="PASS" start="2025-09-17T16:09:32.714095" elapsed="0.170871"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:56.527288" level="INFO">Typing text 'joao.silva@yahoo.com' into text field 'xpath=//input[@id='email']'.</msg>
+<msg time="2025-09-17T16:09:32.886411" level="INFO">Typing text 'joaosilva@gmail.com' into text field 'xpath=//input[@id='email']'.</msg>
 <arg>xpath=//input[@id='email']</arg>
 <arg>${user['email']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:56.526671" elapsed="0.178113"/>
+<status status="PASS" start="2025-09-17T16:09:32.885441" elapsed="0.154548"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:56.705995" level="INFO">Typing text 'pwd1234' into text field 'xpath=//input[@id='password']'.</msg>
+<msg time="2025-09-17T16:09:33.041144" level="INFO">Typing text 'pwd1' into text field 'xpath=//input[@id='password']'.</msg>
 <arg>xpath=//input[@id='password']</arg>
 <arg>${user['password']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:56.705145" elapsed="0.157061"/>
+<status status="PASS" start="2025-09-17T16:09:33.040372" elapsed="0.113891"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:56.862923" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-09-17T16:09:33.155075" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-17T15:15:56.862606" elapsed="0.164077"/>
+<status status="PASS" start="2025-09-17T16:09:33.154667" elapsed="0.143574"/>
 </kw>
-<arg>${duplicate_user}</arg>
-<status status="PASS" start="2025-09-17T15:15:56.321145" elapsed="0.705747"/>
+<arg>${user}</arg>
+<status status="PASS" start="2025-09-17T16:09:32.713585" elapsed="0.584903"/>
 </kw>
-<kw name="Deve conter a mensagem" owner="SignupPage">
+<kw name="Alerta no formulario" owner="SignupPage">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//p[contains(., '${expected_message}')]</arg>
+<arg>xpath=//small[text()="${expected_message}"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-17T15:15:57.029573" elapsed="0.280726"/>
+<status status="PASS" start="2025-09-17T16:09:33.299710" elapsed="0.031386"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-09-17T15:15:57.342406" level="INFO">Current page contains element 'xpath=//p[contains(., 'Oops! Já existe uma conta com o e-mail informado.')]'.</msg>
-<arg>xpath=//p[contains(., '${expected_message}')]</arg>
+<msg time="2025-09-17T16:09:33.344381" level="INFO">Current page contains element 'xpath=//small[text()="Informe uma senha com pelo menos 6 digitos"]'.</msg>
+<arg>xpath=//small[text()="${expected_message}"]</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-09-17T15:15:57.311081" elapsed="0.031675"/>
+<status status="PASS" start="2025-09-17T16:09:33.331508" elapsed="0.013150"/>
 </kw>
-<arg>Oops! Já existe uma conta com o e-mail informado.</arg>
-<status status="PASS" start="2025-09-17T15:15:57.028849" elapsed="0.314298"/>
-</kw>
-<kw name="Take Screenshot" owner="Screenshot">
-<msg time="2025-09-17T15:15:57.344911" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
-Make sure tests are run with a physical or virtual display.</msg>
-<msg time="2025-09-17T15:15:57.345920" level="INFO" html="true">&lt;a href="screenshot_1.jpg"&gt;&lt;img src="screenshot_1.jpg" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
-<status status="PASS" start="2025-09-17T15:15:57.343830" elapsed="0.002274"/>
+<arg>Informe uma senha com pelo menos 6 digitos</arg>
+<status status="PASS" start="2025-09-17T16:09:33.298944" elapsed="0.046034"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-09-17T15:15:57.346627" elapsed="0.075781"/>
+<status status="PASS" start="2025-09-17T16:09:33.345549" elapsed="0.091462"/>
 </kw>
-<doc>Verifica se o sistema não permite o cadastro com um email já utilizado</doc>
-<tag>duplicado</tag>
-<status status="PASS" start="2025-09-17T15:15:54.605312" elapsed="2.817522"/>
+<doc>Verifica se o sistema valida o tamanho da senha no cadastro de usuário</doc>
+<tag>senha-curta</tag>
+<status status="PASS" start="2025-09-17T16:09:31.066251" elapsed="2.371250"/>
+</test>
+<test id="s1-t3" name="Não deve cadastrar com senha de 3 caracteres" line="109">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-17T16:09:33.439888" level="INFO">${user} = {'name': 'João Silva', 'email': 'joaosilva@gmail.com', 'password': 'pwd'}</msg>
+<var>${user}</var>
+<arg>name=João Silva</arg>
+<arg>email=joaosilva@gmail.com</arg>
+<arg>password=pwd</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-17T16:09:33.439519" elapsed="0.000422"/>
+</kw>
+<kw name="Iniciar Sessão" owner="base">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:33.440891" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-17T16:09:33.440647" elapsed="1.426140"/>
+</kw>
+<status status="PASS" start="2025-09-17T16:09:33.440240" elapsed="1.426837"/>
+</kw>
+<kw name="Acessar página de cadastro" owner="SignupPage">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:34.869068" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
+<arg>xpath=//a[@href='/signup']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:34.868498" elapsed="0.147327"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.016220" elapsed="0.031687"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:35.059719" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
+<arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.048311" elapsed="0.011525"/>
+</kw>
+<status status="PASS" start="2025-09-17T16:09:34.867655" elapsed="0.192315"/>
+</kw>
+<kw name="Enviar formulario de cadastro" owner="SignupPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:35.061470" level="INFO">Typing text 'João Silva' into text field 'xpath=//input[@id='name']'.</msg>
+<arg>xpath=//input[@id='name']</arg>
+<arg>${user['name']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.060748" elapsed="0.175526"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:35.237355" level="INFO">Typing text 'joaosilva@gmail.com' into text field 'xpath=//input[@id='email']'.</msg>
+<arg>xpath=//input[@id='email']</arg>
+<arg>${user['email']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.236615" elapsed="0.148978"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:35.386651" level="INFO">Typing text 'pwd' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>xpath=//input[@id='password']</arg>
+<arg>${user['password']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.385839" elapsed="0.109284"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:35.495909" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.495527" elapsed="0.138400"/>
+</kw>
+<arg>${user}</arg>
+<status status="PASS" start="2025-09-17T16:09:35.060264" elapsed="0.573891"/>
+</kw>
+<kw name="Alerta no formulario" owner="SignupPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//small[text()="${expected_message}"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.637132" elapsed="0.029818"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:35.682036" level="INFO">Current page contains element 'xpath=//small[text()="Informe uma senha com pelo menos 6 digitos"]'.</msg>
+<arg>xpath=//small[text()="${expected_message}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.667289" elapsed="0.015115"/>
+</kw>
+<arg>Informe uma senha com pelo menos 6 digitos</arg>
+<status status="PASS" start="2025-09-17T16:09:35.636436" elapsed="0.046324"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.685205" elapsed="0.075708"/>
+</kw>
+<doc>Verifica se o sistema valida o tamanho da senha no cadastro de usuário</doc>
+<tag>senha-curta</tag>
+<status status="PASS" start="2025-09-17T16:09:33.438321" elapsed="2.323199"/>
+</test>
+<test id="s1-t4" name="Não deve cadastrar com senha de 2 caracteres" line="122">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-17T16:09:35.768988" level="INFO">${user} = {'name': 'João Silva', 'email': 'joaosilva@gmail.com', 'password': 'pw'}</msg>
+<var>${user}</var>
+<arg>name=João Silva</arg>
+<arg>email=joaosilva@gmail.com</arg>
+<arg>password=pw</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.768401" elapsed="0.000682"/>
+</kw>
+<kw name="Iniciar Sessão" owner="base">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:35.772994" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-17T16:09:35.771372" elapsed="1.418495"/>
+</kw>
+<status status="PASS" start="2025-09-17T16:09:35.769732" elapsed="1.420429"/>
+</kw>
+<kw name="Acessar página de cadastro" owner="SignupPage">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:37.192973" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
+<arg>xpath=//a[@href='/signup']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.191863" elapsed="0.147942"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.340219" elapsed="0.032360"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:37.385860" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
+<arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.372848" elapsed="0.013144"/>
+</kw>
+<status status="PASS" start="2025-09-17T16:09:37.191085" elapsed="0.195045"/>
+</kw>
+<kw name="Enviar formulario de cadastro" owner="SignupPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:37.388713" level="INFO">Typing text 'João Silva' into text field 'xpath=//input[@id='name']'.</msg>
+<arg>xpath=//input[@id='name']</arg>
+<arg>${user['name']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.387191" elapsed="0.166892"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:37.555493" level="INFO">Typing text 'joaosilva@gmail.com' into text field 'xpath=//input[@id='email']'.</msg>
+<arg>xpath=//input[@id='email']</arg>
+<arg>${user['email']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.554432" elapsed="0.144343"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:37.700497" level="INFO">Typing text 'pw' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>xpath=//input[@id='password']</arg>
+<arg>${user['password']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.699208" elapsed="0.112141"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:37.812064" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.811678" elapsed="0.126806"/>
+</kw>
+<arg>${user}</arg>
+<status status="PASS" start="2025-09-17T16:09:37.386460" elapsed="0.552252"/>
+</kw>
+<kw name="Alerta no formulario" owner="SignupPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//small[text()="${expected_message}"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.940961" elapsed="0.033170"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:37.986367" level="INFO">Current page contains element 'xpath=//small[text()="Informe uma senha com pelo menos 6 digitos"]'.</msg>
+<arg>xpath=//small[text()="${expected_message}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.974510" elapsed="0.012181"/>
+</kw>
+<arg>Informe uma senha com pelo menos 6 digitos</arg>
+<status status="PASS" start="2025-09-17T16:09:37.940199" elapsed="0.046838"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-17T16:09:37.987744" elapsed="0.074007"/>
+</kw>
+<doc>Verifica se o sistema valida o tamanho da senha no cadastro de usuário</doc>
+<tag>senha-curta</tag>
+<status status="PASS" start="2025-09-17T16:09:35.762330" elapsed="2.300070"/>
+</test>
+<test id="s1-t5" name="Não deve cadastrar com senha de 1 caracteres" line="135">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-17T16:09:38.065464" level="INFO">${user} = {'name': 'João Silva', 'email': 'joaosilva@gmail.com', 'password': 'p'}</msg>
+<var>${user}</var>
+<arg>name=João Silva</arg>
+<arg>email=joaosilva@gmail.com</arg>
+<arg>password=p</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-17T16:09:38.064055" elapsed="0.001495"/>
+</kw>
+<kw name="Iniciar Sessão" owner="base">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:38.067525" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-17T16:09:38.066932" elapsed="1.408605"/>
+</kw>
+<status status="PASS" start="2025-09-17T16:09:38.066267" elapsed="1.409514"/>
+</kw>
+<kw name="Acessar página de cadastro" owner="SignupPage">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:39.478279" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
+<arg>xpath=//a[@href='/signup']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:39.477522" elapsed="0.149278"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-17T16:09:39.627161" elapsed="0.030357"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:39.669233" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
+<arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-17T16:09:39.657766" elapsed="0.011608"/>
+</kw>
+<status status="PASS" start="2025-09-17T16:09:39.476271" elapsed="0.193237"/>
+</kw>
+<kw name="Enviar formulario de cadastro" owner="SignupPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:39.672047" level="INFO">Typing text 'João Silva' into text field 'xpath=//input[@id='name']'.</msg>
+<arg>xpath=//input[@id='name']</arg>
+<arg>${user['name']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:39.670868" elapsed="0.172091"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:39.843929" level="INFO">Typing text 'joaosilva@gmail.com' into text field 'xpath=//input[@id='email']'.</msg>
+<arg>xpath=//input[@id='email']</arg>
+<arg>${user['email']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:39.843221" elapsed="0.149844"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:39.994666" level="INFO">Typing text 'p' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>xpath=//input[@id='password']</arg>
+<arg>${user['password']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:39.993471" elapsed="0.111154"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:40.105534" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-17T16:09:40.105106" elapsed="0.130933"/>
+</kw>
+<arg>${user}</arg>
+<status status="PASS" start="2025-09-17T16:09:39.669892" elapsed="0.566379"/>
+</kw>
+<kw name="Alerta no formulario" owner="SignupPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//small[text()="${expected_message}"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-17T16:09:40.238282" elapsed="0.034243"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-17T16:09:40.291401" level="INFO">Current page contains element 'xpath=//small[text()="Informe uma senha com pelo menos 6 digitos"]'.</msg>
+<arg>xpath=//small[text()="${expected_message}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-17T16:09:40.272771" elapsed="0.018818"/>
+</kw>
+<arg>Informe uma senha com pelo menos 6 digitos</arg>
+<status status="PASS" start="2025-09-17T16:09:40.237606" elapsed="0.054169"/>
+</kw>
+<doc>Verifica se o sistema valida o tamanho da senha no cadastro de usuário</doc>
+<tag>senha-curta</tag>
+<status status="PASS" start="2025-09-17T16:09:38.062925" elapsed="2.229173"/>
 </test>
 <doc>Cenários de teste do cadastro de usuários</doc>
-<status status="PASS" start="2025-09-17T15:15:50.946277" elapsed="6.477643"/>
+<status status="PASS" start="2025-09-17T16:09:27.955270" elapsed="12.337490"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">duplicado</stat>
+<stat pass="5" fail="0" skip="0">senha-curta</stat>
 </tag>
 <suite>
-<stat name="Signup" id="s1" pass="2" fail="0" skip="0">Signup</stat>
+<stat name="Signup" id="s1" pass="5" fail="0" skip="0">Signup</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-09-17T15:15:54.426508" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
-Make sure tests are run with a physical or virtual display.</msg>
-<msg time="2025-09-17T15:15:57.344911" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
-Make sure tests are run with a physical or virtual display.</msg>
 </errors>
 </robot>
