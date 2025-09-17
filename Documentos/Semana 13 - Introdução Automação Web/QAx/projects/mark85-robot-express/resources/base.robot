@@ -1,4 +1,6 @@
 *** Settings ***
+
+Library    libs/database.py
 Library    SeleniumLibrary
 Library    FakerLibrary
 

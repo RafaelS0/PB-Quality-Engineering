@@ -1,138 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-16T17:04:26.995611" rpa="false" schemaversion="5">
-<suite id="s1" name="Tests" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/tests">
-<suite id="s1-s1" name="Online" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/tests/online.robot">
-<test id="s1-s1-t1" name="Webapp deve estar online" line="9">
-<kw name="Iniciar Sessão" owner="base">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:27.392563" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
-<arg>http://localhost:3000</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-16T17:04:27.391997" elapsed="2.025712"/>
-</kw>
-<status status="PASS" start="2025-09-16T17:04:27.388241" elapsed="2.029940"/>
-</kw>
-<kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:29.444995" level="INFO">Page title is 'Mark85 by QAx'.</msg>
-<arg>Mark85 by QAx</arg>
-<doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-09-16T17:04:29.424006" elapsed="0.021143"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-09-16T17:04:29.445585" elapsed="0.125349"/>
-</kw>
-<status status="PASS" start="2025-09-16T17:04:27.386049" elapsed="2.185246"/>
-</test>
-<doc>Um exemplo em Robot Framework</doc>
-<status status="PASS" start="2025-09-16T17:04:27.026980" elapsed="2.544956"/>
-</suite>
-<suite id="s1-s2" name="Signup" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/tests/signup.robot">
-<test id="s1-s2-t1" name="Cadastro de usuário com sucesso" line="7">
-<kw name="Name" owner="FakerLibrary">
-<msg time="2025-09-16T17:04:29.576657" level="INFO">${name} = David Parsons</msg>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-17T14:20:47.449940" rpa="false" schemaversion="5">
+<suite id="s1" name="Signup" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/tests/signup.robot">
+<test id="s1-t1" name="Não deve permitir cadastro com email já utilizado" line="29">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-17T14:20:48.364297" level="INFO">${name} = Joao da Silva</msg>
 <var>${name}</var>
-<doc>:example: 'John Doe'</doc>
-<status status="PASS" start="2025-09-16T17:04:29.576013" elapsed="0.000717"/>
-</kw>
-<kw name="Email" owner="FakerLibrary">
-<msg time="2025-09-16T17:04:29.577472" level="INFO">${email} = rodneycollins@example.net</msg>
-<var>${email}</var>
-<status status="PASS" start="2025-09-16T17:04:29.577022" elapsed="0.000489"/>
+<arg>Joao da Silva</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-17T14:20:48.363948" elapsed="0.000438"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-16T17:04:29.577981" level="INFO">${password} = senha123</msg>
-<var>${password}</var>
-<arg>senha123</arg>
+<msg time="2025-09-17T14:20:48.365084" level="INFO">${email} = joao.silva@yahoo.com</msg>
+<var>${email}</var>
+<arg>joao.silva@yahoo.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-16T17:04:29.577715" elapsed="0.000305"/>
+<status status="PASS" start="2025-09-17T14:20:48.364774" elapsed="0.000360"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-17T14:20:48.365643" level="INFO">${password} = pwd1234</msg>
+<var>${password}</var>
+<arg>pwd1234</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-17T14:20:48.365449" elapsed="0.000237"/>
+</kw>
+<kw name="Remove user from database" owner="database">
+<msg time="2025-09-17T14:20:48.731423" level="INFO">Removed user with email: joao.silva@yahoo.com</msg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-09-17T14:20:48.365927" elapsed="0.365707"/>
+</kw>
+<kw name="Insert user into database" owner="database">
+<msg time="2025-09-17T14:20:48.784772" level="INFO">Inserted user with email: joao.silva@yahoo.com</msg>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-09-17T14:20:48.732085" elapsed="0.052880"/>
 </kw>
 <kw name="Iniciar Sessão" owner="base">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:29.578866" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-09-17T14:20:48.787746" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>http://localhost:3000</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-16T17:04:29.578658" elapsed="1.489449"/>
+<status status="PASS" start="2025-09-17T14:20:48.786981" elapsed="2.594725"/>
 </kw>
-<status status="PASS" start="2025-09-16T17:04:29.578301" elapsed="1.489995"/>
+<status status="PASS" start="2025-09-17T14:20:48.785577" elapsed="2.596411"/>
 </kw>
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:31.069675" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
+<msg time="2025-09-17T14:20:51.384167" level="INFO">Clicking link 'xpath=//a[@href='/signup']'.</msg>
 <arg>xpath=//a[@href='/signup']</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.068748" elapsed="0.161213"/>
+<status status="PASS" start="2025-09-17T14:20:51.383326" elapsed="0.313661"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.230339" elapsed="0.043748"/>
+<status status="PASS" start="2025-09-17T14:20:51.697602" elapsed="0.060044"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:31.291975" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
+<msg time="2025-09-17T14:20:51.771765" level="INFO">Current page contains element 'xpath=//h1[contains(., 'Faça seu cadastro')]'.</msg>
 <arg>xpath=//h1[contains(., 'Faça seu cadastro')]</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.274451" elapsed="0.017702"/>
+<status status="PASS" start="2025-09-17T14:20:51.757993" elapsed="0.013967"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:31.293078" level="INFO">Typing text 'David Parsons' into text field 'xpath=//input[@id='name']'.</msg>
+<msg time="2025-09-17T14:20:51.772976" level="INFO">Typing text 'Joao da Silva' into text field 'xpath=//input[@id='name']'.</msg>
 <arg>xpath=//input[@id='name']</arg>
 <arg>${name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.292568" elapsed="0.187604"/>
+<status status="PASS" start="2025-09-17T14:20:51.772465" elapsed="0.218554"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:31.481124" level="INFO">Typing text 'rodneycollins@example.net' into text field 'xpath=//input[@id='email']'.</msg>
+<msg time="2025-09-17T14:20:51.992270" level="INFO">Typing text 'joao.silva@yahoo.com' into text field 'xpath=//input[@id='email']'.</msg>
 <arg>xpath=//input[@id='email']</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.480674" elapsed="0.168601"/>
+<status status="PASS" start="2025-09-17T14:20:51.991533" elapsed="0.215465"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:31.650182" level="INFO">Typing text 'senha123' into text field 'xpath=//input[@id='password']'.</msg>
+<msg time="2025-09-17T14:20:52.208573" level="INFO">Typing text 'pwd1234' into text field 'xpath=//input[@id='password']'.</msg>
 <arg>xpath=//input[@id='password']</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.649704" elapsed="0.138805"/>
+<status status="PASS" start="2025-09-17T14:20:52.207730" elapsed="0.154654"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:31.789382" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-09-17T14:20:52.363703" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.788999" elapsed="0.140554"/>
+<status status="PASS" start="2025-09-17T14:20:52.362879" elapsed="0.198225"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//p[contains(., 'Boas vindas ao Mark85, o seu gerenciador de tarefas.')]</arg>
+<arg>xpath=//p[contains(text(), 'Oops! Já existe uma conta com o e-mail informado.')]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-16T17:04:31.930087" elapsed="0.278966"/>
+<status status="PASS" start="2025-09-17T14:20:52.564559" elapsed="0.257660"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-09-16T17:04:32.231635" level="INFO">Current page contains element 'xpath=//p[contains(., 'Boas vindas ao Mark85, o seu gerenciador de tarefas.')]'.</msg>
-<arg>xpath=//p[contains(., 'Boas vindas ao Mark85, o seu gerenciador de tarefas.')]</arg>
+<msg time="2025-09-17T14:20:52.836056" level="INFO">Current page contains element 'xpath=//p[contains(text(), 'Oops! Já existe uma conta com o e-mail informado.')]'.</msg>
+<arg>xpath=//p[contains(text(), 'Oops! Já existe uma conta com o e-mail informado.')]</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-09-16T17:04:32.209779" elapsed="0.022191"/>
+<status status="PASS" start="2025-09-17T14:20:52.822636" elapsed="0.013626"/>
 </kw>
-<doc>Verifica se o cadastro de usuário é realizado com sucesso</doc>
-<status status="PASS" start="2025-09-16T17:04:29.575439" elapsed="2.657320"/>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-17T14:20:52.836733" elapsed="0.185046"/>
+</kw>
+<doc>Verifica se o sistema não permite o cadastro com um email já utilizado</doc>
+<tag>duplicado</tag>
+<status status="PASS" start="2025-09-17T14:20:48.361564" elapsed="4.660765"/>
 </test>
 <doc>Cenários de teste do cadastro de usuários</doc>
-<status status="PASS" start="2025-09-16T17:04:29.572677" elapsed="2.662005"/>
-</suite>
-<status status="PASS" start="2025-09-16T17:04:26.997086" elapsed="5.239683"/>
+<status status="PASS" start="2025-09-17T14:20:47.451743" elapsed="5.571934"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">duplicado</stat>
 </tag>
 <suite>
-<stat name="Tests" id="s1" pass="2" fail="0" skip="0">Tests</stat>
-<stat name="Online" id="s1-s1" pass="1" fail="0" skip="0">Tests.Online</stat>
-<stat name="Signup" id="s1-s2" pass="1" fail="0" skip="0">Tests.Signup</stat>
+<stat name="Signup" id="s1" pass="1" fail="0" skip="0">Signup</stat>
 </suite>
 </statistics>
 <errors>
