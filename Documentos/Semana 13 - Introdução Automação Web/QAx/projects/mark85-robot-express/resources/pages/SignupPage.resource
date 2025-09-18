@@ -18,10 +18,7 @@ Enviar formulario de cadastro
     Input Text    xpath=//input[@id='password']    ${user['password']}
     Click Button    xpath=//button[@type='submit']
 
-Deve conter a mensagem
-    [Arguments]    ${expected_message}
-    Wait Until Element Is Visible    xpath=//p[contains(., '${expected_message}')]    10s
-    Page Should Contain Element     xpath=//p[contains(., '${expected_message}')]
+
 
 Alerta no formulario
     [Arguments]    ${expected_message}
