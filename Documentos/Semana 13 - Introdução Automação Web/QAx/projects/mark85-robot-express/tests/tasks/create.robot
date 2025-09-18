@@ -2,6 +2,7 @@
 Documentation     Cenários de cadastro
 Resource          ../../resources/base.resource
 Resource    ../../resources/pages/TaskCreatePage.resource
+Resource    ../../resources/pages/TaskPage.resource
 Library           JSONLibrary
 *** Test Cases ***
 Deve poder cadastrar uma nova tarefa
@@ -14,6 +15,7 @@ Deve poder cadastrar uma nova tarefa
    Enviar formulario de login   ${data}[user]
    Abrir formulário de cadastro de tarefa
    Enviar formulário de tarefa    ${data}[task]
+   Tarefa foi cadastrada    ${data}[task][name]
    
    
    Log    ${data}
