@@ -1,0 +1,18 @@
+{
+    "create": {
+        "user": {
+            "name": "Steve",
+            "email": "stevejobs@apple.com",
+            "password": "pwd123"
+    },
+    "task": {
+        "name": "Estudar Robot Framework",
+        "tasks":[
+            "Estudar Robot Framework",
+            "Estudar JavaScript",
+            "Estudar Python"
+        ]
+    }
+
+    }
+}

@@ -20,8 +20,4 @@ Enviar formulario de cadastro
 
 
 
-Alerta no formulario
-    [Arguments]    ${expected_message}
-    Wait Until Element Is Visible    xpath=//small[text()="${expected_message}"]   10s
-    Page Should Contain Element     xpath=//small[text()="${expected_message}"]
 
