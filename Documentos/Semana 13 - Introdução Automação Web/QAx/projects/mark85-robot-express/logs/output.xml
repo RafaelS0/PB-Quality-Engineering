@@ -1,145 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-18T16:52:21.196831" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-19T14:24:43.806438" rpa="false" schemaversion="5">
 <suite id="s1" name="Create" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/tests/tasks/create.robot">
 <test id="s1-t1" name="Deve poder cadastrar uma nova tarefa" line="8">
 <kw name="Get fixtures" owner="base">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-09-18T16:52:21.911720" level="INFO">${data} = {'create': {'user': {'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}, 'task': {'name': 'Estudar Robot Framework', 'tasks': ['Estudar Robot Framework', 'Estudar JavaScript', 'Est...</msg>
+<msg time="2025-09-19T14:24:45.558357" level="INFO">${data} = {'create': {'user': {'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}, 'task': {'name': 'Estudar Robot Framework', 'tags': ['Estudar Robot Framework', 'Estudar JavaScript', 'Estu...</msg>
 <var>${data}</var>
 <arg>${EXECDIR}/resources/fixtures/${file_name}.json</arg>
 <arg>encoding=UTF-8</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-09-18T16:52:21.910812" elapsed="0.000996"/>
+<status status="PASS" start="2025-09-19T14:24:45.557345" elapsed="0.001108"/>
 </kw>
 <return>
 <value>${data}[${scenario}]</value>
-<status status="PASS" start="2025-09-18T16:52:21.911998" elapsed="0.000112"/>
+<status status="PASS" start="2025-09-19T14:24:45.558676" elapsed="0.000141"/>
 </return>
-<msg time="2025-09-18T16:52:21.912498" level="INFO">${data} = {'user': {'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}, 'task': {'name': 'Estudar Robot Framework', 'tasks': ['Estudar Robot Framework', 'Estudar JavaScript', 'Estudar Python...</msg>
+<msg time="2025-09-19T14:24:45.559356" level="INFO">${data} = {'user': {'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}, 'task': {'name': 'Estudar Robot Framework', 'tags': ['Estudar Robot Framework', 'Estudar JavaScript', 'Estudar Python'...</msg>
 <var>${data}</var>
 <arg>tasks</arg>
 <arg>create</arg>
-<status status="PASS" start="2025-09-18T16:52:21.907974" elapsed="0.004587"/>
+<status status="PASS" start="2025-09-19T14:24:45.555238" elapsed="0.004180"/>
 </kw>
 <kw name="Clean user from database" owner="database">
 <arg>${data}[user][email]</arg>
-<status status="PASS" start="2025-09-18T16:52:21.912959" elapsed="0.399763"/>
+<status status="PASS" start="2025-09-19T14:24:45.559772" elapsed="0.384008"/>
 </kw>
 <kw name="Insert user into database" owner="database">
-<msg time="2025-09-18T16:52:22.421175" level="INFO">{'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}</msg>
+<msg time="2025-09-19T14:24:46.015499" level="INFO">{'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}</msg>
 <arg>${data}[user]</arg>
-<status status="PASS" start="2025-09-18T16:52:22.313907" elapsed="0.107707"/>
+<status status="PASS" start="2025-09-19T14:24:45.944351" elapsed="0.071351"/>
 </kw>
 <kw name="Iniciar Sessão" owner="base">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:22.424605" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-09-19T14:24:46.017314" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-18T16:52:22.423891" elapsed="1.390910"/>
+<status status="PASS" start="2025-09-19T14:24:46.016870" elapsed="1.690431"/>
 </kw>
-<status status="PASS" start="2025-09-18T16:52:22.422587" elapsed="1.392483"/>
+<status status="PASS" start="2025-09-19T14:24:46.016180" elapsed="1.691381"/>
 </kw>
 <kw name="Enviar formulario de login" owner="LoginPage">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:23.819394" level="INFO">Typing text 'stevejobs@apple.com' into text field 'id=email'.</msg>
+<msg time="2025-09-19T14:24:47.715728" level="INFO">Typing text 'stevejobs@apple.com' into text field 'id=email'.</msg>
 <arg>id=email</arg>
 <arg>${user}[email]</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-18T16:52:23.818342" elapsed="0.215824"/>
+<status status="PASS" start="2025-09-19T14:24:47.713733" elapsed="0.256106"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:24.035088" level="INFO">Typing text 'pwd123' into text field 'css=input[placeholder="Senha"]'.</msg>
+<msg time="2025-09-19T14:24:47.971080" level="INFO">Typing text 'pwd123' into text field 'css=input[placeholder="Senha"]'.</msg>
 <arg>css=input[placeholder="Senha"]</arg>
 <arg>${user}[password]</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-18T16:52:24.034511" elapsed="0.125244"/>
+<status status="PASS" start="2025-09-19T14:24:47.970377" elapsed="0.145667"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:24.160643" level="INFO">Clicking button 'css=button[type="submit"]'.</msg>
+<msg time="2025-09-19T14:24:48.117119" level="INFO">Clicking button 'css=button[type="submit"]'.</msg>
 <arg>css=button[type="submit"]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-18T16:52:24.160235" elapsed="0.132962"/>
+<status status="PASS" start="2025-09-19T14:24:48.116558" elapsed="0.175685"/>
 </kw>
 <arg>${data}[user]</arg>
-<status status="PASS" start="2025-09-18T16:52:23.815722" elapsed="0.477713"/>
+<status status="PASS" start="2025-09-19T14:24:47.711187" elapsed="0.581356"/>
 </kw>
 <kw name="Abrir formulário de cadastro de tarefa" owner="Header">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>css=.button-add</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-18T16:52:24.295145" elapsed="0.288756"/>
+<status status="PASS" start="2025-09-19T14:24:48.294234" elapsed="0.257714"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:24.585571" level="INFO">Clicking button 'css=.button-add'.</msg>
+<msg time="2025-09-19T14:24:48.553306" level="INFO">Clicking button 'css=.button-add'.</msg>
 <arg>css=.button-add</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-18T16:52:24.584763" elapsed="0.331310"/>
+<status status="PASS" start="2025-09-19T14:24:48.552750" elapsed="0.180244"/>
 </kw>
-<status status="PASS" start="2025-09-18T16:52:24.294322" elapsed="0.621985"/>
+<status status="PASS" start="2025-09-19T14:24:48.293508" elapsed="0.439764"/>
 </kw>
 <kw name="Enviar formulário de tarefa" owner="TaskCreatePage">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>css=form</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-18T16:52:24.919613" elapsed="0.026643"/>
+<status status="PASS" start="2025-09-19T14:24:48.738161" elapsed="0.032514"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:24.946936" level="INFO">Typing text 'Estudar Robot Framework' into text field 'css=input[placeholder="Nome da tarefa"]'.</msg>
+<msg time="2025-09-19T14:24:48.771707" level="INFO">Typing text 'Estudar Robot Framework' into text field 'css=input[placeholder="Nome da tarefa"]'.</msg>
 <arg>css=input[placeholder="Nome da tarefa"]</arg>
 <arg>${task}[name]</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-18T16:52:24.946604" elapsed="0.199953"/>
+<status status="PASS" start="2025-09-19T14:24:48.771125" elapsed="0.155539"/>
 </kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-19T14:24:48.927310" level="INFO">['Estudar Robot Framework', 'Estudar JavaScript', 'Estudar Python']</msg>
+<arg>${task}[tags]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-19T14:24:48.926984" elapsed="0.000423"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-19T14:24:48.928641" level="INFO">Elemento atual: Estudar Robot Framework</msg>
+<arg>Elemento atual: ${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-19T14:24:48.928173" elapsed="0.000633"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:24:48.930116" level="INFO">Typing text 'Estudar Robot Framework' into text field 'css=input[name=tags]'.</msg>
+<arg>css=input[name=tags]</arg>
+<arg>${element}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:24:48.929216" elapsed="0.177399"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-19T14:24:50.107869" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-19T14:24:49.107165" elapsed="1.001140"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:24:50.112849" level="INFO">Sending key(s) ('ENTER',) to css=input[name=tags] element.</msg>
+<msg time="2025-09-19T14:24:50.438419" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-09-19T14:24:50.438697" level="INFO">Releasing special key ENTER.</msg>
+<arg>css=input[name=tags]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-09-19T14:24:50.111679" elapsed="0.389271"/>
+</kw>
+<var name="${element}">Estudar Robot Framework</var>
+<status status="PASS" start="2025-09-19T14:24:48.927900" elapsed="1.573223"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-19T14:24:50.501880" level="INFO">Elemento atual: Estudar JavaScript</msg>
+<arg>Elemento atual: ${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-19T14:24:50.501648" elapsed="0.000307"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:24:50.503224" level="INFO">Typing text 'Estudar JavaScript' into text field 'css=input[name=tags]'.</msg>
+<arg>css=input[name=tags]</arg>
+<arg>${element}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:24:50.502698" elapsed="0.127241"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-19T14:24:51.631028" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-19T14:24:50.630430" elapsed="1.001019"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:24:51.635255" level="INFO">Sending key(s) ('ENTER',) to css=input[name=tags] element.</msg>
+<msg time="2025-09-19T14:24:52.193390" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-09-19T14:24:52.193535" level="INFO">Releasing special key ENTER.</msg>
+<arg>css=input[name=tags]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-09-19T14:24:51.632985" elapsed="0.574568"/>
+</kw>
+<var name="${element}">Estudar JavaScript</var>
+<status status="PASS" start="2025-09-19T14:24:50.501423" elapsed="1.706352"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-19T14:24:52.208888" level="INFO">Elemento atual: Estudar Python</msg>
+<arg>Elemento atual: ${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-19T14:24:52.208506" elapsed="0.000502"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:24:52.211091" level="INFO">Typing text 'Estudar Python' into text field 'css=input[name=tags]'.</msg>
+<arg>css=input[name=tags]</arg>
+<arg>${element}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:24:52.209533" elapsed="0.116929"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-19T14:24:53.327371" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-19T14:24:52.326811" elapsed="1.000995"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:24:53.330444" level="INFO">Sending key(s) ('ENTER',) to css=input[name=tags] element.</msg>
+<msg time="2025-09-19T14:24:53.647047" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-09-19T14:24:53.647442" level="INFO">Releasing special key ENTER.</msg>
+<arg>css=input[name=tags]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-09-19T14:24:53.328623" elapsed="0.349372"/>
+</kw>
+<var name="${element}">Estudar Python</var>
+<status status="PASS" start="2025-09-19T14:24:52.208158" elapsed="1.470058"/>
+</iter>
+<var>${element}</var>
+<value>@{task}[tags]</value>
+<status status="PASS" start="2025-09-19T14:24:48.927553" elapsed="4.750812"/>
+</for>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:25.147536" level="INFO">Clicking button 'css=form button[type="submit"]'.</msg>
+<msg time="2025-09-19T14:24:53.680926" level="INFO">Clicking button 'css=form button[type="submit"]'.</msg>
 <arg>css=form button[type="submit"]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-18T16:52:25.147046" elapsed="0.125977"/>
+<status status="PASS" start="2025-09-19T14:24:53.679031" elapsed="0.144911"/>
 </kw>
 <arg>${data}[task]</arg>
-<status status="PASS" start="2025-09-18T16:52:24.916954" elapsed="0.356553"/>
+<status status="PASS" start="2025-09-19T14:24:48.734019" elapsed="5.090158"/>
 </kw>
 <kw name="Tarefa foi cadastrada" owner="TaskPage">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>css=.task-todo</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-18T16:52:25.275582" elapsed="0.277799"/>
+<status status="PASS" start="2025-09-19T14:24:53.825654" elapsed="0.240225"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-09-18T16:52:25.640940" level="INFO">${text} = Estudar Robot Framework</msg>
+<msg time="2025-09-19T14:24:54.093103" level="INFO">${text} = Estudar Robot Framework</msg>
 <var>${text}</var>
 <arg>css=.task-todo</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-18T16:52:25.554236" elapsed="0.086970"/>
+<status status="PASS" start="2025-09-19T14:24:54.066148" elapsed="0.027017"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${text}</arg>
 <arg>${task_name}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-09-18T16:52:25.642090" elapsed="0.000908"/>
+<status status="PASS" start="2025-09-19T14:24:54.093428" elapsed="0.000326"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-09-18T16:52:25.643772" level="INFO">Tarefa Estudar Robot Framework cadastrada com sucesso!</msg>
+<msg time="2025-09-19T14:24:54.094098" level="INFO">Tarefa Estudar Robot Framework cadastrada com sucesso!</msg>
 <arg>Tarefa ${task_name} cadastrada com sucesso!</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-18T16:52:25.643592" elapsed="0.000247"/>
+<status status="PASS" start="2025-09-19T14:24:54.093927" elapsed="0.000233"/>
 </kw>
 <arg>${data}[task][name]</arg>
-<status status="PASS" start="2025-09-18T16:52:25.274172" elapsed="0.369770"/>
+<status status="PASS" start="2025-09-19T14:24:53.824834" elapsed="0.269423"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-09-18T16:52:25.644760" level="INFO">{'user': {'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}, 'task': {'name': 'Estudar Robot Framework', 'tasks': ['Estudar Robot Framework', 'Estudar JavaScript', 'Estudar Python']}}</msg>
+<msg time="2025-09-19T14:24:54.094657" level="INFO">{'user': {'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}, 'task': {'name': 'Estudar Robot Framework', 'tags': ['Estudar Robot Framework', 'Estudar JavaScript', 'Estudar Python']}}</msg>
 <arg>${data}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-18T16:52:25.644325" elapsed="0.000588"/>
+<status status="PASS" start="2025-09-19T14:24:54.094482" elapsed="0.000239"/>
 </kw>
-<status status="PASS" start="2025-09-18T16:52:21.905841" elapsed="3.739886"/>
+<status status="PASS" start="2025-09-19T14:24:45.554203" elapsed="8.540797"/>
 </test>
 <doc>Cenários de cadastro</doc>
-<status status="PASS" start="2025-09-18T16:52:21.198377" elapsed="4.448599"/>
+<status status="PASS" start="2025-09-19T14:24:43.807894" elapsed="10.288048"/>
 </suite>
 <statistics>
 <total>

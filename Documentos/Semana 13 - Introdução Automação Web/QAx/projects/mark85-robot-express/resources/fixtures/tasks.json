@@ -4,10 +4,10 @@
             "name": "Steve",
             "email": "stevejobs@apple.com",
             "password": "pwd123"
-    },
-    "task": {
+        },
+        "task": {
         "name": "Estudar Robot Framework",
-        "tasks":[
+        "tags":[
             "Estudar Robot Framework",
             "Estudar JavaScript",
             "Estudar Python"
