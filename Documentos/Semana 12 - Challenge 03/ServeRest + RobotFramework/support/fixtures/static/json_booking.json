@@ -1,0 +1,57 @@
+{
+    "agendamento_valido": {
+    "firstname" : "Jim",
+    "lastname" : "Brown",
+    "totalprice" : 111,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2018-01-01",
+        "checkout" : "2019-01-01"
+    },
+    "additionalneeds" : "Breakfast"
+    },
+    "agendamento_invalido": {
+    "firstname" : "Rafael",
+    "lastname" : "`!@#^22",
+    "totalprice" : 0,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "1990-01-01",
+        "checkout" : "1982-01-01"
+    },
+    "additionalneeds" : ""
+    },
+    "agendamento_sem_nome": {
+    "firstname" : "",
+    "lastname" : "Brown",
+    "totalprice" : 111,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2018-01-01",
+        "checkout" : "2019-01-01"
+    },
+    "additionalneeds" : "Breakfast"
+    },
+    "agendamento_sem_sobrenome": {
+    "firstname" : "Jim",
+    "lastname" : "",
+    "totalprice" : 111,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2018-01-01",
+        "checkout" : "2019-01-01"
+    },
+    "additionalneeds" : "Breakfast"
+    },
+    "agendamento_sem_checkin": {
+    "firstname" : "Jim",
+    "lastname" : "Brown",
+    "totalprice" : 111,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "",
+        "checkout" : "2019-01-01"
+    },
+    "additionalneeds" : "Breakfast"
+    }
+}

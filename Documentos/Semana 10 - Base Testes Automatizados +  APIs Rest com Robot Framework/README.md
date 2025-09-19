@@ -1,7 +1,6 @@
 # <h1 align="center">AWS & AI for Software Quality Engineering</h1>
 
-<i><h4 align="center">Repositório com atividades feitas na Bolsa de Estudo Compass.UOL</h4></i>
-
+<i><h4 align="center">Repositório com atividades realizadas na Bolsa de Estudos Compass.UOL</h4></i>
 
 ---
 
@@ -12,7 +11,22 @@
 - **Turma:** Jun25  
 
 ---
-  
+
+## 📚 Atividades da Semana
+
+### 🔹 Semana 10
+- **Tarefa 1:** Aplicar testes em uma API com Robot FrameWork
+
+
+#### ⚙️ Informações sobre os Testes
+- **Biblioteca utilizada:**
+  - robotframework-requests
+- **Cobertura dos Testes:**
+  - Caminho Feliz  
+    
+
+---
+
 ## 📂 Organização
 
 O conteúdo está dividido em **Sprints (Branches):**
@@ -35,14 +49,4 @@ O conteúdo está dividido em **Sprints (Branches):**
 
 - **Sprint 5**
   - Semana 9 – Base de versionamento e programação em Python  
-  - Semana 10 – Testes Automatizados + APIs REST com Robot Framework
- 
-- **Sprint 6**
-  - Semana 11 – Testes automatizados de APIs REST com Robot Framework - Aprofundando com AI e AWS \
-    ┖ RestfulBooker + AmazonQ \
-	      ┖ ServeRest no AWS EC2  
-  - Semana 12 – Challenge 03 \
-      ┖ ServeRest + RobotFrameWork \
-          ┖ Plano de Teste ServeRest \
-              ┖ Coleção Postman     
-
+  - Semana 10 – Testes Automatizados + APIs REST com Robot Framework  
