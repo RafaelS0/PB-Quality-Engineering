@@ -11,8 +11,19 @@
             "Estudar Robot Framework",
             "Estudar JavaScript",
             "Estudar Python"
-        ]
+            ]
+        }
+    },
+        "duplicate": {
+        "user": {
+            "name": "Amanda",
+            "email": "amandadup@argus.com",
+            "password": "pwd123"
+        },
+        "task": {
+        "name": "Recrutar meta-humanos",
+        "tags":[]
+        }
     }
 
-    }
 }

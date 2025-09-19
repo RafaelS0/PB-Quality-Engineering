@@ -19,3 +19,19 @@ Deve poder cadastrar uma nova tarefa
    
    
    Log    ${data}
+
+Não deve cadastrar tarefa com nome duplicado
+    [Tags]    duplicate
+    ${data}=    Get fixtures    tasks    duplicate
+    Clean user from database    ${data}[user][email]
+    Insert user into database    ${data}[user]
+
+      Iniciar Sessão
+      Enviar formulario de login   ${data}[user]
+      Abrir formulário de cadastro de tarefa
+      Enviar formulário de tarefa    ${data}[task]
+      Abrir formulário de cadastro de tarefa
+      Enviar formulário de tarefa    ${data}[task]
+      Deve conter a mensagem    Oops! Tarefa duplicada.
+
+   
