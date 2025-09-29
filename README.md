@@ -41,8 +41,16 @@ O conteúdo está dividido em **Sprints (Branches):**
   - Semana 11 – Testes automatizados de APIs REST com Robot Framework - Aprofundando com AI e AWS \
     ┖ RestfulBooker + AmazonQ \
 	      ┖ ServeRest no AWS EC2  
-  - Semana 12 – Challenge 03 \
-      ┖ ServeRest + RobotFrameWork \
-          ┖ Plano de Teste ServeRest \
-              ┖ Coleção Postman     
+
+ - Semana 12 – Challenge 03\
+  	┖ ServeRest + RobotFramework(API)\
+		┖ Melhorias no Plano de Teste ServeRest\
+				┖ Testes em API usando Postman      
+
+- **Sprint 7**
+	- Semana 13 - Introdução Automação Web\
+		┖ Mark85 + RobotFramework(SeleniumLibrary)
+    
+  - Semana 14 - Aprofundando Automação Web + AI\
+		┖ Automação FrontServeRest
 

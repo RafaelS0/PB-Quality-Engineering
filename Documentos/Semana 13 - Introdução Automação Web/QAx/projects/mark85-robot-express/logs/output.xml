@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-19T14:55:40.143005" rpa="false" schemaversion="5">
+<suite id="s1" name="Create" source="/home/rafael/Documentos/Compass/PB-Quality-Engineering/Documentos/Semana 13 - Introdução Automação Web/QAx/projects/mark85-robot-express/tests/tasks/create.robot">
+<test id="s1-t1" name="Não deve cadastrar tarefa com nome duplicado" line="23">
+<kw name="Get fixtures" owner="base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-09-19T14:55:41.051141" level="INFO">${data} = {'create': {'user': {'name': 'Steve', 'email': 'stevejobs@apple.com', 'password': 'pwd123'}, 'task': {'name': 'Estudar Robot Framework', 'tags': ['Estudar Robot Framework', 'Estudar JavaScript', 'Estu...</msg>
+<var>${data}</var>
+<arg>${EXECDIR}/resources/fixtures/${file_name}.json</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-09-19T14:55:41.049999" elapsed="0.001244"/>
+</kw>
+<return>
+<value>${data}[${scenario}]</value>
+<status status="PASS" start="2025-09-19T14:55:41.051458" elapsed="0.000140"/>
+</return>
+<msg time="2025-09-19T14:55:41.052046" level="INFO">${data} = {'user': {'name': 'Amanda', 'email': 'amandadup@argus.com', 'password': 'pwd123'}, 'task': {'name': 'Recrutar meta-humanos', 'tags': []}}</msg>
+<var>${data}</var>
+<arg>tasks</arg>
+<arg>duplicate</arg>
+<status status="PASS" start="2025-09-19T14:55:41.045327" elapsed="0.006787"/>
+</kw>
+<kw name="Clean user from database" owner="database">
+<arg>${data}[user][email]</arg>
+<status status="PASS" start="2025-09-19T14:55:41.052620" elapsed="0.317103"/>
+</kw>
+<kw name="Insert user into database" owner="database">
+<msg time="2025-09-19T14:55:41.466986" level="INFO">{'name': 'Amanda', 'email': 'amandadup@argus.com', 'password': 'pwd123'}</msg>
+<arg>${data}[user]</arg>
+<status status="PASS" start="2025-09-19T14:55:41.370708" elapsed="0.096467"/>
+</kw>
+<kw name="Iniciar Sessão" owner="base">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:41.470264" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-19T14:55:41.469112" elapsed="2.158137"/>
+</kw>
+<status status="PASS" start="2025-09-19T14:55:41.467973" elapsed="2.159751"/>
+</kw>
+<kw name="Enviar formulario de login" owner="LoginPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:43.630302" level="INFO">Typing text 'amandadup@argus.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${user}[email]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:43.629428" elapsed="0.241592"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:43.871952" level="INFO">Typing text 'pwd123' into text field 'css=input[placeholder="Senha"]'.</msg>
+<arg>css=input[placeholder="Senha"]</arg>
+<arg>${user}[password]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:43.871412" elapsed="0.129958"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:44.001995" level="INFO">Clicking button 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:44.001726" elapsed="0.142842"/>
+</kw>
+<arg>${data}[user]</arg>
+<status status="PASS" start="2025-09-19T14:55:43.628614" elapsed="0.516585"/>
+</kw>
+<kw name="Abrir formulário de cadastro de tarefa" owner="Header">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.button-add</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-19T14:55:44.149285" elapsed="0.250427"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:44.400301" level="INFO">Clicking button 'css=.button-add'.</msg>
+<arg>css=.button-add</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:44.400017" elapsed="0.300352"/>
+</kw>
+<status status="PASS" start="2025-09-19T14:55:44.148515" elapsed="0.552148"/>
+</kw>
+<kw name="Enviar formulário de tarefa" owner="TaskCreatePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=form</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-19T14:55:44.702688" elapsed="0.034355"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:44.737685" level="INFO">Typing text 'Recrutar meta-humanos' into text field 'css=input[placeholder="Nome da tarefa"]'.</msg>
+<arg>css=input[placeholder="Nome da tarefa"]</arg>
+<arg>${task}[name]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:44.737331" elapsed="0.171283"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-19T14:55:44.909160" level="INFO">[]</msg>
+<arg>${task}[tags]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-19T14:55:44.908887" elapsed="0.000395"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<arg>Elemento atual: ${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:44.909851" elapsed="0.000041"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>css=input[name=tags]</arg>
+<arg>${element}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:44.910052" elapsed="0.000039"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:44.910234" elapsed="0.000036"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>css=input[name=tags]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:44.910437" elapsed="0.000036"/>
+</kw>
+<var name="${element}"/>
+<status status="NOT RUN" start="2025-09-19T14:55:44.909694" elapsed="0.000835"/>
+</iter>
+<var>${element}</var>
+<value>@{task}[tags]</value>
+<status status="NOT RUN" start="2025-09-19T14:55:44.909394" elapsed="0.001250"/>
+</for>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:44.911065" level="INFO">Clicking button 'css=form button[type="submit"]'.</msg>
+<arg>css=form button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:44.910826" elapsed="0.114922"/>
+</kw>
+<arg>${data}[task]</arg>
+<status status="PASS" start="2025-09-19T14:55:44.701352" elapsed="0.324637"/>
+</kw>
+<kw name="Abrir formulário de cadastro de tarefa" owner="Header">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.button-add</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-19T14:55:45.027767" elapsed="0.279872"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:45.309246" level="INFO">Clicking button 'css=.button-add'.</msg>
+<arg>css=.button-add</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:45.308446" elapsed="0.232900"/>
+</kw>
+<status status="PASS" start="2025-09-19T14:55:45.026741" elapsed="0.514763"/>
+</kw>
+<kw name="Enviar formulário de tarefa" owner="TaskCreatePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=form</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-19T14:55:45.543487" elapsed="0.023584"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:45.567989" level="INFO">Typing text 'Recrutar meta-humanos' into text field 'css=input[placeholder="Nome da tarefa"]'.</msg>
+<arg>css=input[placeholder="Nome da tarefa"]</arg>
+<arg>${task}[name]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:45.567348" elapsed="0.153808"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-19T14:55:45.721770" level="INFO">[]</msg>
+<arg>${task}[tags]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-19T14:55:45.721503" elapsed="0.000332"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<arg>Elemento atual: ${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:45.722370" elapsed="0.000072"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>css=input[name=tags]</arg>
+<arg>${element}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:45.722731" elapsed="0.000066"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:45.723063" elapsed="0.000058"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>css=input[name=tags]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-09-19T14:55:45.723400" elapsed="0.000054"/>
+</kw>
+<var name="${element}"/>
+<status status="NOT RUN" start="2025-09-19T14:55:45.722145" elapsed="0.001388"/>
+</iter>
+<var>${element}</var>
+<value>@{task}[tags]</value>
+<status status="NOT RUN" start="2025-09-19T14:55:45.721927" elapsed="0.001837"/>
+</for>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:45.724297" level="INFO">Clicking button 'css=form button[type="submit"]'.</msg>
+<arg>css=form button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-19T14:55:45.724065" elapsed="0.105821"/>
+</kw>
+<arg>${data}[task]</arg>
+<status status="PASS" start="2025-09-19T14:55:45.542119" elapsed="0.288021"/>
+</kw>
+<kw name="Deve conter a mensagem" owner="Notice">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//p[contains(., '${expected_message}')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-19T14:55:45.831572" elapsed="0.261260"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-19T14:55:46.102422" level="INFO">Current page contains element 'xpath=//p[contains(., 'Oops! Tarefa duplicada.')]'.</msg>
+<arg>xpath=//p[contains(., '${expected_message}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-19T14:55:46.093273" elapsed="0.009275"/>
+</kw>
+<arg>Oops! Tarefa duplicada.</arg>
+<status status="PASS" start="2025-09-19T14:55:45.830825" elapsed="0.271878"/>
+</kw>
+<tag>duplicate</tag>
+<status status="PASS" start="2025-09-19T14:55:41.043809" elapsed="5.059212"/>
+</test>
+<doc>Cenários de cadastro</doc>
+<status status="PASS" start="2025-09-19T14:55:40.144322" elapsed="5.960444"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">duplicate</stat>
+</tag>
+<suite>
+<stat name="Create" id="s1" pass="1" fail="0" skip="0">Create</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
