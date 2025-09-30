@@ -4,6 +4,7 @@ Library        RequestsLibrary
 Resource    ./variables/cinemaVariables.resource
 Resource    ../keywords/cadastrar_usuario.resource
 Resource    ../keywords/fazerLoginKeywords.resource
+Resource    ../support/common/common.resource
 
 
 

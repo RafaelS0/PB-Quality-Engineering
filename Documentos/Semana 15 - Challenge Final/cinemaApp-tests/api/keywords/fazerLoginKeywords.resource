@@ -19,7 +19,6 @@ Extract JWT
     Log    Token obtido: ${token}
     Set Global Variable    ${token}
 
-
 Fazer Login
     [Arguments]    ${user}
     POST Endpoint /auth/login    ${user}[email]    ${user}[password]
