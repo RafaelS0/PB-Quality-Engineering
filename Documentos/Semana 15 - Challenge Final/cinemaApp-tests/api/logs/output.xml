@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-30T15:50:13.747968" rpa="false" schemaversion="5">
+<suite id="s1" name="Setup Tests" source="/home/rafael/Compass/PB-Quality-Engineering/Documentos/Semana 15 - Challenge Final/cinemaApp-tests/api/tests/setup_tests.robot">
+<test id="s1-t1" name="Cadastrar um Administrador" line="9">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.811988" level="INFO">${admin_user} = {'name': 'Lex Luthor', 'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<var>${admin_user}</var>
+<arg>name=Lex Luthor</arg>
+<arg>email=lex.luthor@lexcorp.com</arg>
+<arg>password=pwd12345</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.811765" elapsed="0.000249"/>
+</kw>
+<kw name="Criar Sessao" owner="base">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-30T15:50:13.812536" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>CinemaApp</arg>
+<arg>url=${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-30T15:50:13.812392" elapsed="0.000266"/>
+</kw>
+<status status="PASS" start="2025-09-30T15:50:13.812195" elapsed="0.000542"/>
+</kw>
+<kw name="Criar um Administrador" owner="cadastrar_usuario">
+<kw name="POST Endpoint setup/admin" owner="cadastrar_usuario">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.813478" level="INFO">&amp;{header} = { Content-Type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.813342" elapsed="0.000154"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.813709" level="INFO">${payload} = {'name': 'Lex Luthor', 'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<var>${payload}</var>
+<arg>name=${name}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.813561" elapsed="0.000162"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-30T15:50:13.887906" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
+ path_url=/api/v1/setup/admin 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '81'} 
+ body=b'{"name": "Lex Luthor", "email": "lex.luthor@lexcorp.com", "password": "pwd12345"}' 
+ </msg>
+<msg time="2025-09-30T15:50:13.888036" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '170', 'ETag': 'W/"aa-l05X+px/v1Eu4aLhJQyMvxkfI98"', 'Date': 'Tue, 30 Sep 2025 18:50:13 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"Admin user created successfully","data":{"_id":"68dc2665675a622add72c491","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin"}} 
+ </msg>
+<msg time="2025-09-30T15:50:13.888165" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>CinemaApp</arg>
+<arg>url=/setup/admin</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.813778" elapsed="0.074413"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.888754" level="INFO">{"success":true,"message":"Admin user created successfully","data":{"_id":"68dc2665675a622add72c491","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin"}}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.888343" elapsed="0.000441"/>
+</kw>
+<arg>${admin_user}[name]</arg>
+<arg>${admin_user}[email]</arg>
+<arg>${admin_user}[password]</arg>
+<status status="PASS" start="2025-09-30T15:50:13.813106" elapsed="0.075723"/>
+</kw>
+<arg>${admin_user}</arg>
+<status status="PASS" start="2025-09-30T15:50:13.812895" elapsed="0.075966"/>
+</kw>
+<tag>admin</tag>
+<status status="PASS" start="2025-09-30T15:50:13.811141" elapsed="0.077851"/>
+</test>
+<test id="s1-t2" name="Fazer Login como um Administrador" line="19">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.889816" level="INFO">${admin_user} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<var>${admin_user}</var>
+<arg>email=lex.luthor@lexcorp.com</arg>
+<arg>password=pwd12345</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.889649" elapsed="0.000184"/>
+</kw>
+<kw name="Criar Sessao" owner="base">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-30T15:50:13.890286" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>CinemaApp</arg>
+<arg>url=${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-30T15:50:13.890187" elapsed="0.000189"/>
+</kw>
+<status status="PASS" start="2025-09-30T15:50:13.890035" elapsed="0.000375"/>
+</kw>
+<kw name="Fazer Login" owner="fazerLoginKeywords">
+<kw name="POST Endpoint /auth/login" owner="fazerLoginKeywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.891126" level="INFO">${payload} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<var>${payload}</var>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.890909" elapsed="0.000233"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-30T15:50:13.947151" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '59', 'Content-Type': 'application/json'} 
+ body=b'{"email": "lex.luthor@lexcorp.com", "password": "pwd12345"}' 
+ </msg>
+<msg time="2025-09-30T15:50:13.947234" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '308', 'ETag': 'W/"134-mTkjiwMjlXQU/pTSGDqhLTaUWZA"', 'Date': 'Tue, 30 Sep 2025 18:50:13 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68dc2665675a622add72c491","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGMyNjY1Njc1YTYyMmFkZDcyYzQ5MSIsImlhdCI6MTc1OTI1ODIxMywiZXhwIjoxNzU5MzQ0NjEzfQ.65CSzWC61wASTynJPeemxDQF0ax4JszKyHthWcezGhE"}} 
+ </msg>
+<msg time="2025-09-30T15:50:13.947341" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=CinemaApp</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.891201" elapsed="0.056160"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.947744" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.947511" elapsed="0.000373"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Extract JWT" owner="fazerLoginKeywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.948876" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGMyNjY1Njc1YTYyMmFkZDcyYzQ5MSIsImlhdCI6MTc1OTI1ODIxMywiZXhwIjoxNzU5MzQ0NjEzfQ.65CSzWC61wASTynJPeemxDQF0ax4JszKyHthWcezGhE</msg>
+<var>${token}</var>
+<arg>${response.json()['data']['token']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.948558" elapsed="0.000338"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.949037" level="INFO">Token obtido: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGMyNjY1Njc1YTYyMmFkZDcyYzQ5MSIsImlhdCI6MTc1OTI1ODIxMywiZXhwIjoxNzU5MzQ0NjEzfQ.65CSzWC61wASTynJPeemxDQF0ax4JszKyHthWcezGhE</msg>
+<arg>Token obtido: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.948958" elapsed="0.000103"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.949219" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGMyNjY1Njc1YTYyMmFkZDcyYzQ5MSIsImlhdCI6MTc1OTI1ODIxMywiZXhwIjoxNzU5MzQ0NjEzfQ.65CSzWC61wASTynJPeemxDQF0ax4JszKyHthWcezGhE</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.949116" elapsed="0.000124"/>
+</kw>
+<status status="PASS" start="2025-09-30T15:50:13.948417" elapsed="0.000853"/>
+</kw>
+<arg>${response.status_code} == 200</arg>
+<arg>Extract JWT</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.947973" elapsed="0.001354"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-30T15:50:13.949652" level="INFO">{"success":true,"data":{"_id":"68dc2665675a622add72c491","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGMyNjY1Njc1YTYyMmFkZDcyYzQ5MSIsImlhdCI6MTc1OTI1ODIxMywiZXhwIjoxNzU5MzQ0NjEzfQ.65CSzWC61wASTynJPeemxDQF0ax4JszKyHthWcezGhE"}}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-30T15:50:13.949410" elapsed="0.000270"/>
+</kw>
+<arg>${user}[email]</arg>
+<arg>${user}[password]</arg>
+<status status="PASS" start="2025-09-30T15:50:13.890705" elapsed="0.059009"/>
+</kw>
+<arg>${admin_user}</arg>
+<status status="PASS" start="2025-09-30T15:50:13.890533" elapsed="0.059207"/>
+</kw>
+<tag>admin</tag>
+<status status="PASS" start="2025-09-30T15:50:13.889321" elapsed="0.060548"/>
+</test>
+<doc>Testes para endpoint /setup exclusivo para Dev</doc>
+<status status="PASS" start="2025-09-30T15:50:13.748597" elapsed="0.201700"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">admin</stat>
+</tag>
+<suite>
+<stat name="Setup Tests" id="s1" pass="2" fail="0" skip="0">Setup Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
