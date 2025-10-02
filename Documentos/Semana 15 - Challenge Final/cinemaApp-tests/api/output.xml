@@ -1,218 +1,265 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-10-02T13:50:34.843931" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-10-02T14:07:59.865997" rpa="false" schemaversion="5">
 <suite id="s1" name="Movies Tests" source="/home/rafael/Documentos/Compass/AtualizadoPC/PB-Quality-Engineering/Documentos/Semana 15 - Challenge Final/cinemaApp-tests/api/tests/movies_tests.robot">
-<test id="s1-t1" name="CT004.0012 - Deletar um Filme Cadastrado" line="29">
+<test id="s1-t1" name="CT004.002 - Editar um Filme Cadastrado" line="30">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.107421" level="INFO">${genres} = ['Slasher', 'Terror']</msg>
+<msg time="2025-10-02T14:08:00.282655" level="INFO">${genres} = ['Drama', 'Esportivo']</msg>
 <var>${genres}</var>
-<arg>Slasher</arg>
-<arg>Terror</arg>
+<arg>Drama</arg>
+<arg>Esportivo</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.106872" elapsed="0.002324"/>
+<status status="PASS" start="2025-10-02T14:08:00.281716" elapsed="0.003310"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.112171" level="INFO">${movie} = {'title': ' Scream', 'synopsis': 'Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescot...</msg>
-<var>${movie}</var>
-<arg>title= Scream</arg>
-<arg>synopsis=Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescott, traumatizada após o brutal assassinato de sua mãe, é o alvo preferido do misterioso homicida que aterroriza a outrora pacata comunidade.</arg>
-<arg>director=Wes Craven</arg>
+<msg time="2025-10-02T14:08:00.288511" level="INFO">${movie_unedited} = {'title': ' Rocky, um Lutador', 'synopsis': 'Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar contra o campeão dos pesos pesados, Apollo C...</msg>
+<var>${movie_unedited}</var>
+<arg>title= Rocky, um Lutador</arg>
+<arg>synopsis=Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar contra o campeão dos pesos pesados, Apollo Creed, quando o adversário do invicto lutador agendado para a luta é ferido.</arg>
+<arg>director=John G Avildsen</arg>
 <arg>genres=${genres}</arg>
-<arg>duration=111</arg>
-<arg>classification=+16</arg>
-<arg>poster=scream.jpg</arg>
-<arg>releaseDate=1997-01-31</arg>
+<arg>duration=119</arg>
+<arg>classification=+14</arg>
+<arg>poster=rocky.jpg</arg>
+<arg>releaseDate=1977-01-07</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.110726" elapsed="0.001816"/>
+<status status="PASS" start="2025-10-02T14:08:00.287068" elapsed="0.001799"/>
 </kw>
 <kw name="Clean Movie from Database" owner="database">
-<msg time="2025-10-02T13:50:35.123749" level="INFO">Searching for movie with title:  Scream
-Movie found: {'_id': ObjectId('68deacc8106aa13b7285ef18'), 'title': ' Scream', 'synopsis': 'Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescott, traumatizada após o brutal assassinato de sua mãe, é o alvo preferido do misterioso homicida que aterroriza a outrora pacata comunidade.', 'director': 'Wes Craven', 'genres': ['Slasher', 'Terror'], 'duration': '111', 'classification': '+16', 'poster': 'scream.jpg', 'releaseDate': '1997-01-31'}
-Movies with title ' Scream' deleted. Count: 1</msg>
-<arg>${movie}[title]</arg>
-<status status="PASS" start="2025-10-02T13:50:35.113490" elapsed="0.010749"/>
+<msg time="2025-10-02T14:08:00.296588" level="INFO">Searching for movie with title:  Rocky, um Lutador
+Movie found: None
+No movie found with title:  Rocky, um Lutador
+Existing movies: [{'_id': ObjectId('68dab7c8732acebb54566cb3'), 'title': 'Inception'}, {'_id': ObjectId('68dab7c8732acebb54566cb4'), 'title': 'The Avengers'}, {'_id': ObjectId('68dab7c8732acebb54566cb5'), 'title': 'The Shawshank Redemption'}, {'_id': ObjectId('68dd847b21ab0711adb802b6'), 'title': 'Manchester à Beira-Mar'}, {'_id': ObjectId('68deac968a278fec364b0b87'), 'title': ' Pânico'}]</msg>
+<arg>${movie_unedited}[title]</arg>
+<status status="PASS" start="2025-10-02T14:08:00.290716" elapsed="0.006360"/>
 </kw>
 <kw name="Insert movie into database" owner="database">
-<arg>${movie}</arg>
-<status status="PASS" start="2025-10-02T13:50:35.124789" elapsed="0.002645"/>
+<arg>${movie_unedited}</arg>
+<status status="PASS" start="2025-10-02T14:08:00.300661" elapsed="0.002820"/>
 </kw>
-<kw name="Criar Sessao" owner="base">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-02T13:50:35.129736" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>CinemaApp</arg>
-<arg>url=${BASE_URL}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-02T13:50:35.129190" elapsed="0.001339"/>
-</kw>
-<status status="PASS" start="2025-10-02T13:50:35.128284" elapsed="0.002513"/>
-</kw>
-<kw name="Deletar um filme" owner="deleteMovieKeywords">
 <kw name="Pegar ID de um filme" owner="common">
 <kw name="Get movie by title" owner="database">
-<msg time="2025-10-02T13:50:35.135541" level="INFO">${movie_data} = {'_id': ObjectId('68dead5ba0c931300467eaaf'), 'title': ' Scream', 'synopsis': 'Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conheci...</msg>
+<msg time="2025-10-02T14:08:00.308955" level="INFO">${movie_data} = {'_id': ObjectId('68deb17067fe3b2dc9491d82'), 'title': ' Rocky, um Lutador', 'synopsis': 'Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar...</msg>
 <var>${movie_data}</var>
 <arg>${movie}[title]</arg>
-<status status="PASS" start="2025-10-02T13:50:35.133019" elapsed="0.003105"/>
+<status status="PASS" start="2025-10-02T14:08:00.305743" elapsed="0.003861"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.137218" level="INFO">${movie_id} = 68dead5ba0c931300467eaaf</msg>
+<msg time="2025-10-02T14:08:00.311283" level="INFO">${movie_id} = 68deb17067fe3b2dc9491d82</msg>
 <var>${movie_id}</var>
 <arg>${movie_data}[_id]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.136560" elapsed="0.000886"/>
+<status status="PASS" start="2025-10-02T14:08:00.310493" elapsed="0.001096"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.138423" level="INFO">${movie_id} = 68dead5ba0c931300467eaaf</msg>
+<msg time="2025-10-02T14:08:00.312724" level="INFO">${movie_id} = 68deb17067fe3b2dc9491d82</msg>
 <arg>${movie_id}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.137820" elapsed="0.000858"/>
+<status status="PASS" start="2025-10-02T14:08:00.312046" elapsed="0.000878"/>
 </kw>
-<arg>${movie}</arg>
-<status status="PASS" start="2025-10-02T13:50:35.132320" elapsed="0.006591"/>
+<arg>${movie_unedited}</arg>
+<status status="PASS" start="2025-10-02T14:08:00.304587" elapsed="0.008537"/>
 </kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-02T14:08:00.315872" level="INFO">${movie_edited} = {'title': ' Rocky, um Lutador - EDITADO', 'synopsis': 'EDITADO', 'director': 'John G Avildsen', 'genres': ['Drama', 'Esportivo'], 'duration': '130', 'classification': '+16', 'poster': 'rocky.jpg', 're...</msg>
+<var>${movie_edited}</var>
+<arg>title= Rocky, um Lutador - EDITADO</arg>
+<arg>synopsis=EDITADO</arg>
+<arg>director=John G Avildsen</arg>
+<arg>genres=${genres}</arg>
+<arg>duration=130</arg>
+<arg>classification=+16</arg>
+<arg>poster=rocky.jpg</arg>
+<arg>releaseDate=1977-01-07</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-02T14:08:00.314759" elapsed="0.001511"/>
+</kw>
+<kw name="Criar Sessao" owner="base">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-10-02T14:08:00.319917" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>CinemaApp</arg>
+<arg>url=${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-02T14:08:00.318612" elapsed="0.002298"/>
+</kw>
+<status status="PASS" start="2025-10-02T14:08:00.317742" elapsed="0.004084"/>
+</kw>
+<kw name="Editar um Filme" owner="upadteMovieskeywords">
 <kw name="Utilizar Token de Administrador" owner="common">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.140666" level="INFO">${admin_user} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<msg time="2025-10-02T14:08:00.325698" level="INFO">${admin_user} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
 <var>${admin_user}</var>
 <arg>email=lex.luthor@lexcorp.com</arg>
 <arg>password=pwd12345</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.139903" elapsed="0.001016"/>
+<status status="PASS" start="2025-10-02T14:08:00.325026" elapsed="0.000965"/>
 </kw>
 <kw name="Criar Sessao" owner="base">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-02T13:50:35.143378" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-10-02T14:08:00.332651" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>CinemaApp</arg>
 <arg>url=${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-02T13:50:35.142835" elapsed="0.001638"/>
+<status status="PASS" start="2025-10-02T14:08:00.327492" elapsed="0.005821"/>
 </kw>
-<status status="PASS" start="2025-10-02T13:50:35.141364" elapsed="0.003412"/>
+<status status="PASS" start="2025-10-02T14:08:00.326479" elapsed="0.007134"/>
 </kw>
 <kw name="Fazer Login" owner="fazerLoginKeywords">
 <kw name="POST Endpoint /auth/login" owner="fazerLoginKeywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.147578" level="INFO">${payload} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<msg time="2025-10-02T14:08:00.337538" level="INFO">${payload} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
 <var>${payload}</var>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.146861" elapsed="0.001182"/>
+<status status="PASS" start="2025-10-02T14:08:00.336715" elapsed="0.002300"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-10-02T13:50:35.334627" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2025-10-02T14:08:00.516751" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
  path_url=/api/v1/auth/login 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '59', 'Content-Type': 'application/json'} 
  body=b'{"email": "lex.luthor@lexcorp.com", "password": "pwd12345"}' 
  </msg>
-<msg time="2025-10-02T13:50:35.335303" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2025-10-02T14:08:00.517318" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '308', 'ETag': 'W/"134-KDC8Mclx+QXmW4DGzklajD7NPTo"', 'Date': 'Thu, 02 Oct 2025 16:50:35 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '308', 'ETag': 'W/"134-zZAELPuBsxBEiUMAGEKz+Mu6alM"', 'Date': 'Thu, 02 Oct 2025 17:08:00 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyNDg4MCwiZXhwIjoxNzU5NTExMjgwfQ.HwrJ-hTovITTe7_hST5tnlxXRDR8AlCFMECAZOslegI"}} 
  </msg>
-<msg time="2025-10-02T13:50:35.335895" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-10-02T14:08:00.520448" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=CinemaApp</arg>
 <arg>url=/auth/login</arg>
 <arg>json=${payload}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.148442" elapsed="0.187793"/>
+<status status="PASS" start="2025-10-02T14:08:00.339512" elapsed="0.181794"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.337195" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-10-02T14:08:00.525065" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.336659" elapsed="0.000735"/>
+<status status="PASS" start="2025-10-02T14:08:00.521819" elapsed="0.004299"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Extract JWT" owner="fazerLoginKeywords">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.343643" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go</msg>
+<msg time="2025-10-02T14:08:00.531188" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyNDg4MCwiZXhwIjoxNzU5NTExMjgwfQ.HwrJ-hTovITTe7_hST5tnlxXRDR8AlCFMECAZOslegI</msg>
 <var>${token}</var>
 <arg>${response.json()['data']['token']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.341744" elapsed="0.002237"/>
+<status status="PASS" start="2025-10-02T14:08:00.529950" elapsed="0.001554"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.346270" level="INFO">Token obtido: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go</msg>
+<msg time="2025-10-02T14:08:00.532416" level="INFO">Token obtido: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyNDg4MCwiZXhwIjoxNzU5NTExMjgwfQ.HwrJ-hTovITTe7_hST5tnlxXRDR8AlCFMECAZOslegI</msg>
 <arg>Token obtido: ${token}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.345637" elapsed="0.000974"/>
+<status status="PASS" start="2025-10-02T14:08:00.531937" elapsed="0.000777"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.347733" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go</msg>
+<msg time="2025-10-02T14:08:00.533871" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyNDg4MCwiZXhwIjoxNzU5NTExMjgwfQ.HwrJ-hTovITTe7_hST5tnlxXRDR8AlCFMECAZOslegI</msg>
 <arg>${token}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.347017" elapsed="0.001001"/>
+<status status="PASS" start="2025-10-02T14:08:00.533416" elapsed="0.000638"/>
 </kw>
-<status status="PASS" start="2025-10-02T13:50:35.340954" elapsed="0.007484"/>
+<status status="PASS" start="2025-10-02T14:08:00.529183" elapsed="0.005129"/>
 </kw>
 <arg>${response.status_code} == 200</arg>
 <arg>Extract JWT</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.338969" elapsed="0.009708"/>
+<status status="PASS" start="2025-10-02T14:08:00.526595" elapsed="0.009240"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.350147" level="INFO">{"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go"}}</msg>
+<msg time="2025-10-02T14:08:00.538559" level="INFO">{"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyNDg4MCwiZXhwIjoxNzU5NTExMjgwfQ.HwrJ-hTovITTe7_hST5tnlxXRDR8AlCFMECAZOslegI"}}</msg>
 <arg>${response.content}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.349068" elapsed="0.001396"/>
+<status status="PASS" start="2025-10-02T14:08:00.536273" elapsed="0.002745"/>
 </kw>
 <arg>${user}[email]</arg>
 <arg>${user}[password]</arg>
-<status status="PASS" start="2025-10-02T13:50:35.146054" elapsed="0.204684"/>
+<status status="PASS" start="2025-10-02T14:08:00.334999" elapsed="0.204344"/>
 </kw>
 <arg>${admin_user}</arg>
-<status status="PASS" start="2025-10-02T13:50:35.145235" elapsed="0.205760"/>
+<status status="PASS" start="2025-10-02T14:08:00.334075" elapsed="0.205603"/>
 </kw>
-<status status="PASS" start="2025-10-02T13:50:35.139318" elapsed="0.211941"/>
+<status status="PASS" start="2025-10-02T14:08:00.324245" elapsed="0.215700"/>
 </kw>
-<kw name="DELETE Endpoint /movies/_id" owner="deleteMovieKeywords">
+<kw name="PUT Endpoint /movies/_id" owner="upadteMovieskeywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.353235" level="INFO">&amp;{header} = { Content-Type=application/json | Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4...</msg>
+<msg time="2025-10-02T14:08:00.546662" level="INFO">&amp;{header} = { Content-Type=application/json | Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyNDg4MCwiZXhwIjoxNzU5NTExMjgwfQ.HwrJ-hTovITTe7_hS...</msg>
 <var>&amp;{header}</var>
 <arg>Content-Type=application/json</arg>
 <arg>Authorization=Bearer ${token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.352589" elapsed="0.001218"/>
+<status status="PASS" start="2025-10-02T14:08:00.545221" elapsed="0.002617"/>
 </kw>
-<kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-10-02T13:50:35.385340" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/movies/68dead5ba0c931300467eaaf 
- path_url=/api/v1/movies/68dead5ba0c931300467eaaf 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go', 'Content-Length': '0'} 
- body=None 
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-02T14:08:00.550039" level="INFO">${payload} = {'title': ' Rocky, um Lutador - EDITADO', 'synopsis': 'EDITADO', 'director': 'John G Avildsen', 'genres': ['Drama', 'Esportivo'], 'duration': '130', 'classification': '+16', 'poster': 'rocky.jpg', 're...</msg>
+<var>${payload}</var>
+<arg>title=${title}</arg>
+<arg>synopsis=${synopsis}</arg>
+<arg>director=${director}</arg>
+<arg>genres=${genres}</arg>
+<arg>duration=${duration}</arg>
+<arg>classification=${classification}</arg>
+<arg>poster=${poster}</arg>
+<arg>releaseDate=${releaseDate}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-02T14:08:00.548439" elapsed="0.001910"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-10-02T14:08:00.620354" level="INFO">PUT Request : url=http://localhost:3000/api/v1/movies/68deb17067fe3b2dc9491d82 
+ path_url=/api/v1/movies/68deb17067fe3b2dc9491d82 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyNDg4MCwiZXhwIjoxNzU5NTExMjgwfQ.HwrJ-hTovITTe7_hST5tnlxXRDR8AlCFMECAZOslegI', 'Content-Length': '225'} 
+ body=b'{"title": " Rocky, um Lutador - EDITADO", "synopsis": "EDITADO", "director": "John G Avildsen", "genres": ["Drama", "Esportivo"], "duration": "130", "classification": "+16", "poster": "rocky.jpg", "releaseDate": "1977-01-07"}' 
  </msg>
-<msg time="2025-10-02T13:50:35.385794" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/movies/68dead5ba0c931300467eaaf 
+<msg time="2025-10-02T14:08:00.620747" level="INFO">PUT Response : url=http://localhost:3000/api/v1/movies/68deb17067fe3b2dc9491d82 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-hADHoyMaFDqXJclxgYdNbQRmW6U"', 'Date': 'Thu, 02 Oct 2025 16:50:35 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Movie removed"} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '387', 'ETag': 'W/"183-NomNeAdcHZeypELAU8JoiFg0Lig"', 'Date': 'Thu, 02 Oct 2025 17:08:00 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68deb17067fe3b2dc9491d82","title":"Rocky, um Lutador - EDITADO","synopsis":"EDITADO","director":"John G Avildsen","genres":["Drama","Esportivo"],"duration":130,"classification":"+16","poster":"rocky.jpg","releaseDate":"1977-01-07T00:00:00.000Z","updatedAt":"2025-10-02T17:08:00.578Z","createdAt":"2025-10-02T17:08:00.618Z","id":"68deb17067fe3b2dc9491d82"}} 
  </msg>
-<msg time="2025-10-02T13:50:35.386334" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-10-02T14:08:00.621343" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=CinemaApp</arg>
-<arg>url=/movies/${id}</arg>
+<arg>url=/movies/${movie_id}</arg>
+<arg>json=${payload}</arg>
 <arg>headers=${header}</arg>
 <arg>expected_status=any</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.354232" elapsed="0.032363"/>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-02T14:08:00.550796" elapsed="0.070789"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-10-02T13:50:35.388246" level="INFO">{"success":true,"message":"Movie removed"}</msg>
-<arg>${response.content}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-02T13:50:35.387100" elapsed="0.001458"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-02T14:08:00.622125" elapsed="0.002339"/>
 </kw>
-<arg>${movie_id}</arg>
-<status status="PASS" start="2025-10-02T13:50:35.351728" elapsed="0.037111"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-02T14:08:00.624925" elapsed="0.001792"/>
 </kw>
-<arg>${movie}</arg>
-<status status="PASS" start="2025-10-02T13:50:35.131334" elapsed="0.257781"/>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-10-02T14:08:00.628510" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-10-02T14:08:00.627212" elapsed="0.002591"/>
+</kw>
+<arg>${movie}[title]</arg>
+<arg>${movie}[synopsis]</arg>
+<arg>${movie}[director]</arg>
+<arg>${movie}[genres]</arg>
+<arg>${movie}[duration]</arg>
+<arg>${movie}[classification]</arg>
+<arg>${movie}[poster]</arg>
+<arg>${movie}[releaseDate]</arg>
+<status status="PASS" start="2025-10-02T14:08:00.540489" elapsed="0.089653"/>
+</kw>
+<arg>${movie_edited}</arg>
+<status status="PASS" start="2025-10-02T14:08:00.323221" elapsed="0.307228"/>
 </kw>
 <tag>CT001</tag>
-<status status="PASS" start="2025-10-02T13:50:35.105079" elapsed="0.284519"/>
+<status status="PASS" start="2025-10-02T14:08:00.277225" elapsed="0.355559"/>
 </test>
 <doc>Testes para o endpoint /auth</doc>
-<status status="PASS" start="2025-10-02T13:50:34.850193" elapsed="0.544780"/>
+<status status="PASS" start="2025-10-02T14:07:59.872821" elapsed="0.765636"/>
 </suite>
 <statistics>
 <total>

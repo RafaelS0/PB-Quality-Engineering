@@ -26,7 +26,39 @@ CT004.001 - Cadastrar um Filme
     Criar filme    ${movie} 
 
 
-CT004.0012 - Deletar um Filme Cadastrado
+
+CT004.002 - Editar um Filme Cadastrado
+    [Tags]    CT001
+    
+    ${genres}=    Create List    Drama    Esportivo        
+    ${movie_unedited}    Create Dictionary    
+    ...    title= Rocky, um Lutador
+    ...    synopsis=Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar contra o campeão dos pesos pesados, Apollo Creed, quando o adversário do invicto lutador agendado para a luta é ferido.
+    ...    director=John G Avildsen
+    ...    genres=${genres}
+    ...    duration=119
+    ...    classification=+14
+    ...    poster=rocky.jpg
+    ...    releaseDate=1977-01-07
+    Clean Movie from Database    ${movie_unedited}[title]
+    Insert movie into database   ${movie_unedited}
+    Pegar ID de um filme    ${movie_unedited}
+
+    ${movie_edited}    Create Dictionary    
+    ...    title= Rocky, um Lutador - EDITADO
+    ...    synopsis=EDITADO
+    ...    director=John G Avildsen
+    ...    genres=${genres}
+    ...    duration=130
+    ...    classification=+16
+    ...    poster=rocky.jpg
+    ...    releaseDate=1977-01-07
+    
+    Criar Sessao
+    Editar um Filme    ${movie_edited}
+
+
+CT004.003 - Deletar um Filme Cadastrado
     [Tags]    CT001
     
     ${genres}=    Create List    Slasher    Terror        
@@ -43,6 +75,9 @@ CT004.0012 - Deletar um Filme Cadastrado
     Insert movie into database   ${movie}
     Criar Sessao
     Deletar um filme    ${movie}
+
+
+
     
    
 
