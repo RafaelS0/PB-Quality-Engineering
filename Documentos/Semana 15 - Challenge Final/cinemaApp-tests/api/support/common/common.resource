@@ -48,3 +48,7 @@ Utilizar Token de Cliente
     ...    password=ilovelinux
     Insert user into database    ${customer}
     POST Endpoint /auth/login    ${customer}[email]   ${customer}[password]
+
+Ler JSON de Filmes
+    ${json}=    Load Json From File    ${EXECDIR}/support/fixtures/movies.json
+    RETURN    ${json}

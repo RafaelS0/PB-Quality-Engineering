@@ -1,0 +1,52 @@
+{
+  "movie1": {
+    "title": "Manchester à Beira-Mar",
+    "synopsis": "Em Manchester à Beira-Mar, Lee Chandler é forçado a retornar para sua cidade natal com o objetivo de tomar conta de seu sobrinho adolescente, após o seu irmão Kyle Chandler falecer precocemente. Este retorno ficará ainda mais complicado quando Lee precisar enfrentar as razões que o fizeram deixar sua família e ir embora, anos antes.",
+    "director": "Kenneth Lonergan",
+    "genres": ["Drama"],
+    "duration": 137,
+    "classification": "+14",
+    "poster": "manchester_poster.jpg",
+    "releaseDate": "2016-11-18"
+  },
+  "movie2": {
+    "title": "Rocky, um Lutador",
+    "synopsis": "Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar contra o campeão dos pesos pesados, Apollo Creed, quando o adversário do invicto lutador agendado para a luta é ferido.",
+    "director": "John G Avildsen",
+    "genres": ["Drama","Esportivo"],
+    "duration": 119,
+    "classification": "+14",
+    "poster": "rocky.jpg",
+    "releaseDate": "1977-01-07"
+  },
+  "movie3": {
+    "title": "Scream",
+    "synopsis": "Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescott, traumatizada após o brutal assassinato de sua mãe, é o alvo preferido do misterioso homicida que aterroriza a outrora pacata comunidade.",
+    "director": "Wes Craven",
+    "genres": ["Slasher","Terror"],
+    "duration": 111,
+    "classification": "+16",
+    "poster": "scream.jpg",
+    "releaseDate": "1997-01-31"
+  },
+  "movie4": {
+    "title": "John Wick 4: Baba Yaga",
+    "synopsis": "O ex-assassino de aluguel John Wick é procurado pelo mundo todo e a recompensa por sua captura aumenta cada vez mais.",
+    "director": "Chad Stahelski",
+    "genres": ["Ação","Thriller"],
+    "duration": 169,
+    "classification": "+16",
+    "poster": "johnwick.jpg",
+    "releaseDate": "2023-03-23"
+  },
+  "movie5": {
+    "title": "The Batman",
+    "synopsis": "Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
+    "director": "Matt Reeves",
+    "genres": ["Ação","Crime"],
+    "duration": 176,
+    "classification": "+14",
+    "poster": "batman.jpg",
+    "releaseDate": "2022-03-03"
+  }
+}

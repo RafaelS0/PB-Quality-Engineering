@@ -20,31 +20,18 @@ CT004.001 - Cadastrar um Filme
     ...    classification=+14
     ...    poster=manchester_poster.jpg
     ...    releaseDate=2016-11-18
+    
     Clean Movie from Database    ${movie}[title]
     Criar Sessao
     Criar filme    ${movie} 
 
 
-
 CT004.002 - Editar um Filme Cadastrado
     [Tags]    CT001
     
-    ${genres}=    Create List    Drama    Esportivo        
-    ${movie_unedited}    Create Dictionary    
-    ...    title= Rocky, um Lutador
-    ...    synopsis=Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar contra o campeão dos pesos pesados, Apollo Creed, quando o adversário do invicto lutador agendado para a luta é ferido.
-    ...    director=John G Avildsen
-    ...    genres=${genres}
-    ...    duration=119
-    ...    classification=+14
-    ...    poster=rocky.jpg
-    ...    releaseDate=1977-01-07
-    Clean Movie from Database    ${movie_unedited}[title]
-    Insert movie into database   ${movie_unedited}
-    Pegar ID de um filme    ${movie_unedited}
-
+    ${genres}=    Create List    Drama    Esporitvo
     ${movie_edited}    Create Dictionary    
-    ...    title= Rocky, um Lutador - EDITADO
+    ...    title=Rocky, um Lutador - EDITADO
     ...    synopsis=EDITADO
     ...    director=John G Avildsen
     ...    genres=${genres}
@@ -52,24 +39,25 @@ CT004.002 - Editar um Filme Cadastrado
     ...    classification=+16
     ...    poster=rocky.jpg
     ...    releaseDate=1977-01-07
-    
+
+    ${movies_json}=    Ler JSON de Filmes
+    ${movie_list}=    Get Value From Json    ${movies_json}    $.movie2
+    ${movie_unedited}=    Set Variable    ${movie_list}[0]
+    Clean Movie from Database    ${movie_edited}[title]
+    Clean Movie from Database    ${movie_unedited}[title]
+    Insert movie into database   ${movie_unedited}
+    Pegar ID de um filme    ${movie_unedited}
     Criar Sessao
     Editar um Filme    ${movie_edited}
 
 
 CT004.003 - Deletar um Filme Cadastrado
     [Tags]    CT001
-    
-    ${genres}=    Create List    Slasher    Terror        
-    ${movie}    Create Dictionary    
-    ...    title= Scream
-    ...    synopsis=Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescott, traumatizada após o brutal assassinato de sua mãe, é o alvo preferido do misterioso homicida que aterroriza a outrora pacata comunidade.
-    ...    director=Wes Craven
-    ...    genres=${genres}
-    ...    duration=111
-    ...    classification=+16
-    ...    poster=scream.jpg
-    ...    releaseDate=1997-01-31
+
+    ${movies_json}=    Ler JSON de Filmes
+    ${movie_list}=    Get Value From Json    ${movies_json}    $.movie3
+    ${movie}=     Set Variable    ${movie_list}[0] 
+   
     Clean Movie from Database    ${movie}[title]
     Insert movie into database   ${movie}
     Criar Sessao

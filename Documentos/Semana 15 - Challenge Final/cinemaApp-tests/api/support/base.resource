@@ -2,6 +2,7 @@
 Documentation    Importações e Funções uteis globalmente
 Library        RequestsLibrary
 Library        Collections
+Library        JSONLibrary
 Library     ../support/libs/database.py
 Resource    ./variables/cinemaVariables.resource
 Resource    ../keywords/cadastrar_usuario.resource
