@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Testes para o endpoint /auth
+Documentation    Testes para o endpoint /sessions
 
 Resource    ../support/base.resource
 

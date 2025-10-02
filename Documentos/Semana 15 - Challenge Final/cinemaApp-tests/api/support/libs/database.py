@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from bson import ObjectId
 from robot.api.deco import keyword
 
 client = MongoClient('mongodb://localhost:27017/')
@@ -55,13 +56,56 @@ def get_theater_by_name(name):
     if theater and '_id' in theater:
         theater['_id'] = str(theater['_id'])
     return theater
-
-@keyword('Get Session by Name')
-def get_session_by_name(name):
+#IA
+@keyword('Get Session From Database')
+def get_session_by_date(datetime):
     sessions = db['sessions']
-    return sessions.find_one({'name': name})
+    print(f"Searching for session with datetime: {datetime}")
+    
+    session = sessions.find_one({'datetime': datetime})
+    print(f"Session found: {session}")
+    
+    if session and '_id' in session:
+        session['_id'] = str(session['_id'])
+        print(f"Session ID: {session['_id']}")
+    else:
+        print(f"No session found with datetime: {datetime}")
+        all_sessions = list(sessions.find({}, {'datetime': 1}))
+        print(f"Existing sessions: {all_sessions}")
+    
+    return session
+
+@keyword('Get Session by Theater')
+def get_session_by_theater(theater_id):
+    sessions = db['sessions']
+    print(f"Searching for session with theater_id: {theater_id}")
+    
+    session = sessions.find_one({'theater': ObjectId(theater_id)})
+    print(f"Session found: {session}")
+    
+    if session and '_id' in session:
+        session['_id'] = str(session['_id'])
+        print(f"Session ID: {session['_id']}")
+    else:
+        print(f"No session found with theater_id: {theater_id}")
+        all_sessions = list(sessions.find({}, {'theater': 1}))
+        print(f"Existing sessions: {all_sessions}")
+    
+    return session
 
 @keyword('Remove Session From Database')
 def remove_session_by_date(date):
     sessions = db['sessions']
     sessions.delete_many({'date': date})
+
+@keyword('Insert user into database')
+def insert_user(user_data):
+    users = db['users']
+    
+    existing_user = users.find_one({'email': user_data['email']})
+    if existing_user:
+        print(f"User with email {user_data['email']} already exists")
+    else:
+        users.insert_one(user_data)
+        print(f"User with email {user_data['email']} inserted successfully")
+
