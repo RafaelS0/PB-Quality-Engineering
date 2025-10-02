@@ -3,6 +3,7 @@ Documentation    Keywords Reutilizaveis
 Resource    ../base.resource
 
 
+
 *** Keywords ***
 
 
@@ -12,6 +13,13 @@ Pegar o ID de um usuário
     Fazer Login    ${user}
     ${user_id}=    Set Variable    ${response.json()['data']['_id']}
     Set Global Variable    ${user_id}
+
+Pegar ID de um filme
+    [Arguments]     ${movie}
+    ${movie_data} =     Get movie by title    ${movie}[title]
+    ${movie_id} =     Set Variable    ${movie_data}[_id]
+    Set Global Variable    ${movie_id}
+
 
 Utilizar Token de Administrador
     ${admin_user}    Create Dictionary

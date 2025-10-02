@@ -1,211 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-10-01T14:35:51.818712" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-10-02T13:50:34.843931" rpa="false" schemaversion="5">
 <suite id="s1" name="Movies Tests" source="/home/rafael/Documentos/Compass/AtualizadoPC/PB-Quality-Engineering/Documentos/Semana 15 - Challenge Final/cinemaApp-tests/api/tests/movies_tests.robot">
-<test id="s1-t1" name="CT004.001 - Cadastrar um Filme" line="9">
+<test id="s1-t1" name="CT004.0012 - Deletar um Filme Cadastrado" line="29">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.019506" level="INFO">${genres} = ['Drama']</msg>
+<msg time="2025-10-02T13:50:35.107421" level="INFO">${genres} = ['Slasher', 'Terror']</msg>
 <var>${genres}</var>
-<arg>Drama</arg>
+<arg>Slasher</arg>
+<arg>Terror</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.018765" elapsed="0.002928"/>
+<status status="PASS" start="2025-10-02T13:50:35.106872" elapsed="0.002324"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.025603" level="INFO">${movie} = {'title': 'Manchester à Beira-Mar', 'synopsis': 'Em Manchester à Beira-Mar, Lee Chandler é forçado a retornar para sua cidade natal com o objetivo de tomar conta de seu sobrinho adolescente, após o se...</msg>
+<msg time="2025-10-02T13:50:35.112171" level="INFO">${movie} = {'title': ' Scream', 'synopsis': 'Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescot...</msg>
 <var>${movie}</var>
-<arg>title=Manchester à Beira-Mar</arg>
-<arg>synopsis=Em Manchester à Beira-Mar, Lee Chandler é forçado a retornar para sua cidade natal com o objetivo de tomar conta de seu sobrinho adolescente, após o seu irmão Kyle Chandler falecer precocemente. Este retorno ficará ainda mais complicado quando Lee precisar enfrentar as razões que o fizeram deixar sua família e ir embora, anos antes.</arg>
-<arg>director=Kenneth Lonergan</arg>
+<arg>title= Scream</arg>
+<arg>synopsis=Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescott, traumatizada após o brutal assassinato de sua mãe, é o alvo preferido do misterioso homicida que aterroriza a outrora pacata comunidade.</arg>
+<arg>director=Wes Craven</arg>
 <arg>genres=${genres}</arg>
-<arg>duration=137</arg>
-<arg>classification=+14</arg>
-<arg>poster=manchester_poster.jpg</arg>
-<arg>releaseDate=2016-11-18</arg>
+<arg>duration=111</arg>
+<arg>classification=+16</arg>
+<arg>poster=scream.jpg</arg>
+<arg>releaseDate=1997-01-31</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.024008" elapsed="0.002080"/>
+<status status="PASS" start="2025-10-02T13:50:35.110726" elapsed="0.001816"/>
+</kw>
+<kw name="Clean Movie from Database" owner="database">
+<msg time="2025-10-02T13:50:35.123749" level="INFO">Searching for movie with title:  Scream
+Movie found: {'_id': ObjectId('68deacc8106aa13b7285ef18'), 'title': ' Scream', 'synopsis': 'Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conhecimentos sobre filmes de terror. Sidney Prescott, traumatizada após o brutal assassinato de sua mãe, é o alvo preferido do misterioso homicida que aterroriza a outrora pacata comunidade.', 'director': 'Wes Craven', 'genres': ['Slasher', 'Terror'], 'duration': '111', 'classification': '+16', 'poster': 'scream.jpg', 'releaseDate': '1997-01-31'}
+Movies with title ' Scream' deleted. Count: 1</msg>
+<arg>${movie}[title]</arg>
+<status status="PASS" start="2025-10-02T13:50:35.113490" elapsed="0.010749"/>
+</kw>
+<kw name="Insert movie into database" owner="database">
+<arg>${movie}</arg>
+<status status="PASS" start="2025-10-02T13:50:35.124789" elapsed="0.002645"/>
 </kw>
 <kw name="Criar Sessao" owner="base">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-01T14:35:52.030320" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-10-02T13:50:35.129736" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>CinemaApp</arg>
 <arg>url=${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-01T14:35:52.029511" elapsed="0.003907"/>
+<status status="PASS" start="2025-10-02T13:50:35.129190" elapsed="0.001339"/>
 </kw>
-<status status="PASS" start="2025-10-01T14:35:52.028139" elapsed="0.005763"/>
+<status status="PASS" start="2025-10-02T13:50:35.128284" elapsed="0.002513"/>
 </kw>
-<kw name="Criar filme" owner="createMovieKeywords">
+<kw name="Deletar um filme" owner="deleteMovieKeywords">
+<kw name="Pegar ID de um filme" owner="common">
+<kw name="Get movie by title" owner="database">
+<msg time="2025-10-02T13:50:35.135541" level="INFO">${movie_data} = {'_id': ObjectId('68dead5ba0c931300467eaaf'), 'title': ' Scream', 'synopsis': 'Na pequena cidade de Woodsboro, um grupo de jovens do ensino médio enfrenta um assassino mascarado que testa seus conheci...</msg>
+<var>${movie_data}</var>
+<arg>${movie}[title]</arg>
+<status status="PASS" start="2025-10-02T13:50:35.133019" elapsed="0.003105"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-02T13:50:35.137218" level="INFO">${movie_id} = 68dead5ba0c931300467eaaf</msg>
+<var>${movie_id}</var>
+<arg>${movie_data}[_id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-02T13:50:35.136560" elapsed="0.000886"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-10-02T13:50:35.138423" level="INFO">${movie_id} = 68dead5ba0c931300467eaaf</msg>
+<arg>${movie_id}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-10-02T13:50:35.137820" elapsed="0.000858"/>
+</kw>
+<arg>${movie}</arg>
+<status status="PASS" start="2025-10-02T13:50:35.132320" elapsed="0.006591"/>
+</kw>
 <kw name="Utilizar Token de Administrador" owner="common">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.039046" level="INFO">${admin_user} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<msg time="2025-10-02T13:50:35.140666" level="INFO">${admin_user} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
 <var>${admin_user}</var>
 <arg>email=lex.luthor@lexcorp.com</arg>
 <arg>password=pwd12345</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.038180" elapsed="0.003538"/>
+<status status="PASS" start="2025-10-02T13:50:35.139903" elapsed="0.001016"/>
 </kw>
 <kw name="Criar Sessao" owner="base">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-01T14:35:52.044186" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-10-02T13:50:35.143378" level="INFO">Creating Session using : alias=CinemaApp, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>CinemaApp</arg>
 <arg>url=${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-01T14:35:52.043340" elapsed="0.001904"/>
+<status status="PASS" start="2025-10-02T13:50:35.142835" elapsed="0.001638"/>
 </kw>
-<status status="PASS" start="2025-10-01T14:35:52.042429" elapsed="0.003321"/>
+<status status="PASS" start="2025-10-02T13:50:35.141364" elapsed="0.003412"/>
 </kw>
 <kw name="Fazer Login" owner="fazerLoginKeywords">
 <kw name="POST Endpoint /auth/login" owner="fazerLoginKeywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.052265" level="INFO">${payload} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
+<msg time="2025-10-02T13:50:35.147578" level="INFO">${payload} = {'email': 'lex.luthor@lexcorp.com', 'password': 'pwd12345'}</msg>
 <var>${payload}</var>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.050929" elapsed="0.002696"/>
+<status status="PASS" start="2025-10-02T13:50:35.146861" elapsed="0.001182"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-10-01T14:35:52.231428" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2025-10-02T13:50:35.334627" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
  path_url=/api/v1/auth/login 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '59', 'Content-Type': 'application/json'} 
  body=b'{"email": "lex.luthor@lexcorp.com", "password": "pwd12345"}' 
  </msg>
-<msg time="2025-10-01T14:35:52.232046" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2025-10-02T13:50:35.335303" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '308', 'ETag': 'W/"134-/t15pPp4XCeeMxS/qBEBdKbNXco"', 'Date': 'Wed, 01 Oct 2025 17:35:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTM0MDE1MiwiZXhwIjoxNzU5NDI2NTUyfQ.HPsCT6byvMpSbkLiwtal9gznrQUuSRtNjXFhY4rATfA"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '308', 'ETag': 'W/"134-KDC8Mclx+QXmW4DGzklajD7NPTo"', 'Date': 'Thu, 02 Oct 2025 16:50:35 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go"}} 
  </msg>
-<msg time="2025-10-01T14:35:52.232566" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-10-02T13:50:35.335895" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=CinemaApp</arg>
 <arg>url=/auth/login</arg>
 <arg>json=${payload}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.054340" elapsed="0.178505"/>
+<status status="PASS" start="2025-10-02T13:50:35.148442" elapsed="0.187793"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.236183" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-10-02T13:50:35.337195" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.233349" elapsed="0.004212"/>
+<status status="PASS" start="2025-10-02T13:50:35.336659" elapsed="0.000735"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Extract JWT" owner="fazerLoginKeywords">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.245855" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTM0MDE1MiwiZXhwIjoxNzU5NDI2NTUyfQ.HPsCT6byvMpSbkLiwtal9gznrQUuSRtNjXFhY4rATfA</msg>
+<msg time="2025-10-02T13:50:35.343643" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go</msg>
 <var>${token}</var>
 <arg>${response.json()['data']['token']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.244464" elapsed="0.001721"/>
+<status status="PASS" start="2025-10-02T13:50:35.341744" elapsed="0.002237"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.255388" level="INFO">Token obtido: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTM0MDE1MiwiZXhwIjoxNzU5NDI2NTUyfQ.HPsCT6byvMpSbkLiwtal9gznrQUuSRtNjXFhY4rATfA</msg>
+<msg time="2025-10-02T13:50:35.346270" level="INFO">Token obtido: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go</msg>
 <arg>Token obtido: ${token}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.246631" elapsed="0.009305"/>
+<status status="PASS" start="2025-10-02T13:50:35.345637" elapsed="0.000974"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.257348" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTM0MDE1MiwiZXhwIjoxNzU5NDI2NTUyfQ.HPsCT6byvMpSbkLiwtal9gznrQUuSRtNjXFhY4rATfA</msg>
+<msg time="2025-10-02T13:50:35.347733" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go</msg>
 <arg>${token}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.256448" elapsed="0.001250"/>
+<status status="PASS" start="2025-10-02T13:50:35.347017" elapsed="0.001001"/>
 </kw>
-<status status="PASS" start="2025-10-01T14:35:52.241600" elapsed="0.016431"/>
+<status status="PASS" start="2025-10-02T13:50:35.340954" elapsed="0.007484"/>
 </kw>
 <arg>${response.status_code} == 200</arg>
 <arg>Extract JWT</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.238136" elapsed="0.020198"/>
+<status status="PASS" start="2025-10-02T13:50:35.338969" elapsed="0.009708"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.260699" level="INFO">{"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTM0MDE1MiwiZXhwIjoxNzU5NDI2NTUyfQ.HPsCT6byvMpSbkLiwtal9gznrQUuSRtNjXFhY4rATfA"}}</msg>
+<msg time="2025-10-02T13:50:35.350147" level="INFO">{"success":true,"data":{"_id":"68dd5eeb21ab0711adb801cc","name":"Lex Luthor","email":"lex.luthor@lexcorp.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go"}}</msg>
 <arg>${response.content}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.258844" elapsed="0.002882"/>
+<status status="PASS" start="2025-10-02T13:50:35.349068" elapsed="0.001396"/>
 </kw>
 <arg>${user}[email]</arg>
 <arg>${user}[password]</arg>
-<status status="PASS" start="2025-10-01T14:35:52.048175" elapsed="0.214848"/>
+<status status="PASS" start="2025-10-02T13:50:35.146054" elapsed="0.204684"/>
 </kw>
 <arg>${admin_user}</arg>
-<status status="PASS" start="2025-10-01T14:35:52.046473" elapsed="0.216944"/>
+<status status="PASS" start="2025-10-02T13:50:35.145235" elapsed="0.205760"/>
 </kw>
-<status status="PASS" start="2025-10-01T14:35:52.037192" elapsed="0.226574"/>
+<status status="PASS" start="2025-10-02T13:50:35.139318" elapsed="0.211941"/>
 </kw>
-<kw name="POST Endpoint /movies" owner="createMovieKeywords">
+<kw name="DELETE Endpoint /movies/_id" owner="deleteMovieKeywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.273571" level="INFO">&amp;{header} = { Content-Type=application/json | Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTM0MDE1MiwiZXhwIjoxNzU5NDI2NTUyfQ.HPsCT6byvMpSbkLiw...</msg>
+<msg time="2025-10-02T13:50:35.353235" level="INFO">&amp;{header} = { Content-Type=application/json | Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4...</msg>
 <var>&amp;{header}</var>
 <arg>Content-Type=application/json</arg>
 <arg>Authorization=Bearer ${token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.271496" elapsed="0.005237"/>
+<status status="PASS" start="2025-10-02T13:50:35.352589" elapsed="0.001218"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.279491" level="INFO">${payload} = {'title': 'Manchester à Beira-Mar', 'synopsis': 'Em Manchester à Beira-Mar, Lee Chandler é forçado a retornar para sua cidade natal com o objetivo de tomar conta de seu sobrinho adolescente, após o se...</msg>
-<var>${payload}</var>
-<arg>title=${title}</arg>
-<arg>synopsis=${synopsis}</arg>
-<arg>director=${director}</arg>
-<arg>genres=${genres}</arg>
-<arg>duration=${duration}</arg>
-<arg>classification=${classification}</arg>
-<arg>poster=${poster}</arg>
-<arg>releaseDate=${releaseDate}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.277574" elapsed="0.002285"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-10-01T14:35:52.307792" level="INFO">POST Request : url=http://localhost:3000/api/v1/movies 
- path_url=/api/v1/movies 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTM0MDE1MiwiZXhwIjoxNzU5NDI2NTUyfQ.HPsCT6byvMpSbkLiwtal9gznrQUuSRtNjXFhY4rATfA', 'Content-Length': '591'} 
- body=b'{"title": "Manchester \\u00e0 Beira-Mar", "synopsis": "Em Manchester \\u00e0 Beira-Mar, Lee Chandler \\u00e9 for\\u00e7ado a retornar para sua cidade natal com o objetivo de tomar conta de seu sobrinho adolescente, ap\\u00f3s o seu irm\\u00e3o Kyle Chandler falecer precocemente. Este retorno ficar\\u00e1 ainda mais complicado quando Lee precisar enfrentar as raz\\u00f5es que o fizeram deixar sua fam\\u00edlia e ir embora, anos antes.", "director": "Kenneth Lonergan", "genres": ["Drama"], "duration": "137", "classification": "+14", "poster": "manchester_poster.jpg", "releaseDate": "2016-11-18"}' 
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-10-02T13:50:35.385340" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/movies/68dead5ba0c931300467eaaf 
+ path_url=/api/v1/movies/68dead5ba0c931300467eaaf 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGQ1ZWViMjFhYjA3MTFhZGI4MDFjYyIsImlhdCI6MTc1OTQyMzgzNSwiZXhwIjoxNzU5NTEwMjM1fQ.7A-cJEzzx99Cq7lz4sPTtm59f7bsRSxj20YxHBkm8go', 'Content-Length': '0'} 
+ body=None 
  </msg>
-<msg time="2025-10-01T14:35:52.308300" level="INFO">POST Response : url=http://localhost:3000/api/v1/movies 
- status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '727', 'ETag': 'W/"2d7-KTPY8TWWmjAGY+JQpA2QTZl8Hmc"', 'Date': 'Wed, 01 Oct 2025 17:35:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"title":"Manchester à Beira-Mar","synopsis":"Em Manchester à Beira-Mar, Lee Chandler é forçado a retornar para sua cidade natal com o objetivo de tomar conta de seu sobrinho adolescente, após o seu irmão Kyle Chandler falecer precocemente. Este retorno ficará ainda mais complicado quando Lee precisar enfrentar as razões que o fizeram deixar sua família e ir embora, anos antes.","director":"Kenneth Lonergan","genres":["Drama"],"duration":137,"classification":"+14","poster":"manchester_poster.jpg","releaseDate":"2016-11-18T00:00:00.000Z","_id":"68dd667821ab0711adb801f8","createdAt":"2025-10-01T17:35:52.299Z","updatedAt":"2025-10-01T17:35:52.299Z","__v":0,"id":"68dd667821ab0711adb801f8"}} 
+<msg time="2025-10-02T13:50:35.385794" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/movies/68dead5ba0c931300467eaaf 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-hADHoyMaFDqXJclxgYdNbQRmW6U"', 'Date': 'Thu, 02 Oct 2025 16:50:35 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"Movie removed"} 
  </msg>
-<msg time="2025-10-01T14:35:52.308781" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2025-10-02T13:50:35.386334" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=CinemaApp</arg>
-<arg>url=/movies</arg>
-<arg>json=${payload}</arg>
+<arg>url=/movies/${id}</arg>
 <arg>headers=${header}</arg>
 <arg>expected_status=any</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.280399" elapsed="0.028650"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.310471" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.309545" elapsed="0.001288"/>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-02T13:50:35.354232" elapsed="0.032363"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-10-01T14:35:52.312536" level="INFO">{"success":true,"data":{"title":"Manchester Ã  Beira-Mar","synopsis":"Em Manchester Ã  Beira-Mar, Lee Chandler Ã© forÃ§ado a retornar para sua cidade natal com o objetivo de tomar conta de seu sobrinho adolescente, apÃ³s o seu irmÃ£o Kyle Chandler falecer precocemente. Este retorno ficarÃ¡ ainda mais complicado quando Lee precisar enfrentar as razÃµes que o fizeram deixar sua famÃ­lia e ir embora, anos antes.","director":"Kenneth Lonergan","genres":["Drama"],"duration":137,"classification":"+14","poster":"manchester_poster.jpg","releaseDate":"2016-11-18T00:00:00.000Z","_id":"68dd667821ab0711adb801f8","createdAt":"2025-10-01T17:35:52.299Z","updatedAt":"2025-10-01T17:35:52.299Z","__v":0,"id":"68dd667821ab0711adb801f8"}}</msg>
+<msg time="2025-10-02T13:50:35.388246" level="INFO">{"success":true,"message":"Movie removed"}</msg>
 <arg>${response.content}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-01T14:35:52.311252" elapsed="0.001683"/>
+<status status="PASS" start="2025-10-02T13:50:35.387100" elapsed="0.001458"/>
 </kw>
-<arg>${movie}[title]</arg>
-<arg>${movie}[synopsis]</arg>
-<arg>${movie}[director]</arg>
-<arg>${movie}[genres]</arg>
-<arg>${movie}[duration]</arg>
-<arg>${movie}[classification]</arg>
-<arg>${movie}[poster]</arg>
-<arg>${movie}[releaseDate]</arg>
-<status status="PASS" start="2025-10-01T14:35:52.267378" elapsed="0.046215"/>
+<arg>${movie_id}</arg>
+<status status="PASS" start="2025-10-02T13:50:35.351728" elapsed="0.037111"/>
 </kw>
 <arg>${movie}</arg>
-<status status="PASS" start="2025-10-01T14:35:52.035664" elapsed="0.278281"/>
+<status status="PASS" start="2025-10-02T13:50:35.131334" elapsed="0.257781"/>
 </kw>
 <tag>CT001</tag>
-<status status="PASS" start="2025-10-01T14:35:52.017408" elapsed="0.298873"/>
+<status status="PASS" start="2025-10-02T13:50:35.105079" elapsed="0.284519"/>
 </test>
 <doc>Testes para o endpoint /auth</doc>
-<status status="PASS" start="2025-10-01T14:35:51.827574" elapsed="0.496470"/>
+<status status="PASS" start="2025-10-02T13:50:34.850193" elapsed="0.544780"/>
 </suite>
 <statistics>
 <total>

@@ -13,6 +13,7 @@ CT001.001 - Cadastrar um Cliente Válido
     ...    email=kurt@nirvana.com
     ...    password=pwd12345    
     Criar Sessao
+    Clean user from database    ${customer_user}[email]
     Criar Cliente Valido    ${customer_user}   
 
 CT002.001 - Fazer Login com dados válidos
