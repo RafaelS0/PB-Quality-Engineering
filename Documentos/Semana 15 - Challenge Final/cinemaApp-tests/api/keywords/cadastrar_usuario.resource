@@ -11,7 +11,9 @@ POST Endpoint /auth/register
     ...    email=${email}
     ...    password=${password}
     ${response}=     POST On Session    CinemaApp    url=/auth/register    json=${payload}    headers=${header}    expected_status=any
+    Set Global Variable    ${response}
     Log    ${response.content}
+    Log    ${response.status_code}
 
 
 

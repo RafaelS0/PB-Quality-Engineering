@@ -6,6 +6,18 @@ Resource    ../base.resource
 
 *** Keywords ***
 
+Validar Status Code "${statuscode}"
+    Variable Should Exist    ${response}    response não foi definida. Verifique se a requisição
+    Should Be True    ${response.status_code} == ${statuscode}    
+
+
+Validar Success
+    [Arguments]    ${expected_success}
+    Variable Should Exist    ${response}    response não foi definida. Verifique se a requisição
+    ${response_success}=    Set Variable    ${response.json()['success']}
+    Should Be Equal    ${response_success}    ${expected_success}    msg=Campo success inesperado. Esperado: ${expected_success}, Obtido: ${response_success}
+
+
 Pegar o ID de um usuário
     [Arguments]    ${user}
     Fazer Login    ${user}
@@ -36,17 +48,17 @@ Pegar ID de uma sessão
 
 Utilizar Token de Administrador
     ${admin_user}    Create Dictionary
+    ...    name= Lex Luthr
     ...    email=lex.luthor@lexcorp.com
     ...    password=pwd12345    
-    Criar Sessao
-    Fazer Login    ${admin_user}
-    
+    POST Endpoint /auth/register    ${admin_user}[name]    ${admin_user}[email]    ${admin_user}[password]
+    POST Endpoint /auth/login    ${admin_user}[email]   ${admin_user}[password]
 Utilizar Token de Cliente
     ${customer}    Create Dictionary
     ...    name= Linus
     ...    email= linus.torvalds@unix.com
     ...    password=ilovelinux
-    Insert user into database    ${customer}
+    POST Endpoint /auth/register    ${customer}[name]    ${customer}[email]    ${customer}[password]
     POST Endpoint /auth/login    ${customer}[email]   ${customer}[password]
 
 Ler JSON de Filmes
