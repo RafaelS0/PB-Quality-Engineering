@@ -18,6 +18,12 @@ Pegar ID de um filme
     ${movie_id} =     Set Variable    ${movie_data}[_id]
     Set Global Variable    ${movie_id}
 
+Pegar ID de uma Sala
+    [Arguments]    ${theater}
+    ${theater_data}=    Get Theater by Name    ${theater}[name]
+    Should Not Be Equal    ${theater_data}    ${None}    Theater not found in database
+    ${theater_id} =     Set Variable    ${theater_data}[_id]
+    Set Global Variable    ${theater_id}
 
 Utilizar Token de Administrador
     ${admin_user}    Create Dictionary

@@ -2,7 +2,6 @@
 Documentation    Testes para endpoint /theaters
 
 Resource    ../support/base.resource
-Resource    ../keywords/createTheaterKeywords.resource
 
 Suite Setup    Criar Sessao
 

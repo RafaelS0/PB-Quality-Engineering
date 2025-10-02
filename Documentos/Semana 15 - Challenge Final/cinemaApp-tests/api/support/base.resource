@@ -12,7 +12,7 @@ Resource    ../keywords/createMovieKeywords.resource
 Resource    ../keywords/deleteMovieKeywords.resource
 Resource    ../keywords/createMovieKeywords.resource
 Resource    ../keywords/createSessionkeywords.resource
-
+Resource    ../keywords/createTheaterKeywords.resource
 
 *** Keywords ***
 Criar Sessao

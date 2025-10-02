@@ -37,9 +37,31 @@ def insert_movie(movie_data):
 @keyword('Get movie by title')
 def get_movie_by_title(title):
     movies = db['movies']
-    return movies.find_one({'title': title})
+    movie = movies.find_one({'title': title})
+    if movie and '_id' in movie:
+        movie['_id'] = str(movie['_id'])
+    return movie
 
 @keyword('Remove Theater From Database')
 def remove_theater_by_name(name):
     theaters = db['theaters']
     theaters.delete_many({'name': name})
+
+#IA
+@keyword('Get Theater by Name')
+def get_theater_by_name(name):
+    theaters = db['theaters']
+    theater = theaters.find_one({'name': name})
+    if theater and '_id' in theater:
+        theater['_id'] = str(theater['_id'])
+    return theater
+
+@keyword('Get Session by Name')
+def get_session_by_name(name):
+    sessions = db['sessions']
+    return sessions.find_one({'name': name})
+
+@keyword('Remove Session From Database')
+def remove_session_by_date(date):
+    sessions = db['sessions']
+    sessions.delete_many({'date': date})
