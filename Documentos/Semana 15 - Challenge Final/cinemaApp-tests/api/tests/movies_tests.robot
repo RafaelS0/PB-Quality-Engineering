@@ -3,7 +3,7 @@ Documentation    Testes para o endpoint /auth
 
 Resource    ../support/base.resource
 
-
+Suite Setup    Criar Sessao
   
 *** Test Cases ***
 
@@ -22,7 +22,6 @@ CT004.001 - Cadastrar um Filme
     ...    releaseDate=2016-11-18
     
     Clean Movie from Database    ${movie}[title]
-    Criar Sessao
     Criar filme    ${movie} 
 
 
@@ -41,13 +40,12 @@ CT004.002 - Editar um Filme Cadastrado
     ...    releaseDate=1977-01-07
 
     ${movies_json}=    Ler JSON de Filmes
-    ${movie_list}=    Get Value From Json    ${movies_json}    $.movie2
+    ${movie_list}=    Get Value From Json    ${movies_json}    $.movie2 
     ${movie_unedited}=    Set Variable    ${movie_list}[0]
     Clean Movie from Database    ${movie_edited}[title]
     Clean Movie from Database    ${movie_unedited}[title]
     Insert movie into database   ${movie_unedited}
     Pegar ID de um filme    ${movie_unedited}
-    Criar Sessao
     Editar um Filme    ${movie_edited}
 
 
@@ -60,7 +58,6 @@ CT004.003 - Deletar um Filme Cadastrado
    
     Clean Movie from Database    ${movie}[title]
     Insert movie into database   ${movie}
-    Criar Sessao
     Deletar um filme    ${movie}
 
 

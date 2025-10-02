@@ -10,18 +10,10 @@ Suite Setup    Criar Sessao
 
 CT005.001 - Criar uma nova sessão
 
-    ${genres}=    Create List    Ação    Crime    
-    ${movie}    Create Dictionary    
-    ...    title=The Batman
-    ...    synopsis=Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.
-    ...    director=Matt Reeves
-    ...    genres=${genres}
-    ...    duration=176
-    ...    classification=+14
-    ...    poster=batman.jpg
-    ...    releaseDate=2022-03-03
+    ${movies_json}=    Ler JSON de Filmes
+    ${movie_list}=    Get Value From Json    ${movies_json}    $.movie5     
+    ${movie}=    Set Variable    ${movie_list}[0]
     Clean Movie from Database    ${movie}[title]
-    Criar Sessao
     Criar filme    ${movie} 
     Pegar ID de um filme    ${movie}
     Log    Movie ID: ${movie_id}
@@ -44,3 +36,5 @@ CT005.001 - Criar uma nova sessão
     Log    Session data: ${session}
     Remove Session From Database    ${session}[datetime]
     Criar uma sessão    ${session}
+    Validar Status Code "201"
+    Validar Success    ${True}

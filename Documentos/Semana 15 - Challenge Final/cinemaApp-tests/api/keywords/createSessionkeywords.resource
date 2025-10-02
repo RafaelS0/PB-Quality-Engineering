@@ -14,7 +14,9 @@ POST Endpoint /sessions
     ...    fullPrice=${fullPrice}
     ...    halfPrice=${halfPrice}
     ${response}=     POST On Session    CinemaApp    url=/sessions    json=${payload}    headers=${header}    expected_status=any
+    Set Global Variable    ${response}
     Log    ${response.content}
+    Log    ${response.status_code}
 
 
 Criar uma sessão
