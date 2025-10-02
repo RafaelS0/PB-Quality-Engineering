@@ -38,3 +38,8 @@ def insert_movie(movie_data):
 def get_movie_by_title(title):
     movies = db['movies']
     return movies.find_one({'title': title})
+
+@keyword('Remove Theater From Database')
+def remove_theater_by_name(name):
+    theaters = db['theaters']
+    theaters.delete_many({'name': name})

@@ -8,9 +8,10 @@ Resource    ../keywords/cadastrar_usuario.resource
 Resource    ../keywords/fazerLoginKeywords.resource
 Resource    ../support/common/common.resource
 Resource    ../keywords/upadteMovieskeywords.resource
-
-
-
+Resource    ../keywords/createMovieKeywords.resource
+Resource    ../keywords/deleteMovieKeywords.resource
+Resource    ../keywords/createMovieKeywords.resource
+Resource    ../keywords/createSessionkeywords.resource
 
 
 *** Keywords ***

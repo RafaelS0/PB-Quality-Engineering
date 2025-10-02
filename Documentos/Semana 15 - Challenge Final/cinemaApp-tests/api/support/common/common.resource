@@ -6,8 +6,6 @@ Resource    ../base.resource
 
 *** Keywords ***
 
-
-
 Pegar o ID de um usuário
     [Arguments]    ${user}
     Fazer Login    ${user}

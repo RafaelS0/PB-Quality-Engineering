@@ -2,8 +2,7 @@
 Documentation    Testes para o endpoint /auth
 
 Resource    ../support/base.resource
-Resource    ../keywords/createMovieKeywords.resource
-Resource    ../keywords/deleteMovieKeywords.resource
+
 
   
 *** Test Cases ***
