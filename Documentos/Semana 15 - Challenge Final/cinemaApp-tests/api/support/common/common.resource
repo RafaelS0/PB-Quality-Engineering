@@ -59,6 +59,7 @@ Get ID from Reservations
     Should Not Be Equal    ${reservation_data}    ${None}    Reservation not found in database
     ${reservation_id}=    Set Variable    ${reservation_data}[_id]  
     Set Global Variable    ${reservation_id} 
+    RETURN    ${reservation_id}
 
 
 Utilizar Token de Administrador

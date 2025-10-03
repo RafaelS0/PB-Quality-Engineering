@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Testes para o endpoint /users
 Resource    ../support/base.resource
-Resource    ../keywords/deleteUserKeywords.resource
+
 
 
 

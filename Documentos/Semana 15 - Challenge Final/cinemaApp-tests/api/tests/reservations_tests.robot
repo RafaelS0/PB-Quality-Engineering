@@ -2,6 +2,7 @@
 Documentation    Testes para o endpoint /reservations
 
 Resource    ../support/base.resource
+Resource    ../keywords/deleteReservation.resource
 
 Suite Setup    Criar Sessao
 
@@ -55,5 +56,15 @@ CT006.002 Editar Status de uma reserva
     Validar Status Code "200"
     Validar Success    ${True}
     Validate data    status    ${new_status}[status]   
-    Validate data    paymentStatus    ${new_status}[paymentStatus]  
+    Validate data    paymentStatus    ${new_status}[paymentStatus] 
+
+CT006.003 Deletar uma reserva
+
+    ${reservation}=    Fill with Reservation    2 
+    Criar uma Reserva    ${reservation}
+    Deletar reserva    ${reservation}    
+    Validar Status Code "200"
+    Validar Success    ${True}
+    
+
     
