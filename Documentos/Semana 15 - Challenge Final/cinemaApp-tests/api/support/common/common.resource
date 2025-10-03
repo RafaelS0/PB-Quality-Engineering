@@ -61,6 +61,8 @@ Utilizar Token de Cliente
     POST Endpoint /auth/register    ${customer}[name]    ${customer}[email]    ${customer}[password]
     POST Endpoint /auth/login    ${customer}[email]   ${customer}[password]
 
-Ler JSON de Filmes
-    ${json}=    Load Json From File    ${EXECDIR}/support/fixtures/movies.json
+Read JSON File
+    [Arguments]    ${file}
+    ${json}=    Load Json From File    ${EXECDIR}/support/fixtures/${file}
     RETURN    ${json}
+

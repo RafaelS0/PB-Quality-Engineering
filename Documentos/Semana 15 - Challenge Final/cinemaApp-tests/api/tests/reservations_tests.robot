@@ -10,26 +10,15 @@ Suite Setup    Criar Sessao
 
 CT005.001 - Criar uma nova reserva
 
-    ${genres}=    Create List    Ação    Thriller    
-    ${movie}    Create Dictionary    
-    ...    title=John Wick 4: Baba Yaga
-    ...    synopsis=O ex-assassino de aluguel John Wick é procurado pelo mundo todo e a recompensa por sua captura aumenta cada vez mais. 
-    ...    director=Chad Stahelski
-    ...    genres=${genres}
-    ...    duration=169
-    ...    classification=+16
-    ...    poster=johnwick.jpg
-    ...    releaseDate=2023-03-23
+    ${movies_json}=    Read JSON File    movies.json
+    ${movie}=    Set Variable    ${movies_json}[movie4]
     Clean Movie from Database    ${movie}[title]
-    Criar Sessao
     Criar filme    ${movie} 
     Pegar ID de um filme    ${movie}
     Log    Movie ID: ${movie_id}
-    
-    ${theater}    Create Dictionary
-    ...    name=Sala - 004
-    ...    capacity= 50
-    ...    type=IMAX    
+
+    ${theater_json}=    Read JSON File    theaters.json
+    ${theater}=    Set Variable    ${theater_json}[theater4]  
     Remove Theater From Database    ${theater}[name]
     Criar um Sala de Cinema    ${theater}
     Pegar ID de uma Sala    ${theater}
@@ -53,3 +42,5 @@ CT005.001 - Criar uma nova reserva
     ...    type=full
     ...    paymentMethod=credit_card
     Criar uma Reserva    ${reservations}
+    Validar Status Code "201"
+    Validar Success    ${True}

@@ -1,0 +1,22 @@
+{
+  "theater1": {
+    "name": "Sala - 001",
+    "capacity": 50,
+    "type": "IMAX"
+  },
+    "theater2": {
+    "name": "Sala - 002",
+    "capacity": 60,
+    "type": "standard"
+  },
+    "theater3": {
+    "name": "Sala - 003",
+    "capacity": 70,
+    "type": "IMAX"
+  },
+    "theater4": {
+    "name": "Sala - 004",
+    "capacity": 80,
+    "type": "standard"
+  }
+}
