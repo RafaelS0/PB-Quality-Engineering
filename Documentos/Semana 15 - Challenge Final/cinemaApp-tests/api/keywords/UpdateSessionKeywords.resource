@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 PUT Endpoint /sessions
-    [Arguments]    ${movie}    ${theater}    ${datetime}    ${fullPrice}    ${halfPrice}
+    [Arguments]    ${movie}    ${theater}    ${datetime}    ${fullPrice}    ${halfPrice}    ${session_id}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    movie=${movie}
@@ -23,4 +23,5 @@ PUT Endpoint /sessions
 Editar uma sessão
     [Arguments]      ${session}
     Utilizar Token de Administrador
-    PUT Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]
+    ${session_id}=    Get Session ID    ${session}
+    PUT Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]    ${session_id}

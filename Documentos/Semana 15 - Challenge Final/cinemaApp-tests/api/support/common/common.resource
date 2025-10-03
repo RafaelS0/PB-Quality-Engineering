@@ -26,39 +26,37 @@ Validate data
     Should Be Equal    ${actual_value}    ${expected_value}    msg=Campo ${expected_field} - Esperado: ${expected_value}, Obtido: ${actual_value}
 
     
-Pegar o ID de um usuário
+Get User ID
     [Arguments]    ${user}
     Fazer Login    ${user}
     ${user_id}=    Set Variable    ${response.json()['data']['_id']}
-    Set Global Variable    ${user_id}
-
-Pegar ID de um filme
+    RETURN    ${user_id}
+Get Movie ID
     [Arguments]     ${movie}
     ${movie_data} =     Get movie by title    ${movie}[title]
     ${movie_id} =     Set Variable    ${movie_data}[_id]
-    Set Global Variable    ${movie_id}
+    RETURN     ${movie_id}
 
 #IA
-Pegar ID de uma Sala
+Get Theater ID
     [Arguments]    ${theater}
     ${theater_data}=    Get Theater by Name    ${theater}[name]
     Should Not Be Equal    ${theater_data}    ${None}    Theater not found in database
     ${theater_id} =     Set Variable    ${theater_data}[_id]
-    Set Global Variable    ${theater_id}
+    RETURN    ${theater_id}
 
-Pegar ID de uma sessão
+Get Session ID
     [Arguments]    ${session}
     ${session_data}=    Get Session by Theater    ${session}[theater]   
     Should Not Be Equal    ${session_data}    ${None}    Session not found in database
     ${session_id}=    Set Variable    ${session_data}[_id]  
-    Set Global Variable    ${session_id}   
+    RETURN    ${session_id}  
 
 Get ID from Reservations
     [Arguments]    ${reservation}
     ${reservation_data}=    Get Reservation by Session    ${reservation}[session]   
     Should Not Be Equal    ${reservation_data}    ${None}    Reservation not found in database
     ${reservation_id}=    Set Variable    ${reservation_data}[_id]  
-    Set Global Variable    ${reservation_id} 
     RETURN    ${reservation_id}
 
 
@@ -91,7 +89,7 @@ Fill with movie
     ${movie}=    Set Variable    ${movies_json}[movie${index}]
     Clean Movie from Database    ${movie}[title]
     Criar filme    ${movie} 
-    Pegar ID de um filme    ${movie}
+    ${movie_id}=    Get Movie ID    ${movie}
     Log    Movie ID: ${movie_id}
     RETURN     ${movie}
 
@@ -101,7 +99,7 @@ Fill with Theater
     ${theater}=    Set Variable    ${theater_json}[theater${index}]
     Remove Theater From Database    ${theater}[name]
     Criar um Sala de Cinema    ${theater}
-    Pegar ID de uma Sala    ${theater}
+    ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
     RETURN    ${theater}
 
@@ -115,6 +113,10 @@ Fill with Reservation
     ${movie}=    Fill with movie    ${reservation_data}[movieIndex]
     ${theater}=    Fill with Theater    ${reservation_data}[theaterIndex]
     
+    ${movie_id}=    Get Movie ID    ${movie}
+    ${theater_id}=    Get Theater ID    ${theater}
+
+    
     # Criar sessão
     ${session}=    Create Dictionary
     ...    movie=${movie_id}
@@ -124,7 +126,7 @@ Fill with Reservation
     ...    halfPrice=${reservation_data}[session][halfPrice]
     Remove Session By Theater And Date    ${theater_id}    ${session}[datetime]
     Criar uma sessão    ${session}
-    Pegar ID de uma sessão    ${session}
+    ${session_id}=    Get Session ID    ${session}
     
     # Criar cliente para a reserva
     

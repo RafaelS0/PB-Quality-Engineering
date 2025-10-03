@@ -42,8 +42,8 @@ CT004.002 - Editar um Filme Cadastrado
     ...    releaseDate=1977-01-07
     
     Clean Movie from Database    ${movie_edited}[title]
-    Fill with movie    2
-    Editar um Filme    ${movie_edited}
+    ${original_movie}=    Fill with movie    2
+    Editar um Filme    ${movie_edited}    ${original_movie}
     Validate Status Code "200"
     Validar Success    ${True}
 

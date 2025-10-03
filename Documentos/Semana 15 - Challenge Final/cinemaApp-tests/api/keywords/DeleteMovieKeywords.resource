@@ -13,6 +13,6 @@ DELETE Endpoint /movies/_id
 
 Deletar um filme
     [Arguments]     ${movie}
-    Pegar ID de um filme    ${movie}
+    ${movie_id}=    Get Movie ID    ${movie}
     Utilizar Token de Administrador
     DELETE Endpoint /movies/_id    ${movie_id}

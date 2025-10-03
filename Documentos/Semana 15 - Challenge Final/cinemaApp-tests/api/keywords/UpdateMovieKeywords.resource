@@ -5,8 +5,8 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 PUT Endpoint /movies/_id
-    [Arguments]         ${title}    ${synopsis}    ${director}    ${genres}    ${duration}    ${classification}    ${poster}    ${releaseDate}
-    &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer    ${token}
+    [Arguments]         ${title}    ${synopsis}    ${director}    ${genres}    ${duration}    ${classification}    ${poster}    ${releaseDate}    ${movie_id}
+    &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    title=${title}   
     ...    synopsis=${synopsis}
@@ -23,17 +23,20 @@ PUT Endpoint /movies/_id
 
 
 Editar um Filme 
-    [Arguments]    ${movie}
+    [Arguments]    ${movie_edited}    ${original_movie}    
     Utilizar Token de Administrador
+    ${movie_id}=    Get Movie ID    ${original_movie}
+
     PUT Endpoint /movies/_id    
-    ...    ${movie}[title]    
-    ...    ${movie}[synopsis]    
-    ...    ${movie}[director]    
-    ...    ${movie}[genres]    
-    ...    ${movie}[duration]    
-    ...    ${movie}[classification]    
-    ...    ${movie}[poster]    
-    ...    ${movie}[releaseDate]    
+    ...    ${movie_edited}[title]    
+    ...    ${movie_edited}[synopsis]    
+    ...    ${movie_edited}[director]    
+    ...    ${movie_edited}[genres]    
+    ...    ${movie_edited}[duration]    
+    ...    ${movie_edited}[classification]    
+    ...    ${movie_edited}[poster]    
+    ...    ${movie_edited}[releaseDate]
+    ...    ${movie_id}    
 
 
 

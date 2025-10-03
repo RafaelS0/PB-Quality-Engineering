@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 PUT Endpoint /reservations/id
-    [Arguments]    ${status}    ${paymentStatus}
+    [Arguments]    ${status}    ${paymentStatus}    ${reservation_id}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    status=${status}
@@ -19,7 +19,7 @@ PUT Endpoint /reservations/id
 Edit reservation status
     [Arguments]    ${reservation}    ${status}
     Utilizar Token de Administrador
-    Get ID from Reservations    ${reservation}
-    PUT Endpoint /reservations/id    ${status}[status]    ${status}[paymentStatus]
+    ${reservation_id}=    Get ID from Reservations    ${reservation}
+    PUT Endpoint /reservations/id    ${status}[status]    ${status}[paymentStatus]    ${reservation_id}
 
 

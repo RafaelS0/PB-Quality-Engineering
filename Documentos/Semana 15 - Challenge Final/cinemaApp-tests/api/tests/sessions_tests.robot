@@ -9,11 +9,11 @@ Suite Setup    Make New Session
 CT005.001 - Criar uma nova sessão
 
     ${movie}=    Fill with movie    5
-    Pegar ID de um filme    ${movie}
+    ${movie_id}=    Get Movie ID    ${movie}
     Log    Movie ID: ${movie_id}
 
     ${theater}=    Fill with Theater    4
-    Pegar ID de uma Sala    ${theater}
+    ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
 
    ${session}=    Create Dictionary
@@ -31,8 +31,13 @@ CT005.001 - Criar uma nova sessão
 
 CT005.002 - Editar uma sessão
 
-    Fill with movie    5
-    Fill with Theater    2
+    ${movie}=    Fill with movie    5
+    ${movie_id}=    Get Movie ID    ${movie}
+    Log    Movie ID: ${movie_id}
+    
+    ${theater}=    Fill with Theater    2
+    ${theater_id}=    Get Theater ID    ${theater}
+    Log    Theater ID: ${theater_id}
    
    ${session_unedited}=    Create Dictionary
     ...    movie=${movie_id}
@@ -43,7 +48,7 @@ CT005.002 - Editar uma sessão
     Log    Session data: ${session_unedited}
     Remove Session From Database    ${session_unedited}[datetime]
     Criar uma sessão    ${session_unedited}
-    Pegar ID de uma sessão    ${session_unedited}
+    ${session_id}=    Get Session ID    ${session_unedited}
     Validate Status Code "201"
     Validar Success    ${True}
 

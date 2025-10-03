@@ -11,11 +11,11 @@ Suite Setup    Make New Session
 CT005.001 - Criar uma nova reserva
 
     ${movie}=    Fill with movie    4
-    Pegar ID de um filme    ${movie}
+    ${movie_id}=    Get Movie ID    ${movie}
     Log    Movie ID: ${movie_id}
 
     ${theater}=    Fill with Theater    1
-    Pegar ID de uma Sala    ${theater}
+    ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
 
    ${session}=    Create Dictionary
@@ -27,7 +27,7 @@ CT005.001 - Criar uma nova reserva
     Log    Session data: ${session}
     Remove Session From Database    ${session}[datetime]
     Criar uma sessão    ${session}
-    Pegar ID de uma sessão    ${session}
+    ${session_id}=    Get Session ID    ${session}
 
     ${reservations}    Create Dictionary
     ...    session=${session_id}
@@ -42,7 +42,7 @@ CT005.001 - Criar uma nova reserva
 CT006.002 Editar Status de uma reserva
 
     ${reservation}=    Fill with Reservation    2 
-    Pegar o ID de um usuário    ${customer}
+    ${user_id}=    Get User ID   ${customer}
     Remove Reservation by User    ${user_id}
     
     Criar uma Reserva    ${reservation}
