@@ -14,4 +14,6 @@ Deletar um usuário
     ...    password=pwd12345    
     Pegar o ID de um usuário    ${customer_user}
     Deletar usuário    ${user_id}
+    Validar Status Code "200"
+    Validar Success    ${True}
     

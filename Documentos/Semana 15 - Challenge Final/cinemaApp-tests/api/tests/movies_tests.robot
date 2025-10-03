@@ -40,13 +40,9 @@ CT004.002 - Editar um Filme Cadastrado
     ...    classification=+16
     ...    poster=rocky.jpg
     ...    releaseDate=1977-01-07
-
-    ${movies_json}=    Read JSON File    movies.json
-    ${movie_unedited}=    Set Variable    ${movies_json}[movie2]
+    
     Clean Movie from Database    ${movie_edited}[title]
-    Clean Movie from Database    ${movie_unedited}[title]
-    Insert movie into database   ${movie_unedited}
-    Pegar ID de um filme    ${movie_unedited}
+    Fill with movie    2
     Editar um Filme    ${movie_edited}
     Validar Status Code "200"
     Validar Success    ${True}
@@ -55,11 +51,7 @@ CT004.002 - Editar um Filme Cadastrado
 
 CT004.003 - Deletar um Filme Cadastrado
     [Tags]    CT001
-
-    ${movies_json}=    Read JSON File    movies.json
-    ${movie}=    Set Variable    ${movies_json}[movie3]
-    Clean Movie from Database    ${movie}[title]
-    Insert movie into database   ${movie}
+    ${movie}=     Fill with movie    3
     
     Deletar um filme    ${movie}
     Validar Status Code "200"

@@ -3,6 +3,7 @@ Documentation    Testes para endpoint /setup exclusivo para Dev
 
 Resource    ../support/base.resource
 
+Suite Setup    Criar Sessao
 
 *** Test Cases ***
 
@@ -13,8 +14,10 @@ Cadastrar um Administrador
     ...    name=Lex Luthor
     ...    email=lex.luthor@lexcorp.com
     ...    password=pwd12345    
-    Criar Sessao
+    
     Criar um Administrador    ${admin_user}
+    Validar Status Code "201"
+    Validar Success    ${True}
 
 Fazer Login como um Administrador
     [Tags]    admin
@@ -22,7 +25,10 @@ Fazer Login como um Administrador
     ${admin_user}    Create Dictionary
     ...    email=lex.luthor@lexcorp.com
     ...    password=pwd12345    
-    Criar Sessao
+   
     Fazer Login    ${admin_user}
+    Validar Status Code "200"
+    Validar Success    ${True}
+
 
 

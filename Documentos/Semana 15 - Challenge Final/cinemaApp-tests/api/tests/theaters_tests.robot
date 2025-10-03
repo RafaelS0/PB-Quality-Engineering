@@ -15,3 +15,5 @@ CT007.001 - Criar uma Sala de Cinema com Sucesso
     ...    type=standard    
     Remove Theater From Database    ${theater}[name]
     Criar um Sala de Cinema    ${theater}
+    Validar Status Code "201"
+    Validar Success    ${True}

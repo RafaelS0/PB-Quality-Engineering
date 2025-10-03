@@ -10,17 +10,11 @@ Suite Setup    Criar Sessao
 
 CT005.001 - Criar uma nova reserva
 
-    ${movies_json}=    Read JSON File    movies.json
-    ${movie}=    Set Variable    ${movies_json}[movie4]
-    Clean Movie from Database    ${movie}[title]
-    Criar filme    ${movie} 
+    ${movie}=    Fill with movie    4
     Pegar ID de um filme    ${movie}
     Log    Movie ID: ${movie_id}
 
-    ${theater_json}=    Read JSON File    theaters.json
-    ${theater}=    Set Variable    ${theater_json}[theater4]  
-    Remove Theater From Database    ${theater}[name]
-    Criar um Sala de Cinema    ${theater}
+    ${theater}=    Fill with Theater    1
     Pegar ID de uma Sala    ${theater}
     Log    Theater ID: ${theater_id}
 
