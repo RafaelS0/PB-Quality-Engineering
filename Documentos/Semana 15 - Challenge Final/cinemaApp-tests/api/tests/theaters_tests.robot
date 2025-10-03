@@ -3,7 +3,7 @@ Documentation    Testes para endpoint /theaters
 
 Resource    ../support/base.resource
 
-Suite Setup    Criar Sessao
+Suite Setup    Make New Session
 
 *** Test Cases ***
 
@@ -15,5 +15,5 @@ CT007.001 - Criar uma Sala de Cinema com Sucesso
     ...    type=standard    
     Remove Theater From Database    ${theater}[name]
     Criar um Sala de Cinema    ${theater}
-    Validar Status Code "201"
+    Validate Status Code "201"
     Validar Success    ${True}

@@ -3,7 +3,7 @@ Documentation    Testes para endpoint /setup exclusivo para Dev
 
 Resource    ../support/base.resource
 
-Suite Setup    Criar Sessao
+Suite Setup    Make New Session
 
 *** Test Cases ***
 
@@ -16,7 +16,7 @@ Cadastrar um Administrador
     ...    password=pwd12345    
     
     Criar um Administrador    ${admin_user}
-    Validar Status Code "201"
+    Validate Status Code "201"
     Validar Success    ${True}
 
 Fazer Login como um Administrador
@@ -27,7 +27,7 @@ Fazer Login como um Administrador
     ...    password=pwd12345    
    
     Fazer Login    ${admin_user}
-    Validar Status Code "200"
+    Validate Status Code "200"
     Validar Success    ${True}
 
 

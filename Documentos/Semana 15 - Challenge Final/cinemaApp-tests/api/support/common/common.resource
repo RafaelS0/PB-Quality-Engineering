@@ -6,7 +6,7 @@ Resource    ../base.resource
 
 *** Keywords ***
 
-Validar Status Code "${statuscode}"
+Validate Status Code "${statuscode}"
     Variable Should Exist    ${response}    response não foi definida. Verifique a requisição
     Should Be True    ${response.status_code} == ${statuscode}    
 

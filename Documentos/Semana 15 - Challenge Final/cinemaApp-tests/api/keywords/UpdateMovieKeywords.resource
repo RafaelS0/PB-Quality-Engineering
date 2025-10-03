@@ -6,7 +6,7 @@ Resource    ../support/base.resource
 *** Keywords ***
 PUT Endpoint /movies/_id
     [Arguments]         ${title}    ${synopsis}    ${director}    ${genres}    ${duration}    ${classification}    ${poster}    ${releaseDate}
-    &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
+    &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer    ${token}
     ${payload}=    Create Dictionary
     ...    title=${title}   
     ...    synopsis=${synopsis}

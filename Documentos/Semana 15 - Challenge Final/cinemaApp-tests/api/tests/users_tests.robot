@@ -2,18 +2,18 @@
 Documentation    Testes para o endpoint /users
 Resource    ../support/base.resource
 
-
+Suite Setup    Make New Session
 
 
 *** Test Cases ***
 
 Deletar um usuário
-    Criar Sessao
+
     ${customer_user}    Create Dictionary
     ...    email=kurt@nirvana.com
     ...    password=pwd12345    
     Pegar o ID de um usuário    ${customer_user}
     Deletar usuário    ${user_id}
-    Validar Status Code "200"
+    Validate Status Code "200"
     Validar Success    ${True}
     

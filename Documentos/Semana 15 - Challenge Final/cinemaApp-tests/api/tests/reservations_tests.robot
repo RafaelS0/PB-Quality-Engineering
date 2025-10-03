@@ -2,9 +2,8 @@
 Documentation    Testes para o endpoint /reservations
 
 Resource    ../support/base.resource
-Resource    ../keywords/deleteReservation.resource
 
-Suite Setup    Criar Sessao
+Suite Setup    Make New Session
 
 
 *** Test Cases ***
@@ -37,7 +36,7 @@ CT005.001 - Criar uma nova reserva
     ...    type=full
     ...    paymentMethod=credit_card
     Criar uma Reserva    ${reservations}
-    Validar Status Code "201"
+    Validate Status Code "201"
     Validar Success    ${True}
 
 CT006.002 Editar Status de uma reserva
@@ -53,7 +52,7 @@ CT006.002 Editar Status de uma reserva
     ...    paymentStatus=pending
     
     Edit reservation status    ${reservation}    ${new_status}
-    Validar Status Code "200"
+    Validate Status Code "200"
     Validar Success    ${True}
     Validate data    status    ${new_status}[status]   
     Validate data    paymentStatus    ${new_status}[paymentStatus] 
@@ -63,7 +62,7 @@ CT006.003 Deletar uma reserva
     ${reservation}=    Fill with Reservation    2 
     Criar uma Reserva    ${reservation}
     Deletar reserva    ${reservation}    
-    Validar Status Code "200"
+    Validate Status Code "200"
     Validar Success    ${True}
     
 

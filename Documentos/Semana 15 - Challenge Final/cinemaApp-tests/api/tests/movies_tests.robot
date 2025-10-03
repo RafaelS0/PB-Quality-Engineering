@@ -3,7 +3,7 @@ Documentation    Testes para o endpoint /auth
 
 Resource    ../support/base.resource
 
-Suite Setup    Criar Sessao
+Suite Setup    Make New Session
   
 *** Test Cases ***
 
@@ -23,7 +23,7 @@ CT004.001 - Cadastrar um Filme
     
     Clean Movie from Database    ${movie}[title]
     Criar filme    ${movie} 
-    Validar Status Code "201"
+    Validate Status Code "201"
     Validar Success    ${True}
 
 
@@ -44,7 +44,7 @@ CT004.002 - Editar um Filme Cadastrado
     Clean Movie from Database    ${movie_edited}[title]
     Fill with movie    2
     Editar um Filme    ${movie_edited}
-    Validar Status Code "200"
+    Validate Status Code "200"
     Validar Success    ${True}
 
 
@@ -54,7 +54,7 @@ CT004.003 - Deletar um Filme Cadastrado
     ${movie}=     Fill with movie    3
     
     Deletar um filme    ${movie}
-    Validar Status Code "200"
+    Validate Status Code "200"
     Validar Success    ${True}
 
 

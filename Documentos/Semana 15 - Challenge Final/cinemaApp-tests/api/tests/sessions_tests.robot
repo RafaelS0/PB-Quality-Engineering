@@ -3,7 +3,7 @@ Documentation    Testes para o endpoint /sessions
 
 Resource    ../support/base.resource
 
-Suite Setup    Criar Sessao
+Suite Setup    Make New Session
 
 *** Test Cases ***
 CT005.001 - Criar uma nova sessão
@@ -25,7 +25,7 @@ CT005.001 - Criar uma nova sessão
     Log    Session data: ${session}
     Remove Session From Database    ${session}[datetime]
     Criar uma sessão    ${session}
-    Validar Status Code "201"
+    Validate Status Code "201"
     Validar Success    ${True}
 
 
@@ -44,7 +44,7 @@ CT005.002 - Editar uma sessão
     Remove Session From Database    ${session_unedited}[datetime]
     Criar uma sessão    ${session_unedited}
     Pegar ID de uma sessão    ${session_unedited}
-    Validar Status Code "201"
+    Validate Status Code "201"
     Validar Success    ${True}
 
     ${session_edited}=    Create Dictionary
@@ -58,5 +58,5 @@ CT005.002 - Editar uma sessão
     
     Editar uma sessão    ${session_edited}
 
-    Validar Status Code "200"
+    Validate Status Code "200"
     Validar Success    ${True}
