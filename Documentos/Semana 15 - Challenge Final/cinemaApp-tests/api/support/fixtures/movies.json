@@ -48,5 +48,25 @@
     "classification": "+14",
     "poster": "batman.jpg",
     "releaseDate": "2022-03-03"
+  },
+  "movie6": {
+    "title": "O Poderoso Chefão",
+    "synopsis": "O enredo da história de uma família mafiosa londrina, dirigida pelo líder Vito Corleone, que controla a máfia desde 1920.",
+    "director": "Francis Ford Coppola",
+    "genres": ["Drama","Crime"],
+    "duration": 175,
+    "classification": "+14",
+    "poster": "poderoso.jpg",
+    "releaseDate": "1972-03-15"
+  },
+  "movie7": {
+    "title": "O Poderoso Chefão 2",
+    "synopsis": "O enredo da história de uma família mafiosa londrina, dirigida pelo líder Vito Corleone, que controla a máfia desde 1920.",
+    "director": "Francis Ford Coppola",
+    "genres": ["Drama","Crime"],
+    "duration": 202,
+    "classification": "+16",
+    "poster": "poderoso2.jpg",
+    "releaseDate": "1974-12-20"
   }
 }

@@ -38,3 +38,22 @@ CT005.001 - Criar uma nova reserva
     Criar uma Reserva    ${reservations}
     Validar Status Code "201"
     Validar Success    ${True}
+
+CT006.002 Editar Status de uma reserva
+
+    ${reservation}=    Fill with Reservation    2 
+    Pegar o ID de um usuário    ${customer}
+    Remove Reservation by User    ${user_id}
+    
+    Criar uma Reserva    ${reservation}
+    
+    ${new_status}=    Create Dictionary
+    ...    status=pending
+    ...    paymentStatus=pending
+    
+    Edit reservation status    ${reservation}    ${new_status}
+    Validar Status Code "200"
+    Validar Success    ${True}
+    Validate data    status    ${new_status}[status]   
+    Validate data    paymentStatus    ${new_status}[paymentStatus]  
+    

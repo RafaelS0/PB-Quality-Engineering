@@ -7,17 +7,25 @@ Resource    ../base.resource
 *** Keywords ***
 
 Validar Status Code "${statuscode}"
-    Variable Should Exist    ${response}    response não foi definida. Verifique se a requisição
+    Variable Should Exist    ${response}    response não foi definida. Verifique a requisição
     Should Be True    ${response.status_code} == ${statuscode}    
 
 
 Validar Success
     [Arguments]    ${expected_success}
-    Variable Should Exist    ${response}    response não foi definida. Verifique se a requisição
+    Variable Should Exist    ${response}    response não foi definida. Verifique a requisição
     ${response_success}=    Set Variable    ${response.json()['success']}
     Should Be Equal    ${response_success}    ${expected_success}    msg=Campo success inesperado. Esperado: ${expected_success}, Obtido: ${response_success}
 
+Validate data
+    [Arguments]    ${expected_field}    ${expected_value}
+    Variable Should Exist    ${response}    response não foi definida. Verifique a requisição
+    ${json_data}=    Set Variable    ${response.json()}
+    Dictionary Should Contain Key    ${json_data['data']}    ${expected_field}
+    ${actual_value}=    Set Variable    ${json_data['data']['${expected_field}']}
+    Should Be Equal    ${actual_value}    ${expected_value}    msg=Campo ${expected_field} - Esperado: ${expected_value}, Obtido: ${actual_value}
 
+    
 Pegar o ID de um usuário
     [Arguments]    ${user}
     Fazer Login    ${user}
@@ -45,6 +53,13 @@ Pegar ID de uma sessão
     ${session_id}=    Set Variable    ${session_data}[_id]  
     Set Global Variable    ${session_id}   
 
+Get ID from Reservations
+    [Arguments]    ${reservation}
+    ${reservation_data}=    Get Reservation by Session    ${reservation}[session]   
+    Should Not Be Equal    ${reservation_data}    ${None}    Reservation not found in database
+    ${reservation_id}=    Set Variable    ${reservation_data}[_id]  
+    Set Global Variable    ${reservation_id} 
+
 
 Utilizar Token de Administrador
     ${admin_user}    Create Dictionary
@@ -53,6 +68,7 @@ Utilizar Token de Administrador
     ...    password=pwd12345    
     POST Endpoint /auth/register    ${admin_user}[name]    ${admin_user}[email]    ${admin_user}[password]
     POST Endpoint /auth/login    ${admin_user}[email]   ${admin_user}[password]
+    Set Global Variable    ${admin_user}
 Utilizar Token de Cliente
     ${customer}    Create Dictionary
     ...    name= Linus
@@ -60,6 +76,7 @@ Utilizar Token de Cliente
     ...    password=ilovelinux
     POST Endpoint /auth/register    ${customer}[name]    ${customer}[email]    ${customer}[password]
     POST Endpoint /auth/login    ${customer}[email]   ${customer}[password]
+    Set Global Variable    ${customer}
 
 Read JSON File
     [Arguments]    ${file}
@@ -86,3 +103,36 @@ Fill with Theater
     Pegar ID de uma Sala    ${theater}
     Log    Theater ID: ${theater_id}
     RETURN    ${theater}
+
+#FEITO COM AJUDA DA IA
+Fill with Reservation
+    [Arguments]    ${index}
+    ${reservations_json}=    Read JSON File    reservations.json
+    ${reservation_data}=    Set Variable    ${reservations_json}[reservation${index}]
+    
+    # Preparar filme e teatro
+    ${movie}=    Fill with movie    ${reservation_data}[movieIndex]
+    ${theater}=    Fill with Theater    ${reservation_data}[theaterIndex]
+    
+    # Criar sessão
+    ${session}=    Create Dictionary
+    ...    movie=${movie_id}
+    ...    theater=${theater_id}
+    ...    datetime=${reservation_data}[session][datetime]
+    ...    fullPrice=${reservation_data}[session][fullPrice]
+    ...    halfPrice=${reservation_data}[session][halfPrice]
+    Remove Session By Theater And Date    ${theater_id}    ${session}[datetime]
+    Criar uma sessão    ${session}
+    Pegar ID de uma sessão    ${session}
+    
+    # Criar cliente para a reserva
+    
+    Utilizar Token de Cliente
+    ${reservation}=    Create Dictionary
+    ...    session=${session_id}
+    ...    row=${reservation_data}[row]
+    ...    number=${reservation_data}[number]
+    ...    type=${reservation_data}[type]
+    ...    paymentMethod=${reservation_data}[paymentMethod]
+    
+    RETURN    ${reservation}

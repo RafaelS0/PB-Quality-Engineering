@@ -18,5 +18,15 @@
     "name": "Sala - 004",
     "capacity": 80,
     "type": "standard"
+  },
+  "theater5":{
+    "name": "Sala - 005",
+    "capacity": 90,
+    "type": "IMAX"
+  },
+  "theater6":{
+    "name": "Sala - 006",
+    "capacity": 100,
+    "type": "standard"
   }
 }

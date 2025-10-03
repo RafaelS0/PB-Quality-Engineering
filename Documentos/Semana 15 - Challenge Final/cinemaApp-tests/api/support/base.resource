@@ -16,6 +16,7 @@ Resource    ../keywords/createSessionkeywords.resource
 Resource    ../keywords/createTheaterKeywords.resource
 Resource    ../keywords/createReservations.resource
 Resource    ../keywords/updateSessionkeywords.resource
+Resource    ../keywords/updateReservations.resource
 
 
 

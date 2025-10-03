@@ -127,6 +127,74 @@ def get_session_by_theater(theater_id):
     return session
 
 @keyword('Remove Session From Database')
-def remove_session_by_date(date):
+def remove_session_by_date(datetime):
     sessions = db['sessions']
-    sessions.delete_many({'date': date})
+    print(f"Searching for sessions to delete with datetime: {datetime}")
+    
+    # Primeiro vamos ver se existe
+    sessions_to_delete = list(sessions.find({'datetime': datetime}))
+    print(f"Sessions found to delete: {len(sessions_to_delete)}")
+    
+    if sessions_to_delete:
+        for session in sessions_to_delete:
+            print(f"Session to delete: {session}")
+    else:
+        print(f"No sessions found with datetime: {datetime}")
+        all_sessions = list(sessions.find({}, {'datetime': 1}))
+        print(f"Existing sessions: {all_sessions}")
+    
+    # Agora deletar
+    result = sessions.delete_many({'datetime': datetime})
+    print(f"Sessions deleted. Count: {result.deleted_count}")
+
+#IA
+@keyword('Remove Session By Theater And Date')
+def remove_session_by_theater_and_date(theater_id, datetime):
+    sessions = db['sessions']
+    print(f"Searching for sessions to delete with theater_id: {theater_id} and datetime: {datetime}")
+    
+    # Buscar sessões específicas
+    query = {'theater': ObjectId(theater_id), 'datetime': datetime}
+    sessions_to_delete = list(sessions.find(query))
+    print(f"Sessions found to delete: {len(sessions_to_delete)}")
+    
+    if sessions_to_delete:
+        for session in sessions_to_delete:
+            print(f"Session to delete: {session}")
+    else:
+        print(f"No sessions found with theater_id: {theater_id} and datetime: {datetime}")
+        all_sessions = list(sessions.find({}, {'theater': 1, 'datetime': 1}))
+        print(f"Existing sessions: {all_sessions}")
+    
+    # Deletar apenas as sessões específicas
+    result = sessions.delete_many(query)
+    print(f"Sessions deleted. Count: {result.deleted_count}")
+
+
+###RESERVATIONS TABLE###
+@keyword('Get Reservation by Session')
+def get_reservation_by_session(session_id):
+    reservations = db['reservations']
+    print(f"Searching for reservation with session_id: {session_id}")
+    reservation = reservations.find_one({'session': ObjectId(session_id)})
+    print(f"Reservation found: {reservation}")
+    
+    if reservation and '_id' in reservation:
+        reservation['_id'] = str(reservation['_id'])
+        print(f"Reservation ID: {reservation['_id']}")
+    else:
+        print(f"No reservation found with session_id: {session_id}")
+        all_reservations = list(reservations.find({}, {'session': 1}))
+        print(f"Existing reservations: {all_reservations}")
+    
+    return reservation
+
+@keyword('Remove Reservation by Session')
+def remove_reservation_by_session(session_id):
+    reservations = db['reservations']
+    reservations.delete_many({'session': ObjectId(session_id)})
+
+@keyword('Remove Reservation by User')
+def remove_reservation_by_user(user_id):
+    reservations = db['reservations']
+    reservations.delete_many({'user': ObjectId(user_id)})
