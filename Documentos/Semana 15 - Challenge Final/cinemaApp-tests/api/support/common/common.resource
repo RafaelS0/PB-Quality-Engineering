@@ -66,3 +66,23 @@ Read JSON File
     ${json}=    Load Json From File    ${EXECDIR}/support/fixtures/${file}
     RETURN    ${json}
 
+
+Fill with movie
+    [Arguments]    ${index}
+    ${movies_json}=    Read JSON File    movies.json
+    ${movie}=    Set Variable    ${movies_json}[movie${index}]
+    Clean Movie from Database    ${movie}[title]
+    Criar filme    ${movie} 
+    Pegar ID de um filme    ${movie}
+    Log    Movie ID: ${movie_id}
+    RETURN     ${movie}
+
+Fill with Theater
+    [Arguments]    ${index}
+    ${theater_json}=    Read JSON File    theaters.json
+    ${theater}=    Set Variable    ${theater_json}[theater${index}]
+    Remove Theater From Database    ${theater}[name]
+    Criar um Sala de Cinema    ${theater}
+    Pegar ID de uma Sala    ${theater}
+    Log    Theater ID: ${theater_id}
+    RETURN    ${theater}
