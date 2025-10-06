@@ -7,7 +7,7 @@ Suite Setup    Make New Session
 *** Test Cases ***
 
 CT001.001 - Cadastrar um Cliente Válido 
-    [Tags]    CT001-auth
+    [Tags]    CT001
 
     ${customer_user}    Create Dictionary
     ...    name=Kurt Cobain
@@ -20,7 +20,7 @@ CT001.001 - Cadastrar um Cliente Válido
     Validar Success    ${True}
 
 CT002.001 - Fazer Login com dados válidos
-    [Tags]    CT002-auth
+    [Tags]    CT002
 
     ${customer_user}    Create Dictionary
     ...    name=Kurt Cobain

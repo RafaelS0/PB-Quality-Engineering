@@ -8,8 +8,10 @@ Suite Setup    Make New Session
 
 *** Test Cases ***
 
-CT005.001 - Criar uma nova reserva
-
+CT013.001 - Criar uma nova reserva
+    
+    [Tags]    CT013
+    
     ${movie}=    Fill with movie    4
     ${movie_id}=    Get Movie ID    ${movie}
     Log    Movie ID: ${movie_id}
@@ -39,7 +41,9 @@ CT005.001 - Criar uma nova reserva
     Validate Status Code "201"
     Validar Success    ${True}
 
-CT006.002 Editar Status de uma reserva
+CT014.001 Editar Status de uma reserva
+
+    [Tags]    CT014
 
     ${reservation}=    Fill with Reservation    2 
     ${user_id}=    Get User ID   ${customer}
@@ -57,7 +61,9 @@ CT006.002 Editar Status de uma reserva
     Validate data    status    ${new_status}[status]   
     Validate data    paymentStatus    ${new_status}[paymentStatus] 
 
-CT006.003 Deletar uma reserva
+CT015.001 Deletar uma reserva
+
+    [Tags]    CT015            
 
     ${reservation}=    Fill with Reservation    2 
     Criar uma Reserva    ${reservation}

@@ -9,6 +9,8 @@ Suite Setup    Make New Session
 
 CT007.001 - Criar uma Sala de Cinema com Sucesso
 
+    [Tags]    CT007
+
     ${theater}    Create Dictionary
     ...    name=Sala - 1
     ...    capacity= 60

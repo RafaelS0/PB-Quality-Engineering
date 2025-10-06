@@ -8,7 +8,7 @@ Suite Setup    Make New Session
 *** Test Cases ***
 
 CT004.001 - Cadastrar um Filme
-    [Tags]    CT001
+    [Tags]    CT004
     
     ${genres}=    Create List    Drama    
     ${movie}    Create Dictionary    
@@ -28,7 +28,7 @@ CT004.001 - Cadastrar um Filme
 
 
 CT004.002 - Editar um Filme Cadastrado
-    [Tags]    CT001
+    [Tags]    CT004
     
     ${genres}=    Create List    Drama    Esporitvo
     ${movie_edited}    Create Dictionary    
@@ -50,7 +50,7 @@ CT004.002 - Editar um Filme Cadastrado
 
 
 CT004.003 - Deletar um Filme Cadastrado
-    [Tags]    CT001
+    [Tags]    CT004
     ${movie}=     Fill with movie    3
     
     Deletar um filme    ${movie}

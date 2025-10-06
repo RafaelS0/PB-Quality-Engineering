@@ -6,7 +6,8 @@ Resource    ../support/base.resource
 Suite Setup    Make New Session
 
 *** Test Cases ***
-CT005.001 - Criar uma nova sessão
+CT010.001 - Criar uma nova sessão
+    [Tags]    CT010
 
     ${movie}=    Fill with movie    5
     ${movie_id}=    Get Movie ID    ${movie}
@@ -29,7 +30,8 @@ CT005.001 - Criar uma nova sessão
     Validar Success    ${True}
 
 
-CT005.002 - Editar uma sessão
+CT011.001 - Editar uma sessão
+    [Tags]    CT011
 
     ${movie}=    Fill with movie    5
     ${movie_id}=    Get Movie ID    ${movie}
