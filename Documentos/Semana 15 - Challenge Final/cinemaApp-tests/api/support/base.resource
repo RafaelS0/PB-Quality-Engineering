@@ -16,9 +16,12 @@ Resource    ../keywords/CreateTheaterKeywords.resource
 Resource    ../keywords/CreateReservationsKeywords.resource
 Resource    ../keywords/UpdateSessionKeywords.resource
 Resource    ../keywords/UpdateReservationsKeywords.resource
+Resource    ../keywords/UpdateTheaterKeywords.resource
 Resource    ../keywords/UpdateMovieKeywords.resource
 Resource    ../keywords/DeleteUserKeywords.resource
 Resource    ../keywords/DeleteReservationsKeywords.resource
+Resource    ../keywords/DeleteTheaterKeywords.resource
+Resource    ../keywords/DeleteSessionKeywords.resource
 
 *** Keywords ***
 Make New Session

@@ -67,3 +67,12 @@ CT011.001 - Editar uma sessão
 
     Validate Status Code "200"
     Validar Success    ${True}
+
+CT012.001 - Deletar Uma Sessão Válida
+    [Tags]    CT012
+
+    ${session}=    Fill with Session    1
+    Delete Session Data    ${session}
+    Validar Success    ${True}
+    Validate Status Code "200"
+

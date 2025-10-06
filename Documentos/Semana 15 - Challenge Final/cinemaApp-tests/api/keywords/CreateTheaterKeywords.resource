@@ -13,7 +13,7 @@ POST Endpoint /theaters
     ...    type=${type}
     ${response}=     POST On Session    CinemaApp    url=/theaters    json=${payload}    headers=${header}    expected_status=any
     Log    ${response.content}
-
+    Set Global Variable    ${response}
 
 
 Criar um Sala de Cinema

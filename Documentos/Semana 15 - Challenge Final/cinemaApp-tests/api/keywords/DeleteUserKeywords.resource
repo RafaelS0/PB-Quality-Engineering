@@ -8,7 +8,7 @@ DELETE Endpoint /users/_id
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${response}=    DELETE On Session    alias=CinemaApp    url=/users/${id}    headers=${header}    expected_status=any
     Log    ${response.content}
-
+    Set Global Variable    ${response}
 
 
 

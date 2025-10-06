@@ -102,7 +102,31 @@ Fill with Theater
     Log    Theater ID: ${theater_id}
     RETURN    ${theater}
 
-#FEITO COM AJUDA DA IA
+#FEITO COM AJUDA DE IA
+Fill with Session
+    [Arguments]    ${index}
+    ${sessions_json}=    Read JSON File    sessions.json
+    ${session_data}=    Set Variable    ${sessions_json}[session${index}]
+    
+    ${movie}=    Fill with movie    ${session_data}[movieIndex]
+    ${theater}=    Fill with Theater    ${session_data}[theaterIndex]
+    
+    ${movie_id}=    Get Movie ID    ${movie}
+    ${theater_id}=    Get Theater ID    ${theater}
+    
+    ${session}=    Create Dictionary
+    ...    movie=${movie_id}
+    ...    theater=${theater_id}
+    ...    datetime=${session_data}[datetime]
+    ...    fullPrice=${session_data}[fullPrice]
+    ...    halfPrice=${session_data}[halfPrice]
+    Remove Session By Theater And Date    ${theater_id}    ${session}[datetime]
+    Criar uma sessão    ${session}
+    ${session_id}=    Get Session ID    ${session}
+    
+    RETURN    ${session}
+
+#FEITO COM AJUDA DE IA
 Fill with Reservation
     [Arguments]    ${index}
     ${reservations_json}=    Read JSON File    reservations.json
