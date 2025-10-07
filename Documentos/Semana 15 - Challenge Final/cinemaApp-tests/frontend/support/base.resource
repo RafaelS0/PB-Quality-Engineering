@@ -3,10 +3,11 @@ Library    SeleniumLibrary
 Library    Collections
 Library    JSONLibrary
 Library    String
-Library    ../resources/libs/database.py
+Library    ../support/libs/database.py
 Resource    env.resource
-Resource    ../resources/pages/SignupPage.resource
-Resource    ../resources/pages/components/header.resource
+Resource    ../support/pages/SignupPage.resource
+Resource    ../support/pages/components/header.resource
+Resource    ../support/common/common.resource
 
 *** Keywords ***
 Start Session
