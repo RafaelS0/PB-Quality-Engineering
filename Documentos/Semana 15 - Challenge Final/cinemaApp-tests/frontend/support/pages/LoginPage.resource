@@ -3,16 +3,11 @@ Documentation    Elementos e ações da página de cadastro de usuário
 
 Resource    ../base.resource
 *** Keywords ***
-Access SignUp Page
-    Click Link    //a[(text())='Cadastrar']
-    Wait Until Element Is Visible    //p[(text())='Crie sua conta para reservar ingressos']
 
-Send SignUp Form
+Send Login Form
     [Arguments]     ${user}
-    Input Text    //input[@id='name']    ${user}[name]
     Input Text    //input[@id='email']    ${user}[email]
     Input Text    //input[@id='password']    ${user}[password]
-    Input Text    //input[@id='confirmPassword']    ${user}[password]
     Sleep    1s
     Click Button    //button[@type='submit']
     Sleep    2s

@@ -8,6 +8,10 @@ Resource    env.resource
 Resource    ../support/pages/SignupPage.resource
 Resource    ../support/pages/components/header.resource
 Resource    ../support/common/common.resource
+Resource    ../support/pages/SessionsPage.resource
+Resource    ../support/pages/components/MovieCard.resource
+Resource    ../support//pages/ChekoutPage.resource
+Resource    ../support/pages/LoginPage.resource
 
 *** Keywords ***
 Start Session

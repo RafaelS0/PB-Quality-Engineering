@@ -1,0 +1,37 @@
+{
+  "session1": {
+    "movieIndex": 1,
+    "theaterIndex": 1,
+    "datetime": "2025-10-02T19:00:00.000Z",
+    "fullPrice": 15,
+    "halfPrice": 7.5
+  },
+  "session2": {
+    "movieIndex": 2,
+    "theaterIndex": 2,
+    "datetime": "2025-10-02T21:30:00.000Z",
+    "fullPrice": 20,
+    "halfPrice": 10
+  },
+  "session3": {
+    "movieIndex": 3,
+    "theaterIndex": 3,
+    "datetime": "2025-10-03T18:00:00.000Z",
+    "fullPrice": 18,
+    "halfPrice": 9
+  },
+  "session4": {
+    "movieIndex": 4,
+    "theaterIndex": 4,
+    "datetime": "2025-10-03T20:15:00.000Z",
+    "fullPrice": 25,
+    "halfPrice": 12.5
+  },
+  "session5": {
+    "movieIndex": 5,
+    "theaterIndex": 5,
+    "datetime": "2025-10-04T17:45:00.000Z",
+    "fullPrice": 22,
+    "halfPrice": 11
+  }
+}
