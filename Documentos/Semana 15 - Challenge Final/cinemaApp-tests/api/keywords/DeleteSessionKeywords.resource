@@ -18,3 +18,8 @@ Delete Session Data
     ${admin_token}=    Generate admin token
     ${session_id}=    Get Session ID   ${session}
     DELETE Endpoint /sessions/_id    ${session_id}    ${admin_token}
+
+Delete Session Data without default token
+    [Arguments]    ${session}    ${token}
+    ${session_id}=    Get Session ID   ${session}
+    DELETE Endpoint /sessions/_id    ${session_id}    ${token}

@@ -23,3 +23,8 @@ Create Movie Session
     [Arguments]      ${session}
     ${admin_token}=    Generate admin token
     POST Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]    ${admin_token}
+
+Create Movie Session without default token
+    [Arguments]      ${session}    ${token}
+    ${admin_token}=    Generate admin token
+    POST Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]    ${token}

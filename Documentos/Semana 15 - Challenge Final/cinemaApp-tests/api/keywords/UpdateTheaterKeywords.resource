@@ -12,6 +12,7 @@ PUT Endpoint /theaters/id
     ...    capacity=${capacity}
     ...    type=${type}
     ${response}=     PUT On Session    CinemaApp    url=/theaters/${id}    json=${payload}    headers=${header}    expected_status=any
+    Set Global Variable    ${response}
     Log    ${response.content}
 
 
@@ -20,3 +21,8 @@ Update Theater Data
     ${admin_token}=    Generate admin token
     ${theater_id}=    Get Theater ID    ${original_theater}
     PUT Endpoint /theaters/id    ${edited_theater}[name]    ${edited_theater}[capacity]    ${edited_theater}[type]    ${theater_id}    ${admin_token}
+
+Update Theater Data without default token
+    [Arguments]    ${original_theater}    ${edited_theater}   ${token}
+    ${theater_id}=    Get Theater ID    ${original_theater}
+    PUT Endpoint /theaters/id    ${edited_theater}[name]    ${edited_theater}[capacity]    ${edited_theater}[type]    ${theater_id}    ${token}

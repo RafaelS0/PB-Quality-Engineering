@@ -18,3 +18,8 @@ Delete Theater Data
     ${admin_token}=    Generate admin token
     ${theater_id}=    Get Theater ID    ${theater}
     DELETE Endpoint /theaters/_id    ${theater_id}    ${admin_token}
+
+Delete Theater Data without default token
+    [Arguments]    ${theater}   ${token}  
+    ${theater_id}=    Get Theater ID    ${theater}
+    DELETE Endpoint /theaters/_id    ${theater_id}      ${token}

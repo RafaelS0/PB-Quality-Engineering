@@ -23,3 +23,9 @@ Create Reservations
     ${seat}=    Create Dictionary    row=${reservations}[row]    number=${reservations}[number]    type=${reservations}[type]
     ${seats}=    Create List    ${seat}
     POST Endpoint /reservations    ${reservations}[session]    ${seats}    ${reservations}[paymentMethod]    ${customer_token}
+
+Create Reservations without default token
+    [Arguments]     ${reservations}    ${token}
+    ${seat}=    Create Dictionary    row=${reservations}[row]    number=${reservations}[number]    type=${reservations}[type]
+    ${seats}=    Create List    ${seat}
+    POST Endpoint /reservations    ${reservations}[session]    ${seats}    ${reservations}[paymentMethod]    ${token}

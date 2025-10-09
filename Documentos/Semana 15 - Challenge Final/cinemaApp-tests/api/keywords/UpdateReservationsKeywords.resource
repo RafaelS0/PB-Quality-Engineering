@@ -22,4 +22,10 @@ Edit reservation status
     ${reservation_id}=    Get ID from Reservations    ${reservation}
     PUT Endpoint /reservations/id    ${status}[status]    ${status}[paymentStatus]    ${reservation_id}    ${admin_token}
 
+Edit reservation status without default token
+    [Arguments]    ${reservation}    ${status}    ${token}
+    ${reservation_id}=    Get ID from Reservations    ${reservation}
+    PUT Endpoint /reservations/id    ${status}[status]    ${status}[paymentStatus]    ${reservation_id}    ${token}
+
+
 

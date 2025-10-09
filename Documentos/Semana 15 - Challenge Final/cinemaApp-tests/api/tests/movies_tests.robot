@@ -8,7 +8,7 @@ Suite Setup    Make New Session
 *** Test Cases ***
 
 CT003.001 - Cadastrar um Filme válido
-    [Tags]    CT003
+    [Tags]    CT003-new-movie
     
     ${genres}=    Create List    Drama    
     ${movie}    Create Dictionary    
@@ -28,7 +28,7 @@ CT003.001 - Cadastrar um Filme válido
 
 
 CT003.002 - Cadastrar um filme com campos em branco
-    [Tags]    CT003
+    [Tags]    CT003-new-movie
     
     ${genres}=    Create List    Infantil    Animação    Comédia    
     ${movie}    Create Dictionary    
@@ -48,7 +48,7 @@ CT003.002 - Cadastrar um filme com campos em branco
 
 
 CT003.003 - Cadastrar um Filme sem token de autorização
-    [Tags]    CT003
+    [Tags]    CT003-new-movie
     
     ${genres}=    Create List   Terror    Suspense   
     ${movie}    Create Dictionary    
@@ -67,7 +67,7 @@ CT003.003 - Cadastrar um Filme sem token de autorização
     Validar Success    ${False}
 
 CT003.004 - Cadastrar um Filme com token de cliente
-    [Tags]    CT003
+    [Tags]    CT003-new-movie
     
     ${genres}=    Create List   Terror    Suspense   
     ${movie}    Create Dictionary    
@@ -89,7 +89,7 @@ CT003.004 - Cadastrar um Filme com token de cliente
 
 
 CT004.001 - Editar um Filme Cadastrado
-    [Tags]    CT004
+    [Tags]    CT004-edit-movie
 
     ${genres}=    Create List    Drama    Esporitvo
     ${movie_edited}    Create Dictionary    
@@ -109,7 +109,7 @@ CT004.001 - Editar um Filme Cadastrado
     Validar Success    ${True}
 
 CT004.002 - Editar um Filme Cadastrado sem token de autorização
-    [Tags]    CT004
+    [Tags]    CT004-edit-movie
 
     ${genres}=    Create List    Drama    Esporitvo
     ${movie_edited}    Create Dictionary    
@@ -130,7 +130,7 @@ CT004.002 - Editar um Filme Cadastrado sem token de autorização
 
 
 CT004.003 - Editar um Filme Cadastrado com token de cliente
-    [Tags]    CT004
+    [Tags]    CT004-edit-movie
     ${genres}=    Create List    Drama    Esporitvo
     ${movie_edited}    Create Dictionary    
     ...    title=Rocky, um Lutador - EDITADO
@@ -149,15 +149,30 @@ CT004.003 - Editar um Filme Cadastrado com token de cliente
     Validate Status Code "403"
     Validar Success    ${False}
 
-
-
 CT005.001 - Deletar um Filme Cadastrado
-    [Tags]    CT005
+    [Tags]    CT005-delete-movie
     ${movie}=     Fill with movie    3
     
     Delete Movie Data    ${movie}
     Validate Status Code "200"
     Validar Success    ${True}
+
+CT005.002 - Deletar um Filme sem token de autorização
+    [Tags]    CT005-delete-movie
+    ${movie}=     Fill with movie    3
+    
+    Delete Movie Data without default token    ${movie}    ${EMPTY}
+    Validate Status Code "401"
+    Validar Success    ${False}
+
+CT005.003 - Deletar um Filme com token de cliente
+    [Tags]    CT005-delete-movie
+    ${movie}=     Fill with movie    3
+    ${token}=    Generate customer token
+    Delete Movie Data without default token    ${movie}    ${token}
+    Validate Status Code "403"
+    Validar Success    ${False}
+
 
 
 

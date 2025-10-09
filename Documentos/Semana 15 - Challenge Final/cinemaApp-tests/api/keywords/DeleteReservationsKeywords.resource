@@ -12,9 +12,16 @@ DELETE Endpoint /reservations/id
 
 
 
-Deletar reserva
+Delete reservation Data
     [Arguments]    ${reservation}
     ${admin_token}=    Generate admin token
     ${id}=     Get ID from Reservations    ${reservation}
     DELETE Endpoint /reservations/_id   ${id}    ${admin_token}
+
+
+Delete reservation Data without default token
+    [Arguments]    ${reservation}    ${token}
+    ${admin_token}=    Generate admin token
+    ${id}=     Get ID from Reservations    ${reservation}
+    DELETE Endpoint /reservations/_id   ${id}    ${token}
     

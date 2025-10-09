@@ -20,8 +20,14 @@ PUT Endpoint /sessions
     
 
 
-Editar uma sessão
+Update Session Data
     [Arguments]      ${session}
     ${admin_token}=    Generate admin token
     ${session_id}=    Get Session ID    ${session}
     PUT Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]    ${session_id}    ${admin_token}
+
+Update Session Data without default token
+    [Arguments]      ${session}    ${token}
+    ${admin_token}=    Generate admin token
+    ${session_id}=    Get Session ID    ${session}
+    PUT Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]    ${session_id}    ${token}

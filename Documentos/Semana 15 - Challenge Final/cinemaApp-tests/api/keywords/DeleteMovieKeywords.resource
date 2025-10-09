@@ -16,3 +16,9 @@ Delete Movie Data
     ${movie_id}=    Get Movie ID    ${movie}
     ${admin_token}=    Generate admin token
     DELETE Endpoint /movies/_id    ${movie_id}    ${admin_token}
+
+Delete Movie Data without default token
+    [Arguments]     ${movie}    ${token}
+    ${movie_id}=    Get Movie ID    ${movie}
+    
+    DELETE Endpoint /movies/_id    ${movie_id}    ${token}

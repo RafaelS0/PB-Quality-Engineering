@@ -16,7 +16,12 @@ POST Endpoint /theaters
     Set Global Variable    ${response}
 
 
-Criar um Sala de Cinema
+Create Theater Data
     [Arguments]    ${theater}
     ${admin_token}=    Generate admin token
     POST Endpoint /theaters    ${theater}[name]    ${theater}[capacity]    ${theater}[type]    ${admin_token}
+
+Create Theater Data without default token
+    [Arguments]    ${theater}    ${token}
+   
+    POST Endpoint /theaters    ${theater}[name]    ${theater}[capacity]    ${theater}[type]      ${token}

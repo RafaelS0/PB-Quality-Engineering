@@ -100,7 +100,7 @@ Fill with Theater
     ${theater_json}=    Read JSON File    theaters.json
     ${theater}=    Set Variable    ${theater_json}[theater${index}]
     Remove Theater From Database    ${theater}[name]
-    Criar um Sala de Cinema    ${theater}
+    Create Theater Data    ${theater}
     ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
     RETURN    ${theater}
