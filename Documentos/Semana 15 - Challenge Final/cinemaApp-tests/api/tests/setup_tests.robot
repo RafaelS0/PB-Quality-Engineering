@@ -14,7 +14,7 @@ Cadastrar um Administrador
     ...    name=Lex Luthor
     ...    email=lex.luthor@lexcorp.com
     ...    password=pwd12345    
-    
+    Clean user from database    ${admin_user}[email]
     Criar um Administrador    ${admin_user}
     Validate Status Code "201"
     Validar Success    ${True}

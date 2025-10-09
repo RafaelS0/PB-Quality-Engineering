@@ -16,6 +16,7 @@ CT009.001 - Criar uma nova sessão
     ${theater}=    Fill with Theater    4
     ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
+    
 
    ${session}=    Create Dictionary
     ...    movie=${movie_id}
@@ -24,11 +25,11 @@ CT009.001 - Criar uma nova sessão
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session}
-    Remove Session From Database    ${session}[datetime]
+
     Create Movie Session   ${session}
     Validate Status Code "201"
     Validar Success    ${True}
-
+    Clean All Sessions From Theater    ${theater_id}
 CT009.002 - Criar uma nova sessão sem token de autenticação
     [Tags]    CT009-new-session
 
@@ -39,6 +40,7 @@ CT009.002 - Criar uma nova sessão sem token de autenticação
     ${theater}=    Fill with Theater    4
     ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
+    Clean All Sessions From Theater    ${theater_id}
 
    ${session}=    Create Dictionary
     ...    movie=${movie_id}
@@ -47,12 +49,12 @@ CT009.002 - Criar uma nova sessão sem token de autenticação
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session}
-    Remove Session From Database    ${session}[datetime]
+    
     
     Create Movie Session without default token   ${session}    ${EMPTY}
     Validate Status Code "401"
     Validar Success    ${false}
-
+    Clean All Sessions From Theater    ${theater_id}
 CT009.003 - Criar uma nova sessão com token de cliente
     [Tags]    CT009-new-session
 
@@ -63,6 +65,7 @@ CT009.003 - Criar uma nova sessão com token de cliente
     ${theater}=    Fill with Theater    4
     ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
+    Clean All Sessions From Theater    ${theater_id}
 
    ${session}=    Create Dictionary
     ...    movie=${movie_id}
@@ -71,12 +74,12 @@ CT009.003 - Criar uma nova sessão com token de cliente
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session}
-    Remove Session From Database    ${session}[datetime]
+    
     ${token}=    Generate customer token
     Create Movie Session without default token   ${session}    ${token}
     Validate Status Code "403"
     Validar Success    ${false}
-
+    Clean All Sessions From Theater    ${theater_id}
 CT009.004 - Criar uma sessão duplicada
     [Tags]    CT009-new-session
 
@@ -91,16 +94,16 @@ CT009.004 - Criar uma sessão duplicada
    ${session}=    Create Dictionary
     ...    movie=${movie_id}
     ...    theater=${theater_id}
-    ...    datetime=2025-10-02T17:32:36.261Z
+    ...    datetime=2025-11-02T17:32:36.261Z
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session}
-    Remove Session From Database    ${session}[datetime]
+   
     Create Movie Session  ${session}
     Create Movie Session  ${session}      
     Validate Status Code "409"
     Validar Success    ${false}
-
+    Clean All Sessions From Theater    ${theater_id}
 
 
 
@@ -114,6 +117,7 @@ CT010.001 - Editar uma sessão válida
     ${theater}=    Fill with Theater    2
     ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
+    Clean All Sessions From Theater    ${theater_id}
    
    ${session_unedited}=    Create Dictionary
     ...    movie=${movie_id}
@@ -122,7 +126,7 @@ CT010.001 - Editar uma sessão válida
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session_unedited}
-    Remove Session From Database    ${session_unedited}[datetime]
+    
     Create Movie Session    ${session_unedited}
     ${session_id}=    Get Session ID    ${session_unedited}
     Validate Status Code "201"
@@ -141,7 +145,7 @@ CT010.001 - Editar uma sessão válida
 
     Validate Status Code "200"
     Validar Success    ${True}
-
+    Clean All Sessions From Theater    ${theater_id}
 
 CT010.002 - Editar uma sessão sem token de autenticação
     [Tags]     CT010-edit-session
@@ -200,7 +204,7 @@ CT010.003 - Editar uma sessão com token de cliente
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session_unedited}
-    Remove Session From Database    ${session_unedited}[datetime]
+    Remove Session by Theater    ${theater_id}        
     Create Movie Session    ${session_unedited}
     ${session_id}=    Get Session ID    ${session_unedited}
     Validate Status Code "201"

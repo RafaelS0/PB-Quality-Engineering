@@ -66,13 +66,15 @@ CT007.001 - Editar Uma Sala De Cinema Válida
     [Tags]    CT007-edit-theater
 
     ${original_theater}=    Fill with Theater    1
+    Remove Theater From Database    ${original_theater}[name]
     Create Theater Data    ${original_theater}
-        
+    
     ${edited_theater}    Create Dictionary
     ...    name=Sala Editada
     ...    capacity=90
     ...    type=3D    
     
+    Remove Theater From Database    ${edited_theater}[name]
     Update Theater Data    ${original_theater}    ${edited_theater}
     Validate Status Code "200"
 

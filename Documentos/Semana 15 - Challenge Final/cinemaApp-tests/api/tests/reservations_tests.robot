@@ -18,11 +18,12 @@ CT012.001 - Criar uma nova reserva válida
     ${theater}=    Fill with Theater    1
     ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
+    Clean All Sessions From Theater    ${theater_id}
 
    ${session}=    Create Dictionary
     ...    movie=${movie_id}
     ...    theater=${theater_id}
-    ...    datetime=2025-10-02T17:32:36.261Z
+    ...    datetime=2025-12-02T17:32:36.261Z
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session}
@@ -39,7 +40,7 @@ CT012.001 - Criar uma nova reserva válida
     Create Reservations   ${reservations}
     Validate Status Code "201"
     Validar Success    ${True}
-
+    Clean All Sessions From Theater    ${theater_id}
 
 CT012.002 - Criar uma nova reserva sem token de autenticação
     [Tags]    CT012-new-reservation
@@ -51,11 +52,12 @@ CT012.002 - Criar uma nova reserva sem token de autenticação
     ${theater}=    Fill with Theater    1
     ${theater_id}=    Get Theater ID    ${theater}
     Log    Theater ID: ${theater_id}
+    
 
    ${session}=    Create Dictionary
     ...    movie=${movie_id}
     ...    theater=${theater_id}
-    ...    datetime=2025-10-02T17:32:36.261Z
+    ...    datetime=2025-10-01T17:32:36.261Z
     ...    fullPrice=15
     ...    halfPrice=7.5
     Log    Session data: ${session}

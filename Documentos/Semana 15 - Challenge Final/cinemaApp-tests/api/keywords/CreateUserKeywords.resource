@@ -25,6 +25,7 @@ POST Endpoint setup/admin
     ...    email=${email}
     ...    password=${password}
     ${response}=     POST On Session    CinemaApp    url=/setup/admin   json=${payload}    headers=${header}    expected_status=any
+    Set Global Variable    ${response}
     Log    ${response.content}
 
 

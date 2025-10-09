@@ -111,7 +111,17 @@ def get_session_by_date(datetime):
 @keyword('Get Session by Theater')
 def get_session_by_theater(theater_id):
     sessions = db['sessions']
+    theaters = db['theaters']
+    
     print(f"Searching for session with theater_id: {theater_id}")
+    
+    # Verificar se o theater existe
+    theater = theaters.find_one({'_id': ObjectId(theater_id)})
+    if theater:
+        print(f"Theater found: {theater['name']}")
+    else:
+        print(f"Theater with ID {theater_id} not found in database")
+        return None
     
     session = sessions.find_one({'theater': ObjectId(theater_id)})
     print(f"Session found: {session}")
@@ -121,8 +131,9 @@ def get_session_by_theater(theater_id):
         print(f"Session ID: {session['_id']}")
     else:
         print(f"No session found with theater_id: {theater_id}")
-        all_sessions = list(sessions.find({}, {'theater': 1}))
-        print(f"Existing sessions: {all_sessions}")
+        # Mostrar apenas alguns exemplos
+        sample_sessions = list(sessions.find({}, {'theater': 1}).limit(5))
+        print(f"Sample existing sessions: {sample_sessions}")
     
     return session
 
@@ -169,6 +180,36 @@ def remove_session_by_theater_and_date(theater_id, datetime):
     # Deletar apenas as sessões específicas
     result = sessions.delete_many(query)
     print(f"Sessions deleted. Count: {result.deleted_count}")
+#IA
+@keyword('Remove Session by Theater')
+def remove_session_by_theater(theater_id):
+    sessions = db['sessions']
+    theaters = db['theaters']
+    
+    print(f"Searching for sessions to delete with theater_id: {theater_id}")
+    
+    # Verificar se o theater existe
+    theater = theaters.find_one({'_id': ObjectId(theater_id)})
+    if theater:
+        print(f"Theater found: {theater['name']}")
+    else:
+        print(f"Theater with ID {theater_id} not found in database")
+        return
+    
+    # Check if sessions exist before deleting
+    sessions_to_delete = list(sessions.find({'theater': ObjectId(theater_id)}))
+    print(f"Sessions found to delete: {len(sessions_to_delete)}")
+    
+    if sessions_to_delete:
+        for session in sessions_to_delete:
+            print(f"Session to delete: {session}")
+        result = sessions.delete_many({'theater': ObjectId(theater_id)})
+        print(f"Sessions deleted. Count: {result.deleted_count}")
+    else:
+        print(f"No sessions found with theater_id: {theater_id}")
+        # Mostrar apenas alguns exemplos para não poluir o log
+        sample_sessions = list(sessions.find({}, {'theater': 1}).limit(5))
+        print(f"Sample existing sessions: {sample_sessions}")
 
 
 ###RESERVATIONS TABLE###
@@ -198,3 +239,34 @@ def remove_reservation_by_session(session_id):
 def remove_reservation_by_user(user_id):
     reservations = db['reservations']
     reservations.delete_many({'user': ObjectId(user_id)})
+
+@keyword('Clean All Sessions From Theater')
+def clean_all_sessions_from_theater(theater_id):
+    sessions = db['sessions']
+    print(f"DEBUG: theater_id received: {theater_id} (type: {type(theater_id)})")
+    
+    # Verificar sessões antes de deletar
+    sessions_before = list(sessions.find({'theater': ObjectId(theater_id)}))
+    print(f"DEBUG: Sessions found before deletion: {len(sessions_before)}")
+    
+    if sessions_before:
+        for session in sessions_before:
+            print(f"DEBUG: Session to delete: {session['_id']} - Theater: {session['theater']}")
+    
+    result = sessions.delete_many({'theater': ObjectId(theater_id)})
+    print(f"Cleaned {result.deleted_count} sessions from theater {theater_id}")
+    
+    # Verificar sessões após deletar
+    sessions_after = list(sessions.find({'theater': ObjectId(theater_id)}))
+    print(f"DEBUG: Sessions remaining after deletion: {len(sessions_after)}")
+    
+    return result.deleted_count
+
+@keyword('List All Sessions')
+def list_all_sessions():
+    sessions = db['sessions']
+    all_sessions = list(sessions.find({}))
+    print(f"Total sessions in database: {len(all_sessions)}")
+    for session in all_sessions:
+        print(f"Session ID: {session['_id']} - Theater: {session['theater']} - Movie: {session.get('movie', 'N/A')}")
+    return all_sessions
