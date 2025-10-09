@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 POST Endpoint /reservations
-    [Arguments]    ${session}    ${seats}    ${paymentMethod}
+    [Arguments]    ${session}    ${seats}    ${paymentMethod}    ${token}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    session=${session}
@@ -17,9 +17,9 @@ POST Endpoint /reservations
 
 
 
-Criar uma Reserva
+Create Reservations
     [Arguments]     ${reservations}
-    Utilizar Token de Cliente
+    ${customer_token}=    Generate customer token
     ${seat}=    Create Dictionary    row=${reservations}[row]    number=${reservations}[number]    type=${reservations}[type]
     ${seats}=    Create List    ${seat}
-    POST Endpoint /reservations    ${reservations}[session]    ${seats}    ${reservations}[paymentMethod]
+    POST Endpoint /reservations    ${reservations}[session]    ${seats}    ${reservations}[paymentMethod]    ${customer_token}

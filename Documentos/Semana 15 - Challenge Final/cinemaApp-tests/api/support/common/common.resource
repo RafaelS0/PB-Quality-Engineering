@@ -3,7 +3,6 @@ Documentation    Keywords Reutilizaveis
 Resource    ../base.resource
 
 
-
 *** Keywords ***
 
 Validate Status Code "${statuscode}"
@@ -59,22 +58,26 @@ Get ID from Reservations
     RETURN    ${reservation_id}
 
 
-Utilizar Token de Administrador
+Generate admin token
     ${admin_user}    Create Dictionary
     ...    name= Lex Luthr
     ...    email=lex.luthor@lexcorp.com
     ...    password=pwd12345    
     POST Endpoint /auth/register    ${admin_user}[name]    ${admin_user}[email]    ${admin_user}[password]
-    POST Endpoint /auth/login    ${admin_user}[email]   ${admin_user}[password]
+    ${admin_token}=    Extract JWT    ${admin_user}[email]    ${admin_user}[password]
+    RETURN    ${admin_token}
     Set Global Variable    ${admin_user}
-Utilizar Token de Cliente
+    
+Generate customer token
     ${customer}    Create Dictionary
     ...    name= Linus
     ...    email= linus.torvalds@unix.com
     ...    password=ilovelinux
     POST Endpoint /auth/register    ${customer}[name]    ${customer}[email]    ${customer}[password]
-    POST Endpoint /auth/login    ${customer}[email]   ${customer}[password]
+    ${customer_token}=    Extract JWT    ${customer}[email]    ${customer}[password]
+    RETURN    ${customer_token}
     Set Global Variable    ${customer}
+    
 
 Read JSON File
     [Arguments]    ${file}
@@ -87,7 +90,7 @@ Fill with movie
     ${movies_json}=    Read JSON File    movies.json
     ${movie}=    Set Variable    ${movies_json}[movie${index}]
     Clean Movie from Database    ${movie}[title]
-    Criar filme    ${movie} 
+    Create Movie    ${movie} 
     ${movie_id}=    Get Movie ID    ${movie}
     Log    Movie ID: ${movie_id}
     RETURN     ${movie}
@@ -121,7 +124,7 @@ Fill with Session
     ...    fullPrice=${session_data}[fullPrice]
     ...    halfPrice=${session_data}[halfPrice]
     Remove Session By Theater And Date    ${theater_id}    ${session}[datetime]
-    Criar uma sessão    ${session}
+    Create Movie Session    ${session}
     ${session_id}=    Get Session ID    ${session}
     
     RETURN    ${session}
@@ -148,12 +151,12 @@ Fill with Reservation
     ...    fullPrice=${reservation_data}[session][fullPrice]
     ...    halfPrice=${reservation_data}[session][halfPrice]
     Remove Session By Theater And Date    ${theater_id}    ${session}[datetime]
-    Criar uma sessão    ${session}
+    Create Movie Session   ${session}
     ${session_id}=    Get Session ID    ${session}
     
     # Criar cliente para a reserva
     
-    Utilizar Token de Cliente
+    Generate customer token
     ${reservation}=    Create Dictionary
     ...    session=${session_id}
     ...    row=${reservation_data}[row]

@@ -13,7 +13,7 @@ Deletar um usuário
     ...    email=kurt@nirvana.com
     ...    password=pwd12345    
     ${user_id}=    Get User ID   ${customer_user}
-    Deletar usuário    ${user_id}
+    Delete user Data   ${user_id}
     Validate Status Code "200"
     Validar Success    ${True}
     

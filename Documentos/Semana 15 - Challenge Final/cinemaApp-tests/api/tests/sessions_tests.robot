@@ -25,7 +25,7 @@ CT010.001 - Criar uma nova sessão
     ...    halfPrice=7.5
     Log    Session data: ${session}
     Remove Session From Database    ${session}[datetime]
-    Criar uma sessão    ${session}
+    Create Movie Session   ${session}
     Validate Status Code "201"
     Validar Success    ${True}
 
@@ -49,7 +49,7 @@ CT011.001 - Editar uma sessão
     ...    halfPrice=7.5
     Log    Session data: ${session_unedited}
     Remove Session From Database    ${session_unedited}[datetime]
-    Criar uma sessão    ${session_unedited}
+    Create Movie Session    ${session_unedited}
     ${session_id}=    Get Session ID    ${session_unedited}
     Validate Status Code "201"
     Validar Success    ${True}

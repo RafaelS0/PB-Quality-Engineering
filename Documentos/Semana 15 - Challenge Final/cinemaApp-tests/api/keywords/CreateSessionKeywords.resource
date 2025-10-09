@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 POST Endpoint /sessions
-    [Arguments]    ${movie}    ${theater}    ${datetime}    ${fullPrice}    ${halfPrice}
+    [Arguments]    ${movie}    ${theater}    ${datetime}    ${fullPrice}    ${halfPrice}    ${token}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    movie=${movie}
@@ -19,7 +19,7 @@ POST Endpoint /sessions
     Log    ${response.status_code}
 
 
-Criar uma sessão
+Create Movie Session
     [Arguments]      ${session}
-    Utilizar Token de Administrador
-    POST Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]
+    ${admin_token}=    Generate admin token
+    POST Endpoint /sessions    ${session}[movie]    ${session}[theater]    ${session}[datetime]    ${session}[fullPrice]    ${session}[halfPrice]    ${admin_token}

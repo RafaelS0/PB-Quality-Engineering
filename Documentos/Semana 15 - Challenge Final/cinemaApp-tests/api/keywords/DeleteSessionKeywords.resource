@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 DELETE Endpoint /sessions/id
-    [Arguments]      ${id}
+    [Arguments]      ${id}    ${token}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${response}=     DELETE On Session    CinemaApp    url=/sessions/${id}        headers=${header}    expected_status=any
     Log    ${response.content}
@@ -15,6 +15,6 @@ DELETE Endpoint /sessions/id
 
 Delete Session Data
     [Arguments]    ${session}    
-    Utilizar Token de Administrador
+    ${admin_token}=    Generate admin token
     ${session_id}=    Get Session ID   ${session}
-    DELETE Endpoint /sessions/_id    ${session_id}
+    DELETE Endpoint /sessions/_id    ${session_id}    ${admin_token}

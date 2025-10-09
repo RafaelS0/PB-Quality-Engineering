@@ -4,7 +4,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 DELETE Endpoint /users/_id
-    [Arguments]    ${id}
+    [Arguments]    ${id}    ${token}    
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${response}=    DELETE On Session    alias=CinemaApp    url=/users/${id}    headers=${header}    expected_status=any
     Log    ${response.content}
@@ -12,8 +12,8 @@ DELETE Endpoint /users/_id
 
 
 
-Deletar usuário
+Delete user Data
     [Arguments]    ${id}
-    Utilizar Token de Administrador
-    DELETE Endpoint /users/_id   ${id}
+    ${admin_token}=    Generate admin token
+    DELETE Endpoint /users/_id   ${id}    ${admin_token}
     

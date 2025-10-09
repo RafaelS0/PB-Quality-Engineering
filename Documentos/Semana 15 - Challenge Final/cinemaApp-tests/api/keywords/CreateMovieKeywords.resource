@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 POST Endpoint /movies
-    [Arguments]     ${title}    ${synopsis}    ${director}    ${genres}    ${duration}    ${classification}    ${poster}    ${releaseDate}    
+    [Arguments]     ${title}    ${synopsis}    ${director}    ${genres}    ${duration}    ${classification}    ${poster}    ${releaseDate}    ${token}    
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    title=${title}   
@@ -22,9 +22,9 @@ POST Endpoint /movies
     Log    ${response.content}
 
 
-Criar filme
+Create Movie
     [Arguments]    ${movie}
-    Utilizar Token de Administrador
+    ${admin_token}=    Generate admin token
     POST Endpoint /movies    
     ...    ${movie}[title]    
     ...    ${movie}[synopsis]    
@@ -33,6 +33,20 @@ Criar filme
     ...    ${movie}[duration]    
     ...    ${movie}[classification]    
     ...    ${movie}[poster]    
-    ...    ${movie}[releaseDate]    
+    ...    ${movie}[releaseDate]
+    ...    ${admin_token}    
+
+Create Movie without default token
+    [Arguments]    ${movie}    ${token}
+    POST Endpoint /movies    
+    ...    ${movie}[title]    
+    ...    ${movie}[synopsis]    
+    ...    ${movie}[director]    
+    ...    ${movie}[genres]    
+    ...    ${movie}[duration]    
+    ...    ${movie}[classification]    
+    ...    ${movie}[poster]    
+    ...    ${movie}[releaseDate]
+    ...    ${token}     
 
 

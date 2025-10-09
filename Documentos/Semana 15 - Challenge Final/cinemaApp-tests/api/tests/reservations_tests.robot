@@ -28,7 +28,7 @@ CT013.001 - Criar uma nova reserva
     ...    halfPrice=7.5
     Log    Session data: ${session}
     Remove Session From Database    ${session}[datetime]
-    Criar uma sessão    ${session}
+    Create Movie Session   ${session}
     ${session_id}=    Get Session ID    ${session}
 
     ${reservations}    Create Dictionary
@@ -37,7 +37,7 @@ CT013.001 - Criar uma nova reserva
     ...    number=${1}
     ...    type=full
     ...    paymentMethod=credit_card
-    Criar uma Reserva    ${reservations}
+    Create Reservations   ${reservations}
     Validate Status Code "201"
     Validar Success    ${True}
 
@@ -49,7 +49,7 @@ CT014.001 Editar Status de uma reserva
     ${user_id}=    Get User ID   ${customer}
     Remove Reservation by User    ${user_id}
     
-    Criar uma Reserva    ${reservation}
+    Create Reservations   ${reservation}
     
     ${new_status}=    Create Dictionary
     ...    status=pending
@@ -66,7 +66,7 @@ CT015.001 Deletar uma reserva
     [Tags]    CT015            
 
     ${reservation}=    Fill with Reservation    2 
-    Criar uma Reserva    ${reservation}
+    Create Reservations   ${reservation}
     Deletar reserva    ${reservation}    
     Validate Status Code "200"
     Validar Success    ${True}

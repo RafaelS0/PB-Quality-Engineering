@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 POST Endpoint /theaters
-    [Arguments]    ${name}    ${capacity}    ${type}
+    [Arguments]    ${name}    ${capacity}    ${type}    ${token}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    name=${name}
@@ -18,5 +18,5 @@ POST Endpoint /theaters
 
 Criar um Sala de Cinema
     [Arguments]    ${theater}
-    Utilizar Token de Administrador
-    POST Endpoint /theaters    ${theater}[name]    ${theater}[capacity]    ${theater}[type]
+    ${admin_token}=    Generate admin token
+    POST Endpoint /theaters    ${theater}[name]    ${theater}[capacity]    ${theater}[type]    ${admin_token}

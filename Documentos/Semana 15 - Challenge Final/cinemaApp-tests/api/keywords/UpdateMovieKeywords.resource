@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 PUT Endpoint /movies/_id
-    [Arguments]         ${title}    ${synopsis}    ${director}    ${genres}    ${duration}    ${classification}    ${poster}    ${releaseDate}    ${movie_id}
+    [Arguments]         ${title}    ${synopsis}    ${director}    ${genres}    ${duration}    ${classification}    ${poster}    ${releaseDate}    ${movie_id}    ${token}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    title=${title}   
@@ -22,9 +22,9 @@ PUT Endpoint /movies/_id
     BuiltIn.Set Global Variable    ${response}
 
 
-Editar um Filme 
+Update Movie Data
     [Arguments]    ${movie_edited}    ${original_movie}    
-    Utilizar Token de Administrador
+    ${admin_token}=    Generate admin token
     ${movie_id}=    Get Movie ID    ${original_movie}
 
     PUT Endpoint /movies/_id    
@@ -36,7 +36,27 @@ Editar um Filme
     ...    ${movie_edited}[classification]    
     ...    ${movie_edited}[poster]    
     ...    ${movie_edited}[releaseDate]
-    ...    ${movie_id}    
+    ...    ${movie_id}
+    ...    ${admin_token}    
+
+Update Movie Data without default token
+    [Arguments]    ${movie_edited}    ${original_movie}    ${token}   
+ 
+    ${movie_id}=    Get Movie ID    ${original_movie}
+
+    PUT Endpoint /movies/_id    
+    ...    ${movie_edited}[title]    
+    ...    ${movie_edited}[synopsis]    
+    ...    ${movie_edited}[director]    
+    ...    ${movie_edited}[genres]    
+    ...    ${movie_edited}[duration]    
+    ...    ${movie_edited}[classification]    
+    ...    ${movie_edited}[poster]    
+    ...    ${movie_edited}[releaseDate]
+    ...    ${movie_id}
+    ...    ${token}    
+    
+
 
 
 

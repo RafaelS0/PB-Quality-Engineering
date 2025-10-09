@@ -5,7 +5,7 @@ Resource    ../support/base.resource
 
 *** Keywords ***
 PUT Endpoint /theaters/id
-    [Arguments]    ${name}    ${capacity}    ${type}    ${id}
+    [Arguments]    ${name}    ${capacity}    ${type}    ${id}    ${token}
     &{header}=    Create Dictionary    Content-Type=application/json    Authorization=Bearer ${token}
     ${payload}=    Create Dictionary
     ...    name=${name}
@@ -17,6 +17,6 @@ PUT Endpoint /theaters/id
 
 Update Theater Data
     [Arguments]    ${original_theater}    ${edited_theater}
-    Utilizar Token de Administrador
+    ${admin_token}=    Generate admin token
     ${theater_id}=    Get Theater ID    ${original_theater}
-    PUT Endpoint /theaters/id    ${edited_theater}[name]    ${edited_theater}[capacity]    ${edited_theater}[type]    ${theater_id}
+    PUT Endpoint /theaters/id    ${edited_theater}[name]    ${edited_theater}[capacity]    ${edited_theater}[type]    ${theater_id}    ${admin_token}
