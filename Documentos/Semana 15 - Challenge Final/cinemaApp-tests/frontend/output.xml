@@ -1,39 +1,289 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-10-07T11:03:52.484065" rpa="false" schemaversion="5">
-<suite id="s1" name="Signup" source="/home/rafael/Compass/PB-Quality-Engineering/Documentos/Semana 15 - Challenge Final/cinemaApp-tests/frontend/tests/signup.robot">
+<robot generator="Robot 7.3.2 (Python 3.13.7 on win32)" generated="2025-10-07T17:10:15.738977" rpa="false" schemaversion="5">
+<suite id="s1" name="New Client Journey" source="c:\Users\rafae\OneDrive\Documentos\Compass\PB-Quality-Engineering\Documentos\Semana 15 - Challenge Final\cinemaApp-tests\frontend\tests\E2E\new_client_journey.robot">
 <kw name="Start Session" owner="base" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-10-07T11:03:52.882351" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3002'.</msg>
-<msg time="2025-10-07T11:04:17.354645" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg time="2025-10-07T11:04:17.355310" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</msg>
+<msg time="2025-10-07T17:10:16.136938" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3002'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2025-10-07T11:03:52.882045" elapsed="24.482180">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</status>
+<status status="PASS" start="2025-10-07T17:10:16.136648" elapsed="1.781411"/>
 </kw>
-<status status="FAIL" start="2025-10-07T11:03:52.881136" elapsed="24.483857">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</status>
+<status status="PASS" start="2025-10-07T17:10:16.135846" elapsed="1.782490"/>
 </kw>
-<test id="s1-t1" name="CADASTRAR UM USUARIO" line="10">
-<status status="FAIL" start="2025-10-07T11:04:17.365386" elapsed="0.000821">Parent suite setup failed:
-NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</status>
+<test id="s1-t1" name="Create a new account" line="11">
+<kw name="Default Client Data" owner="common">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-07T17:10:17.920717" level="INFO">${user} = {'name': 'John Doe', 'email': 'john.doe@tester.com', 'password': 'password12345'}</msg>
+<var>${user}</var>
+<arg>name=John Doe</arg>
+<arg>email=john.doe@tester.com</arg>
+<arg>password=password12345</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-07T17:10:17.920005" elapsed="0.001464"/>
+</kw>
+<kw name="Clean user from database" owner="database">
+<msg time="2025-10-07T17:10:17.929183" level="INFO">Removed user with email: john.doe@tester.com</msg>
+<arg>${user}[email]</arg>
+<status status="PASS" start="2025-10-07T17:10:17.921957" elapsed="0.007595"/>
+</kw>
+<return>
+<value>${user}</value>
+<status status="PASS" start="2025-10-07T17:10:17.929776" elapsed="0.000214"/>
+</return>
+<msg time="2025-10-07T17:10:17.930471" level="INFO">${user} = {'name': 'John Doe', 'email': 'john.doe@tester.com', 'password': 'password12345'}</msg>
+<var>${user}</var>
+<status status="PASS" start="2025-10-07T17:10:17.919370" elapsed="0.012089"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-10-07T17:10:17.932464" level="INFO">${user} = {'name': 'John Doe', 'email': 'john.doe@tester.com', 'password': 'password12345'}</msg>
+<arg>${user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-10-07T17:10:17.932084" elapsed="0.000542"/>
+</kw>
+<kw name="Clean user from database" owner="database">
+<msg time="2025-10-07T17:10:17.934956" level="INFO">Removed user with email: john.doe@tester.com</msg>
+<arg>${user}[email]</arg>
+<status status="PASS" start="2025-10-07T17:10:17.933171" elapsed="0.002130"/>
+</kw>
+<kw name="Access SignUp Page" owner="SignupPage">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:17.936984" level="INFO">Clicking link '//a[(text())='Cadastrar']'.</msg>
+<arg>//a[(text())='Cadastrar']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:17.936461" elapsed="0.091738"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//p[(text())='Crie sua conta para reservar ingressos']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-07T17:10:18.028503" elapsed="0.232132"/>
+</kw>
+<status status="PASS" start="2025-10-07T17:10:17.936006" elapsed="0.324910"/>
+</kw>
+<kw name="Send SignUp Form" owner="SignupPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:18.262285" level="INFO">Typing text 'John Doe' into text field '//input[@id='name']'.</msg>
+<arg>//input[@id='name']</arg>
+<arg>${user}[name]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:18.261944" elapsed="0.073399"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:18.335931" level="INFO">Typing text 'john.doe@tester.com' into text field '//input[@id='email']'.</msg>
+<arg>//input[@id='email']</arg>
+<arg>${user}[email]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:18.335626" elapsed="0.067548"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:18.403765" level="INFO">Typing text 'password12345' into text field '//input[@id='password']'.</msg>
+<arg>//input[@id='password']</arg>
+<arg>${user}[password]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:18.403456" elapsed="0.054541"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:18.458558" level="INFO">Typing text 'password12345' into text field '//input[@id='confirmPassword']'.</msg>
+<arg>//input[@id='confirmPassword']</arg>
+<arg>${user}[password]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:18.458270" elapsed="0.051418"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-07T17:10:19.510469" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-07T17:10:18.509954" elapsed="1.000778"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:19.511176" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:19.510940" elapsed="0.055386"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-07T17:10:21.567375" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-07T17:10:19.566628" elapsed="2.000998"/>
+</kw>
+<arg>${user}</arg>
+<status status="PASS" start="2025-10-07T17:10:18.261472" elapsed="3.306282"/>
+</kw>
+<kw name="Validate Redirection" owner="common">
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:21.572883" level="INFO">Current location is 'http://localhost:3002/'.</msg>
+<arg>${BASE_URL}${page}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-10-07T17:10:21.568578" elapsed="0.004536"/>
+</kw>
+<arg>/</arg>
+<status status="PASS" start="2025-10-07T17:10:21.568220" elapsed="0.005024"/>
+</kw>
+<status status="PASS" start="2025-10-07T17:10:17.918485" elapsed="3.655118"/>
 </test>
-<doc>Cenários de teste para cadastro de usuário</doc>
-<status status="FAIL" start="2025-10-07T11:03:52.487017" elapsed="24.880469">Suite setup failed:
-NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</status>
+<test id="s1-t2" name="Choose a movie" line="20">
+<kw name="Click More Details" owner="MovieCard">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//div[@class='movie-info'][.//h3[normalize-space()='${movie_name}']]//a[normalize-space()='Ver Detalhes']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-10-07T17:10:21.575000" elapsed="0.290330"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:21.865903" level="INFO">Clicking element 'xpath=//div[@class='movie-info'][.//h3[normalize-space()='The Avengers']]//a[normalize-space()='Ver Detalhes']'.</msg>
+<arg>xpath=//div[@class='movie-info'][.//h3[normalize-space()='${movie_name}']]//a[normalize-space()='Ver Detalhes']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:21.865607" elapsed="0.056359"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-07T17:10:22.922732" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-07T17:10:21.922364" elapsed="1.000644"/>
+</kw>
+<arg>The Avengers</arg>
+<status status="PASS" start="2025-10-07T17:10:21.574707" elapsed="1.348492"/>
+</kw>
+<status status="PASS" start="2025-10-07T17:10:21.574241" elapsed="1.349304"/>
+</test>
+<test id="s1-t3" name="Choose a session" line="23">
+<kw name="Choose Session" owner="SessionsPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:22.925558" level="INFO">Clicking element 'xpath=//h3[text()="30/09/2025"]/following-sibling::div//div[contains(.,"12:00")]/ancestor::div[@class="session-card"]//a[contains(@class,"session-button")]'.</msg>
+<arg>xpath=//h3[text()="${date}"]/following-sibling::div//div[contains(.,"${time}")]/ancestor::div[@class="session-card"]//a[contains(@class,"session-button")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:22.925281" elapsed="0.059123"/>
+</kw>
+<arg>30/09/2025</arg>
+<arg>12:00</arg>
+<status status="PASS" start="2025-10-07T17:10:22.924827" elapsed="0.060040"/>
+</kw>
+<kw name="Validate Session info" owner="SessionsPage">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-07T17:10:23.986412" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-07T17:10:22.985748" elapsed="1.000986"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:23.999092" level="INFO">Element 'xpath=//h1[text()="The Avengers"]' is displayed.</msg>
+<arg>xpath=//h1[text()="${movie_name}"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-07T17:10:23.987019" elapsed="0.012299"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:24.010670" level="INFO">Element 'xpath=//p[contains(.,"30 de setembro de 2025")]' is displayed.</msg>
+<arg>xpath=//p[contains(.,"${date}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-07T17:10:23.999533" elapsed="0.011394"/>
+</kw>
+<arg>The Avengers</arg>
+<arg>30 de setembro de 2025</arg>
+<status status="PASS" start="2025-10-07T17:10:22.985388" elapsed="1.025684"/>
+</kw>
+<status status="PASS" start="2025-10-07T17:10:22.924253" elapsed="1.087223"/>
+</test>
+<test id="s1-t4" name="Chosse a Seat" line="27">
+<kw name="Choose Seat" owner="SessionsPage">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-07T17:10:24.013421" level="INFO">${seat_locator} = xpath=//button[@title="Fileira A, Assento 6 - Status: available"]</msg>
+<var>${seat_locator}</var>
+<arg>xpath=//button[@title="Fileira ${row}, Assento ${number} - Status: available"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-07T17:10:24.013126" elapsed="0.000413"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${seat_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-07T17:10:24.013725" elapsed="0.012258"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${seat_locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-10-07T17:10:24.026319" elapsed="0.274223"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-07T17:10:25.301351" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-07T17:10:24.300843" elapsed="1.000821"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:25.302305" level="INFO">Clicking element 'xpath=//button[@title="Fileira A, Assento 6 - Status: available"]'.</msg>
+<arg>${seat_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:25.301966" elapsed="0.052130"/>
+</kw>
+<arg>A</arg>
+<arg>6</arg>
+<status status="PASS" start="2025-10-07T17:10:24.012704" elapsed="1.341626"/>
+</kw>
+<kw name="Buy Seats" owner="SessionsPage">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:25.355815" level="INFO">Clicking button '//button[@class='btn btn-primary checkout-button']'.</msg>
+<arg>//button[@class='btn btn-primary checkout-button']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:25.355463" elapsed="0.059226"/>
+</kw>
+<status status="PASS" start="2025-10-07T17:10:25.354947" elapsed="0.059986"/>
+</kw>
+<status status="PASS" start="2025-10-07T17:10:24.012203" elapsed="1.403163"/>
+</test>
+<test id="s1-t5" name="Buy the ticket" line="31">
+<kw name="Choose Payment Method" owner="ChekoutPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:25.417485" level="INFO">Clicking element '//span[text()='PIX']'.</msg>
+<arg>//span[text()='${paymentMethod}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:25.417180" elapsed="0.041242"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-07T17:10:26.459173" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-07T17:10:25.458772" elapsed="1.000730"/>
+</kw>
+<arg>PIX</arg>
+<status status="PASS" start="2025-10-07T17:10:25.416787" elapsed="1.042861"/>
+</kw>
+<kw name="Buy Ticket" owner="ChekoutPage">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:26.461176" level="INFO">Clicking button '//button[@class="btn btn-primary btn-checkout"]'.</msg>
+<arg>//button[@class="btn btn-primary btn-checkout"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-07T17:10:26.460874" elapsed="0.051919"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-07T17:10:28.513444" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-07T17:10:26.513091" elapsed="2.000637"/>
+</kw>
+<status status="PASS" start="2025-10-07T17:10:26.460450" elapsed="2.053424"/>
+</kw>
+<kw name="Confirmation Message" owner="ChekoutPage">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-10-07T17:10:28.633568" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-10-07T17:10:28.633957" level="FAIL">Element with locator '//h1[text()="Reserva Confirmada!"]' not found.</msg>
+<arg>//h1[text()="Reserva Confirmada!"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-10-07T17:10:28.514726" elapsed="0.124041">Element with locator '//h1[text()="Reserva Confirmada!"]' not found.</status>
+</kw>
+<status status="FAIL" start="2025-10-07T17:10:28.514334" elapsed="0.124794">Element with locator '//h1[text()="Reserva Confirmada!"]' not found.</status>
+</kw>
+<status status="FAIL" start="2025-10-07T17:10:25.416197" elapsed="3.223451">Element with locator '//h1[text()="Reserva Confirmada!"]' not found.</status>
+</test>
+<doc>Fluxo de cadastro, escolha de um filme, escolha de uma sessão e compra de um ingresso</doc>
+<status status="FAIL" start="2025-10-07T17:10:15.743478" elapsed="12.897230"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="4" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Signup" id="s1" pass="0" fail="1" skip="0">Signup</stat>
+<stat name="New Client Journey" id="s1" pass="4" fail="1" skip="0">New Client Journey</stat>
 </suite>
 </statistics>
 <errors>

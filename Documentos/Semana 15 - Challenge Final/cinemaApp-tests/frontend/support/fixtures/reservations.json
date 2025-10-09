@@ -1,0 +1,41 @@
+{
+  "reservation1": {
+    "movieIndex": 4,
+    "theaterIndex": 1,
+    "session": {
+      "datetime": "2025-10-02T17:32:36.261Z",
+      "fullPrice": 15,
+      "halfPrice": 7.5
+    },
+    "row": "A",
+    "number": 1,
+    "type": "full",
+    "paymentMethod": "credit_card"
+  },
+  "reservation2": {
+    "movieIndex": 6,
+    "theaterIndex": 5,
+    "session": {
+      "datetime": "2025-10-02T18:32:36.261Z",
+      "fullPrice": 20,
+      "halfPrice": 10
+    },
+    "row": "B",
+    "number": 5,
+    "type": "half",
+    "paymentMethod": "pix"
+  },
+  "reservation3": {
+    "movieIndex": 1,
+    "theaterIndex": 2,
+    "session": {
+      "datetime": "2025-10-03T19:00:00.000Z",
+      "fullPrice": 25,
+      "halfPrice": 12.5
+    },
+    "row": "C",
+    "number": 10,
+    "type": "full",
+    "paymentMethod": "debit_card"
+  }
+}
