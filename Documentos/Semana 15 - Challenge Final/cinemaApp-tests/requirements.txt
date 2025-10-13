@@ -1,0 +1,4 @@
+robotframework>=6.0
+robotframework-jsonlibrary>=0.3.3
+robotframework-seleniumlibrary>=6.0.0
+pymongo>=4.5.0
