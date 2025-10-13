@@ -6,8 +6,20 @@ O **Cinema App** é um projeto dividido entre **frontend** e **backend**, desenv
 
 > **⚠️ AVISO:** Aplicação não incluída neste repositório
 
+
 - **Backend:** [https://github.com/juniorschmitz/cinema-challenge-back](https://github.com/juniorschmitz/cinema-challenge-back)
 - **Frontend:** [https://github.com/juniorschmitz/cinema-challenge-front](https://github.com/juniorschmitz/cinema-challenge-front)
+
+## ⚠️ Problema Identificado no Windows
+
+Foi identificada uma inconsistência na execução dos testes no **Sistema Operacional Windows** relacionada à geração de massa de dados em formato JSON. 
+
+**Problema:** Arquivos JSON são criados com codificação de caracteres incorreta, resultando em falhas durante a execução dos testes.
+
+**Impacto:** Testes que dependem da leitura ou manipulação de dados JSON podem falhar devido à má formatação dos caracteres.
+
+**Solução Recomendada:**  Executar em um ambiente Linux (WSL).
+
 
 ---
 
